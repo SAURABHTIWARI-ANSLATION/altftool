@@ -11,3 +11,9 @@ export default async function ToolPage({ params }) {
 
   return <ToolClient slug={slug} />;
 }
+
+export function generateStaticParams() {
+  return Object.keys(toolMetaMap).map((slug) => ({
+    slug,
+  }));
+}
