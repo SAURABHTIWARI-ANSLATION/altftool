@@ -49,7 +49,21 @@ export const ThemeProvider = ({ children }) => {
     // Instead of OS match media, we use the URL param or light mode.
     const handleUrlTheme = () => setTheme(getSystemTheme());
     window.addEventListener("popstate", handleUrlTheme);
-    return () => window.removeEventListener("popstate", handleUrlTheme);
+
+    // Listen for iframe postMessage from parent Altf-prep app
+    const handleMessage = (event) => {
+      // In production, you might want to verify event.origin here if needed
+      if (event.data && event.data.type === "THEME_CHANGE") {
+        setTheme(event.data.theme === "dark" ? "dark" : "light");
+        setIsManual(true); // Treat as manually set
+      }
+    };
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("popstate", handleUrlTheme);
+      window.removeEventListener("message", handleMessage);
+    };
   }, [isManual]);
 
   const toggleTheme = () => {
