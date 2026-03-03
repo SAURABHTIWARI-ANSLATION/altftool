@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/altftool",
   images: {
     unoptimized: true,
     remotePatterns: [
