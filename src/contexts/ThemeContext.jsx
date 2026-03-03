@@ -4,13 +4,17 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext({
   theme: "light",
-  toggleTheme: () => {},
+  toggleTheme: () => { },
 });
 
-const getSystemTheme = () =>
-  window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+const getSystemTheme = () => {
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('theme') === 'dark') return 'dark';
+    if (params.get('theme') === 'light') return 'light';
+  }
+  return "light"; // Default to light mode for the standalone app to prevent unexpected black screens
+};
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
@@ -42,11 +46,10 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     if (isManual) return;
 
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const handler = () => setTheme(getSystemTheme());
-
-    media.addEventListener("change", handler);
-    return () => media.removeEventListener("change", handler);
+    // Instead of OS match media, we use the URL param or light mode.
+    const handleUrlTheme = () => setTheme(getSystemTheme());
+    window.addEventListener("popstate", handleUrlTheme);
+    return () => window.removeEventListener("popstate", handleUrlTheme);
   }, [isManual]);
 
   const toggleTheme = () => {
@@ -61,12 +64,12 @@ export const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-  setMounted(true);
-}, []);
+    setMounted(true);
+  }, []);
 
-if (!mounted) {
-  return null;
-}
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

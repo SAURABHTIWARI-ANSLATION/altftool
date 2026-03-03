@@ -11,7 +11,7 @@ export default function Icon({ name, className }) {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <use href={`/icons.svg#${name}`} />
+      <use href={`/altftool/icons.svg#${name}`} />
     </svg>
   );
 }
