@@ -5,9 +5,6 @@ import { useMemo, useState, useEffect } from "react";
 import { Wrench } from "lucide-react";
 import Icon from "@/shared/ui/Icon";
 import CTAButton from "@/shared/ui/CTAButton";
-import { useAds } from "@/ads/AdsProvider";
-import { injectAds } from "@/ads/adInjector";
-import AdPairRow from "@/ads/layouts/tools/AdToolPairRow";
 import CapabilitySlider from "../tools/CapabilitySlider";
 
 
@@ -22,18 +19,14 @@ export default function ToolsClient({ meta }) {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [loading, setLoading] = useState(true);
 
-const device =
-  typeof window !== "undefined" && window.innerWidth < 1024
-    ? "mobile"
-    : "desktop";
+  const device =
+    typeof window !== "undefined" && window.innerWidth < 1024
+      ? "mobile"
+      : "desktop";
 
-const toolAds = useAds({
-  placement: "tools_listing",
-  layout: "tool_card",
-  device,
-});
 
-  
+
+
 
   /* ---------------- RESET PAGINATION ---------------- */
   useEffect(() => {
@@ -53,10 +46,10 @@ const toolAds = useAds({
     return Array.from(set);
   }, [meta]);
   useEffect(() => {
-  if (meta && Object.keys(meta).length > 0) {
-    setLoading(false);
-  }
-}, [meta]);
+    if (meta && Object.keys(meta).length > 0) {
+      setLoading(false);
+    }
+  }, [meta]);
 
 
   /* ---------------- FILTER ---------------- */
@@ -91,36 +84,32 @@ const toolAds = useAds({
       );
   }, [slugs, meta, selectedCategory, search]);
 
-  const visibleSlugs = injectAds(
-  filteredSlugs.slice(0, visibleCount),
-  toolAds,
-  toolAds[0]?.interval || 6
-);
+  const visibleSlugs = filteredSlugs.slice(0, visibleCount);
 
   const hasMore = visibleCount < filteredSlugs.length;
 
   const Skeleton = ({ className = "" }) => (
-  <div className={`animate-pulse rounded-md bg-[var(--color-muted)] ${className}`} />
-);
+    <div className={`animate-pulse rounded-md bg-[var(--color-muted)] ${className}`} />
+  );
 
-const ToolCardSkeleton = () => (
-  <div className="rounded-xl border border-[var(--color-border)] p-6 space-y-4">
-    <div className="flex gap-4 items-center">
-      <Skeleton className="h-12 w-12 rounded-xl" />
-      <Skeleton className="h-4 w-40" />
+  const ToolCardSkeleton = () => (
+    <div className="rounded-xl border border-[var(--color-border)] p-6 space-y-4">
+      <div className="flex gap-4 items-center">
+        <Skeleton className="h-12 w-12 rounded-xl" />
+        <Skeleton className="h-4 w-40" />
+      </div>
+      <Skeleton className="h-3 w-full" />
+      <Skeleton className="h-3 w-3/4" />
     </div>
-    <Skeleton className="h-3 w-full" />
-    <Skeleton className="h-3 w-3/4" />
-  </div>
-);
+  );
 
-const ToolsGridSkeleton = () => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {Array.from({ length: 6 }).map((_, i) => (
-      <ToolCardSkeleton key={i} />
-    ))}
-  </div>
-);
+  const ToolsGridSkeleton = () => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <ToolCardSkeleton key={i} />
+      ))}
+    </div>
+  );
 
 
   /* ---------------- UI ---------------- */
@@ -176,11 +165,10 @@ const ToolsGridSkeleton = () => (
                         setSelectedCategory(cat);
                         setOpen(false);
                       }}
-                      className={`w-full text-left px-3 py-2 text-sm ${
-                        selectedCategory === cat
+                      className={`w-full text-left px-3 py-2 text-sm ${selectedCategory === cat
                           ? "bg-[var(--color-primary)] text-white"
                           : "hover:bg-[var(--color-muted)]"
-                      }`}
+                        }`}
                     >
                       {cat}
                     </button>
@@ -198,11 +186,10 @@ const ToolsGridSkeleton = () => (
                 <li key={cat}>
                   <button
                     onClick={() => setSelectedCategory(cat)}
-                    className={`w-full text-left px-4 py-2 rounded-lg text-sm transition ${
-                      selectedCategory === cat
+                    className={`w-full text-left px-4 py-2 rounded-lg text-sm transition ${selectedCategory === cat
                         ? "bg-[var(--color-primary)] text-white shadow"
                         : "hover:bg-[var(--color-muted)] text-[var(--color-muted-foreground)]"
-                    }`}
+                      }`}
                   >
                     {cat}
                   </button>
@@ -222,8 +209,8 @@ const ToolsGridSkeleton = () => (
           </h2>
 
           {loading ? (
-  <ToolsGridSkeleton />
-) : filteredSlugs.length === 0 ? (
+            <ToolsGridSkeleton />
+          ) : filteredSlugs.length === 0 ? (
 
             <div className="py-24 text-center">
               <div className="mx-auto mb-4 h-12 w-12 rounded-full bg-[var(--color-muted)] flex items-center justify-center">
@@ -238,15 +225,9 @@ const ToolsGridSkeleton = () => (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {visibleSlugs.map((item) => {
-  if (item?.type === "ad-pair") {
-    return (
-      <div key={item.id} className="md:col-span-2">
-        <AdPairRow ads={item.ads} />
-      </div>
-    );
-  }
 
-  const slug = item;
+
+                  const slug = item;
 
                   const tool = meta[slug];
                   const name =
@@ -262,13 +243,12 @@ const ToolsGridSkeleton = () => (
                       {/* TOP */}
                       <div className="flex gap-4">
                         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-muted)]">
-  <Icon
-  name={tool.icon ?? "wrench"}
-  className={`h-6 w-6 ${
-    tool.iconColor ?? "text-[var(--color-muted-foreground)]"
-  }`}
-/>
-</div>
+                          <Icon
+                            name={tool.icon ?? "wrench"}
+                            className={`h-6 w-6 ${tool.iconColor ?? "text-[var(--color-muted-foreground)]"
+                              }`}
+                          />
+                        </div>
 
 
                         <div className="flex-1">
