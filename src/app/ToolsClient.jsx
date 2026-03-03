@@ -5,7 +5,6 @@ import { useMemo, useState, useEffect } from "react";
 import { Wrench } from "lucide-react";
 import Icon from "@/shared/ui/Icon";
 import CTAButton from "@/shared/ui/CTAButton";
-import CapabilitySlider from "./tools/CapabilitySlider";
 
 
 export default function ToolsClient({ meta }) {
@@ -125,7 +124,6 @@ export default function ToolsClient({ meta }) {
           Explore powerful micro tools to convert, calculate, analyze, and get
           things done faster — all in one place.
         </p>
-        <CapabilitySlider />
 
         <div className="mt-8 max-w-xl mx-auto animate-fade-up">
           <input

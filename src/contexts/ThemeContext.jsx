@@ -77,6 +77,29 @@ export const ThemeProvider = ({ children }) => {
     });
   };
 
+  // Broadcast iframe height to prevent double scrollbars in parent
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.parent !== window) {
+      const sendHeight = () => {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: "RESIZE_IFRAME", height }, "*");
+      };
+
+      sendHeight();
+
+      const resizeObserver = new ResizeObserver(() => sendHeight());
+      resizeObserver.observe(document.body);
+
+      const mutationObserver = new MutationObserver(() => sendHeight());
+      mutationObserver.observe(document.body, { childList: true, subtree: true, attributes: true });
+
+      return () => {
+        resizeObserver.disconnect();
+        mutationObserver.disconnect();
+      };
+    }
+  }, []);
+
   useEffect(() => {
     setMounted(true);
   }, []);
