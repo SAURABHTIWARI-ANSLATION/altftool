@@ -10,7 +10,8 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata = {
-    title: "AltFTools – Standalone Tools Engine",
+    title: "AltFTool – Standalone Tools Engine",
+    description: "Headless standalone components for the AltFTool application iframe",
     robots: {
         index: false,
         follow: false,
