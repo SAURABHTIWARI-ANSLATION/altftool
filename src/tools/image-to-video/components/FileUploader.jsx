@@ -156,7 +156,7 @@ const progress = Math.min((t - start) / DURATION, 1);
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full max-w-md mx-auto">
+    <div className="flex flex-col items-center gap-6 w-full max-w-md mx-auto px-4">
 
       {/* Animation Selector */}
       <div className="relative w-full">
@@ -167,7 +167,7 @@ const progress = Math.min((t - start) / DURATION, 1);
             w-full
             px-5 py-3
             rounded-xl
-            bg-(--card)
+            bg-(--background)
             text-(--foreground)
             border border-(--border)
             focus:outline-none
@@ -211,7 +211,7 @@ const progress = Math.min((t - start) / DURATION, 1);
           font-semibold
           hover:opacity-90
           transition
-          shadow-md
+          shadow-md cursor-pointer
         "
       >
         Upload Images

@@ -9,6 +9,7 @@ import { useImageCompression } from "../hooks/useImageCompression";
 
 // extra content sections
 import HowItWorks from "../components/HowItWorks";
+import Features from "../components/Features";
 // import PrivacyPolicy from "./components/PrivacyPolicy";
 // import FAQ from "./components/FAQ";
 
@@ -97,7 +98,8 @@ export default function ImageComressor() {
       {/* EXTRA SECTIONS */}
       <div className="mt-16 pt-8 border-t border-(--divider)">
         <HowItWorks />
-        {/* <PrivacyPolicy /> */}
+        <div className=" border-t border-(--divider)"> <Features/></div>
+       
         {/* <FAQ /> */}
       </div>
     </Layout>

@@ -8,6 +8,7 @@ import {
   FileText,
   ArrowRight,
 } from "lucide-react";
+import Features from "./Features";
 
 export default function Main() {
   const [inputText, setInputText] = useState("");
@@ -152,7 +153,7 @@ export default function Main() {
   };
 
   return (
-    <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
+    <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
       {/* Hero */}
       <div className="text-center mb-10">
         <h1 className="heading mb-4">
@@ -168,7 +169,7 @@ export default function Main() {
       </div>
 
       {/* Mode Selection */}
-      <div className="bg-(--card) rounded-2xl shadow-sm border border-(--border) p-6 mb-6">
+      <div className="bg-(--background) rounded-2xl shadow-sm border border-(--border) p-6 mb-6">
         <h3 className="text-lg font-semibold text-(--foreground) mb-4">
           Paraphrasing Mode
         </h3>
@@ -194,7 +195,7 @@ export default function Main() {
       {/* Two Columns */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Input Section */}
-        <div className="bg-(--card) rounded-2xl shadow-sm border border-(--border) p-6 flex flex-col">
+        <div className="bg-(--background) rounded-2xl shadow-sm border border-(--border) p-6 flex flex-col">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg sm:text-xl font-semibold text-(--foreground)">
               Original Text
@@ -254,7 +255,7 @@ export default function Main() {
         </div>
 
         {/* Output Section */}
-        <div className="bg-(--card) rounded-2xl shadow-sm border border-(--border) p-6 flex flex-col">
+        <div className="bg-(--background) rounded-2xl shadow-sm border border-(--border) p-6 flex flex-col">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg sm:text-xl font-semibold text-(--foreground)">
               Paraphrased Text
@@ -336,6 +337,7 @@ export default function Main() {
           </div>
         ))}
       </div>
+      <Features/>
     </main>
   );
 }

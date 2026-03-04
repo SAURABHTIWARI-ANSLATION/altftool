@@ -17,7 +17,7 @@ export default function FilterTabs({ filter, setFilter, stats }) {
           <button
             key={f.key}
             onClick={() => setFilter(f.key)}
-            className={`flex-1 sm:flex-1 min-w-[45%] sm:min-w-0 py-2 sm:py-4 text-sm font-medium text-center transition-all relative rounded-md sm:rounded-none 
+            className={`flex-1 cursor-pointer sm:flex-1 min-w-[45%] sm:min-w-0 py-2 sm:py-4 text-sm font-medium text-center transition-all relative rounded-md sm:rounded-none 
               ${
                 isActive
                   ? "text-(--primary) bg-(--card) shadow-sm sm:shadow-none"

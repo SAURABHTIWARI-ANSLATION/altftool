@@ -3,6 +3,6 @@ export default {
   name: "UTM Link Builder",
   category: ["Marketing", "Web"],
   description: "Build tracked UTM links easily for marketing campaigns.",
-  icon: "link-2",
+  icon: "link",
   iconColor: "text-blue-600",
 };

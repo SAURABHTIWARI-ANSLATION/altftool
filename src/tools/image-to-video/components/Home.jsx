@@ -5,6 +5,7 @@ import FileUploader from "./FileUploader";
 import VideoPlayer from "./VideoPlayer";
 import Cards from "./Cards";
 import Header from "./Headers";
+import Features from "./Features";
 
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <main className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12  mt-4">
 
           {/* Left Content */}
           <div>
@@ -44,12 +45,12 @@ export default function Home() {
             <div className="w-full max-w-md bg-(--card) border border-(--border) rounded-2xl p-6 shadow-lg">
 
               {/* Upload Area */}
-              <div className="h-[220px] flex items-center justify-center border-2 border-dashed border-(--border) rounded-xl">
+              <div className="h-55 flex items-center justify-center border-2 border-dashed border-(--border) rounded-xl">
                 <FileUploader onDone={setVideoUrl} />
               </div>
 
               {/* Preview Area */}
-              <div className="mt-4 h-[260px] flex items-center justify-center bg-(--muted) rounded-xl overflow-hidden">
+              <div className="mt-4 h-65 flex items-center justify-center bg-(--background) rounded-xl overflow-hidden">
                 {videoUrl ? (
                   <VideoPlayer src={videoUrl} />
                 ) : (
@@ -67,11 +68,11 @@ export default function Home() {
 
       {/* Feature Cards */}
      <Cards/>
-
+      <Features/>
       {/* Footer */}
-      <footer className="text-center text-xs text-(--muted-foreground) mt-20 pb-6">
+      {/* <footer className="text-center text-xs text-(--muted-foreground) mt-20 pb-6">
         Built by Shalini · 100% Frontend · No uploads
-      </footer>
+      </footer> */}
     </div>
   );
 }

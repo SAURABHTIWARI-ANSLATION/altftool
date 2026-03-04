@@ -17,7 +17,7 @@ const CopyResultField = ({ title, content, isHeadline = false }) => {
         p-4 rounded-xl border shadow-sm
         ${
           isHeadline
-            ? "bg-(--muted) border-(--border)"
+            ? "bg-(--background) border-(--border)"
             : "bg-(--background) border-(--border) shadow-lg"
         }
       `}
@@ -38,7 +38,7 @@ const CopyResultField = ({ title, content, isHeadline = false }) => {
           onClick={handleCopy}
           aria-label={`Copy ${title}`}
           className={`
-            text-sm flex items-center px-2 py-1 rounded-full transition-colors
+            text-sm flex items-center px-2 py-1 rounded-full transition-colors cursor-pointer
             ${
               copied
                 ? "bg-green-200 text-green-800"

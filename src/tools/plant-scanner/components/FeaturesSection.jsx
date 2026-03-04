@@ -31,7 +31,7 @@ export default function FeaturesSection() {
   return (
     <section
       id="features"
-      className="py-16 md:py-24 bg-linear-to-br from-(--background) to-(--muted)"
+      className="pt-6 pb-16 "
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
@@ -39,13 +39,11 @@ export default function FeaturesSection() {
           <h2 className="text-3xl md:text-5xl font-extrabold text-(--foreground) mb-4">
             Key Features
           </h2>
-
           <p className="text-(--muted-foreground) max-w-2xl mx-auto text-base md:text-lg">
             Everything you need to identify and learn about plants safely and
             instantly.
           </p>
         </div>
-
         {/* Flex Layout - Equal Width Cards */}
         <div className="flex flex-col md:flex-row gap-8">
           {features.map((feature, index) => {

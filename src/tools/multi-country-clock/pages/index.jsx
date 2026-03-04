@@ -6,6 +6,7 @@ import HeroSection from "../components/HeroSection";
 import SearchBar from "../components/SearchBar";
 import ClockGrid from "../components/ClockGrid";
 import TimezoneList from "../components/TimezoneList";
+import Features from "../components/Features";
 
 // Popular timezones to start with
 const DEFAULT_TIMEZONES = [
@@ -78,7 +79,7 @@ function App() {
           onAddTimezone={handleAddTimezone}
         />
       )}
-
+      <Features/>
       {/* Optional loading indicator */}
       {loading && (
         <div className="fixed bottom-6 right-6 p-3 rounded-full bg-(--card) border border-(--border)">

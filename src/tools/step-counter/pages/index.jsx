@@ -13,14 +13,16 @@ const StepApp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-(--background) flex flex-col font-secondary">
+    <div className="bg-(--background) flex flex-col font-secondary">
       {/* Main Content */}
       <main className="flex-1 flex flex-col">
         {currentPage === "landing" && (
           <LandingPage onStart={() => navigate("app")} />
         )}
 
-        {currentPage === "app" && <Count />}
+       {currentPage === "app" && (
+  <Count onBack={() => navigate("landing")} />
+)}
       </main>
     </div>
   );

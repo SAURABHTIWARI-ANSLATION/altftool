@@ -17,7 +17,7 @@ export default function ImagePreview({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* ORIGINAL IMAGE */}
-      <div className="bg-(--card) text-(--card-foreground) rounded-lg shadow-md overflow-hidden border border-(--border)">
+      <div className="bg-(--background) text-(--card-foreground) rounded-lg shadow-md overflow-hidden border border-(--border)">
         <div className="bg-(--muted) text-(--foreground) px-4 py-3 border-b border-(--border)">
           <h3 className="text-lg font-semibold">Original Image</h3>
         </div>

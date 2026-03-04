@@ -11,6 +11,7 @@ import {
   AlertCircle,
   Info,
 } from "lucide-react";
+import Features from "./Features";
 
 export default function MainComponent() {
   const [url, setUrl] = useState("");
@@ -283,6 +284,9 @@ export default function MainComponent() {
       )}
 
       {/* FAQ */}
+      <div className="p-6 bg-(--card) border border-(--border) rounded-xl">
+      <Features/>
+      </div>
     </div>
   );
 }

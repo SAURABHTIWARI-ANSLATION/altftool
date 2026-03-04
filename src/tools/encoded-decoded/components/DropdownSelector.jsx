@@ -36,7 +36,7 @@ const DropdownSelector = ({ value, onChange }) => {
           className="w-full text-left bg-(--card)  border border-(--border) rounded-md px-3 py-2 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           <div className="truncate">
-            <div className="text-sm text-gray-900 dark:text-gray-100">
+            <div className="text-sm text-(--foreground)">
               {selected ? selected.label : "Select encoding type"}
             </div>
             {selected && selected.description && (
@@ -65,7 +65,7 @@ const DropdownSelector = ({ value, onChange }) => {
           <ul
             role="listbox"
             tabIndex={-1}
-            className="absolute z-50 mt-1 w-full bg-white dark:bg-gray-800 border border-(--border) rounded-md shadow-lg overflow-auto max-h-60 sm:max-h-72 md:max-h-96"
+            className="absolute z-50 mt-1 w-full bg-(--background) border border-(--border) rounded-md shadow-lg overflow-auto max-h-60 sm:max-h-72 md:max-h-96"
           >
             {encodingTypes.map((type) => (
               <li

@@ -9,6 +9,7 @@ import {
   ChevronRight,
   ArrowLeft,
 } from "lucide-react";
+import Description from "../components/Description";
 
 export default function SkinCareGuide() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -464,6 +465,7 @@ export default function SkinCareGuide() {
           </>
         )}
       </main>
+      <Description />
     </div>
   );
 }

@@ -142,12 +142,12 @@ const TextPanel = React.memo(function TextPanel({
           value={value}
           onChange={(e) => onTextChange(e.target.value)}
           placeholder={placeholder}
-          className={`grow w-full p-4 border border-(--border) rounded-xl resize-none 
-                 focus:ring-2 focus:ring-(--primary) text-(--foreground) bg-(--card) transition-colors`}
+          className={`grow w-full p-4 border border-(--border) rounded-xl resize-none min-h-100
+                 focus:ring-2 focus:ring-(--primary) text-(--foreground) bg-(--background) transition-colors`}
           rows={8}
         />
       ) : (
-        <div className="grow w-full p-4 border border-(--border) rounded-xl bg-(--card) overflow-y-auto transition-colors">
+        <div className="grow w-full p-4 border border-(--border) rounded-xl bg-(--background) overflow-y-auto transition-colors">
           {isLoading ? (
             <div className="flex justify-center text-(--primary)">
               <div className="animate-spin mr-2">⏳</div> Translating...

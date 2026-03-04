@@ -83,23 +83,7 @@ export default function HeroSection({ onCreateClick }) {
           📊 Analytics
         </span>
 
-        <span
-          className="
-            px-4 py-1.5 border border-(--border) rounded-full 
-            text-sm text-(--foreground) bg-(--card)
-          "
-        >
-          📥 CSV Export
-        </span>
-
-        <span
-          className="
-            px-4 py-1.5 border border-(--border) rounded-full 
-            text-sm text-(--foreground) bg-(--card)
-          "
-        >
-          💾 Auto Save
-        </span>
+        
       </div>
     </section>
   );

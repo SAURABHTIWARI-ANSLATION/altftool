@@ -12,7 +12,7 @@ export default function TimeframeButtons({
         <button
           key={tf.value}
           onClick={() => onSelect(tf.value)}
-          className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition transform hover:scale-105 ${
+          className={`flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition cursor-pointer transform hover:scale-105 ${
             timeframe === tf.value
               ? `bg-linear-to-r ${selectedSign.color} text-white shadow-lg`
               : "bg-white text-gray-700 shadow hover:shadow-md"

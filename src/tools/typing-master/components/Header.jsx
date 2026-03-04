@@ -4,7 +4,7 @@ import { Keyboard } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="mb-20">
+    <header className="mb-20 mt-[-40]">
       <div className="max-w-4xl mx-auto px-6 text-center">
 
         {/* ICON */}

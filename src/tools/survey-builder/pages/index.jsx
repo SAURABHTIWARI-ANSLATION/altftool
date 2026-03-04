@@ -9,6 +9,7 @@ import CreateSurveyDialog from "../components/CreateSurveyDialog";
 import ViewSurveyDialog from "../components/ViewSurveyDialog";
 import AnalyticsDialog from "../components/AnalyticsDialog";
 import SurveyFeatures from "../components/SurveyFeatures";
+import Description from "../components/Description"; // ✅ Imported Description
 
 const SURVEYS_KEY = "surveyBuilder_surveys";
 const RESPONSES_KEY = "surveyBuilder_responses";
@@ -43,7 +44,6 @@ export default function App() {
     const storedSurveys = localStorage.getItem(SURVEYS_KEY);
     const storedResponses = localStorage.getItem(RESPONSES_KEY);
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (storedSurveys) setSurveys(JSON.parse(storedSurveys));
     if (storedResponses) setResponses(JSON.parse(storedResponses));
   }, []);
@@ -164,6 +164,9 @@ export default function App() {
 
       {/* FEATURES SECTION */}
       <SurveyFeatures />
+
+      {/* DESCRIPTION SECTION */}
+      <Description /> {/* ✅ Rendered Description component */}
 
       {/* CREATE SURVEY DIALOG */}
       <CreateSurveyDialog

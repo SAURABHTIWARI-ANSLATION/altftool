@@ -74,7 +74,7 @@ const icons = {
 
 export default function ProcessBreakdown() {
   return (
-    <section className="my-20">
+    <section className="mt-15">
       <h3
         className="text-4xl font-extrabold mb-10 text-(--primary)"
         id="process"

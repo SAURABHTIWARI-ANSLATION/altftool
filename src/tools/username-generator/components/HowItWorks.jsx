@@ -41,12 +41,12 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-14">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-(--primary)  shadow-lg mb-6">
+        {/* <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-(--primary)  shadow-lg mb-6">
           <Zap className="w-7 h-7 text-white" />
-        </div>
+        </div> */}
 
         <h1 className="text-4xl font-bold text-(--foreground) mb-3">
           How It Works
@@ -85,7 +85,7 @@ export default function HowItWorks() {
               {item.title}
             </h3>
 
-            <p className="text-(--muted-foreground) leading-relaxed">
+            <p className="text-(--muted-foreground) text-sm leading-relaxed">
               {item.description}
             </p>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Users, Plus, X, Edit2, Trash2, Bell, Search, Filter } from 'lucide-react';
-
+import Description from "../components/Description";
 export default function ToolHome() {
   const [events, setEvents] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -39,36 +39,57 @@ export default function ToolHome() {
     setEvents(events.map(e => e.id === id ? { ...e, reminderShown: true } : e));
   };
 
-  const handleSubmit = () => {
-    if (!formData.title || !formData.date || !formData.time) {
-      alert('Please fill in all required fields');
-      return;
-    }
-    
-    const participantList = formData.participants
-      .split(',')
-      .map(p => p.trim())
-      .filter(p => p);
+ const handleSubmit = () => {
+  if (!formData.title || !formData.date || !formData.time) {
+    alert("Please fill in all required fields");
+    return;
+  }
 
-    if (editingEvent) {
-      setEvents(events.map(event => 
-        event.id === editingEvent.id 
-          ? { ...formData, participants: participantList, id: event.id, reminderShown: false }
+  // ✅ STRICT YEAR VALIDATION
+  const dateParts = formData.date.split("-");
+  if (dateParts.length !== 3) {
+    alert("Invalid date format");
+    return;
+  }
+
+  const year = Number(dateParts[0]);
+
+  if (!year || year < 1000 || year > 9999) {
+    alert("Year must be exactly 4 digits (1000 - 9999)");
+    return;
+  }
+
+  const participantList = formData.participants
+    .split(",")
+    .map((p) => p.trim())
+    .filter((p) => p);
+
+  if (editingEvent) {
+    setEvents(
+      events.map((event) =>
+        event.id === editingEvent.id
+          ? {
+              ...formData,
+              participants: participantList,
+              id: event.id,
+              reminderShown: false,
+            }
           : event
-      ));
-      setEditingEvent(null);
-    } else {
-      const newEvent = {
-        ...formData,
-        participants: participantList,
-        id: Date.now(),
-        reminderShown: false
-      };
-      setEvents([...events, newEvent]);
-    }
+      )
+    );
+    setEditingEvent(null);
+  } else {
+    const newEvent = {
+      ...formData,
+      participants: participantList,
+      id: Date.now(),
+      reminderShown: false,
+    };
+    setEvents([...events, newEvent]);
+  }
 
-    resetForm();
-  };
+  resetForm();
+};
 
   const resetForm = () => {
     setFormData({
@@ -128,7 +149,7 @@ export default function ToolHome() {
       <div className="max-w-6xl mx-auto pt-12">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="heading mb-1 animate-fade-up text-center">Event Manager</h1>
+          <h1 className="heading mb-1 animate-fade-up text-center mt-[-40]">Event Manager</h1>
           <p className="description animate-fade-up text-center">Schedule, track, and manage your events efficiently</p>
         </div>
 
@@ -221,11 +242,13 @@ export default function ToolHome() {
                   <label className="block text-(--muted-foreground) font-medium mb-2">Date *</label>
                  <div className="relative w-full">
                    <input
-                    type="date"
-                    value={formData.date}
-                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full px-4 py-2 border border(--border) rounded-lg  text-(--muted-foreground)"
-                  />
+  type="date"
+  value={formData.date}
+  min="1000-01-01"
+  max="9999-12-31"
+  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+  className="w-full px-4 py-2 border border(--border) rounded-lg text-(--muted-foreground)"
+/>
                  </div>
 
                 </div>
@@ -359,6 +382,7 @@ export default function ToolHome() {
                         )}
                       </div>
                     </div>
+                    
 
                     <div className="flex sm:flex-col gap-2">
                       <button
@@ -383,6 +407,7 @@ export default function ToolHome() {
           )}
         </div>
       </div>
+      <Description />
     </div>
   );
 };

@@ -15,7 +15,7 @@ export default function Layout({ children }) {
         </header>
 
         {/* MAIN CONTENT */}
-        <main className="max-w-6xl mx-auto bg-(--card) text-(--card-foreground) rounded-xl p-4 sm:p-6 shadow-lg">
+        <main className="max-w-6xl mx-auto bg-(--background) text-(--card-foreground) rounded-xl p-4 sm:p-6 shadow-lg">
           {children}
         </main>
       </div>

@@ -24,35 +24,35 @@ export default function Generator() {
 
 
   const requiredFields = [
-  "name",
-  "phone",
-  "email",
-  "date",
-  "company",
-  "jobTitle",
-  "experience",
-  "skills",
-];
+    "name",
+    "phone",
+    "email",
+    "date",
+    "company",
+    "jobTitle",
+    "experience",
+    "skills",
+  ];
 
   const [generated, setGenerated] = useState(false);
   const [copied, setCopied] = useState(false);
-   const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleGenerate = () => {
-   const emptyFields = requiredFields.filter(field => !formData[field].trim());
+    const emptyFields = requiredFields.filter(field => !formData[field].trim());
 
-  if (emptyFields.length > 0) {
-    setErrorMessage("Please fill all required details before generating the cover letter.");
-    setGenerated(false);
-    return;
-  }
+    if (emptyFields.length > 0) {
+      setErrorMessage("Please fill all required details before generating the cover letter.");
+      setGenerated(false);
+      return;
+    }
 
-  setErrorMessage(""); // Clear error if all fields are filled
-  setGenerated(true);
+    setErrorMessage(""); // Clear error if all fields are filled
+    setGenerated(true);
   };
 
   const handleDownloadPDF = () => {
@@ -80,27 +80,27 @@ export default function Generator() {
   };
 
 
-const handleReset = () => {
-  setFormData({
-    name: "",
-    phone: "",
-    email: "",
-    portfolio: "",
-    date: "",
-    hiringManager: "Hiring Manager",
-    company: "",
-    jobTitle: "",
-    experience: "",
-    previousWork: "",
-    skills: "",
-    companyReason: "",
-  });
-  setGenerated(false);
-  setErrorMessage("");
+  const handleReset = () => {
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      portfolio: "",
+      date: "",
+      hiringManager: "Hiring Manager",
+      company: "",
+      jobTitle: "",
+      experience: "",
+      previousWork: "",
+      skills: "",
+      companyReason: "",
+    });
+    setGenerated(false);
+    setErrorMessage("");
 
-  // Redirect to landing page
-  window.location.href = "/"; // yaha landing page ka URL daal do
-};
+    // Redirect to landing page
+    window.location.href = "/"; // yaha landing page ka URL daal do
+  };
 
 
 
@@ -136,7 +136,7 @@ ${formData.name}
 `;
 
   return (
-    <div className="min-h-screen bg-(--background) text-(--foreground) p-4 sm:p-6 md:p-8 lg:p-12">
+    <div className="min-h-screen bg-(--background) text-(--foreground) p-4 sm:p-6 md:p-8 ">
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6">
         Cover Letter Generator
       </h1>
@@ -168,7 +168,7 @@ ${formData.name}
                 placeholder={label}
                 value={formData[key]}
                 onChange={handleChange}
-                className="w-full p-2 sm:p-3 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-(--background) text-(--foreground) placeholder-gray-400"
+                className="w-full p-2 sm:p-3 border border-gray-300 bg-(--card) rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-(--foreground) placeholder-gray-400"
               />
             ))}
           </div>
@@ -179,12 +179,12 @@ ${formData.name}
             Generate Cover Letter
           </button>
           {/* <div className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow w-full mb-4"> */}
-  {errorMessage && (
-    <p className="text-red-600 font-medium mb-3">{errorMessage}</p>
-  )}
+          {errorMessage && (
+            <p className="text-red-600 font-medium mb-3">{errorMessage}</p>
+          )}
 
-  {/* Form fields go here */}
-</div>
+          {/* Form fields go here */}
+        </div>
         {/* </div> */}
 
         {/* Right Side Preview */}
@@ -197,37 +197,39 @@ ${formData.name}
               <pre className="whitespace-pre-wrap text-sm sm:text-base md:text-base text-gray-800 dark:text-gray-100 bg-gray-50 dark:bg-neutral-700 p-4 rounded flex-1 overflow-auto max-h-[70vh]">
                 {coverLetter}
               </pre>
-              <div className="flex flex-col sm:flex-row gap-3 mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-10">
+
                 <button
                   onClick={handleDownloadPDF}
-                  className="flex-1 px-4 py-2 sm:py-3 bg-green-600 hover:bg-green-700 text-white rounded transition-colors duration-200"
+                  className="w-full px-4 py-2 sm:py-3 bg-green-600 hover:bg-green-700 text-white rounded transition-colors duration-200"
                 >
                   Download as PDF
                 </button>
+
                 <button
                   onClick={handleDownloadText}
-                  className="flex-1 px-4 py-2 sm:py-3 bg-gray-600 hover:bg-gray-700 text-white rounded transition-colors duration-200"
+                  className="w-full px-4 py-2 sm:py-3 bg-gray-600 hover:bg-gray-700 text-white rounded transition-colors duration-200"
                 >
                   Download as Text
                 </button>
+
                 <button
                   onClick={copyText}
-                  className={`flex-1 px-4 py-2 sm:py-3 rounded text-white transition-all duration-200 ${
-                    copied ? "bg-green-600" : "bg-indigo-600"
-                  }`}
+                  className={`w-full px-4 py-2 sm:py-3 rounded text-white transition-all duration-200 ${copied ? "bg-green-600" : "bg-indigo-600"
+                    }`}
                 >
                   {copied ? "Copied ✓" : "Copy"}
                 </button>
 
-<button
-    onClick={handleReset}
-    className="flex-1 px-4 py-2 sm:py-3 bg-red-600 hover:bg-red-700 text-white rounded transition-colors duration-200"
-  >
-    Reset & Go to Landing Page
-  </button>
-
+                <button
+                  onClick={handleReset}
+                  className="w-full px-4 py-2 sm:py-3 bg-red-600 hover:bg-red-700 text-white rounded transition-colors duration-200"
+                >
+                  Reset & Go to Landing Page
+                </button>
 
               </div>
+
             </>
           ) : (
             <p className="text-gray-500 dark:text-gray-400">

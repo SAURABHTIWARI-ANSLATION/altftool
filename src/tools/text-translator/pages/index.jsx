@@ -9,6 +9,7 @@ import { LANGUAGES } from "../constants/languages";
 import { translateText } from "../utils/translate";
 import { ArrowRightLeftIcon, CornerDownRight, Zap } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
+import Features from "../components/Features";
 
 export default function TextTranslator() {
   const [inputText, setInputText] = useState("");
@@ -59,7 +60,7 @@ export default function TextTranslator() {
     <LayoutWrapper>
       <Toaster position="top-right" />
 
-      <div className="max-w-4xl mx-auto text-(--foreground)">
+      <div className="max-w-5xl mx-auto text-(--foreground)">
         <Header />
 
         {/* LANGUAGE ROW */}
@@ -116,6 +117,7 @@ export default function TextTranslator() {
             isLoading={isLoading}
           />
         </div>
+        <Features/>
 
         {error && (
           <div className="mt-6 p-4 bg-red-100 text-red-700 border-l-4 border-red-500 rounded-lg">

@@ -60,7 +60,7 @@ export default function HomePage() {
   const hasResult = !!packageInfo;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-(--foreground)">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-2 text-(--foreground)">
       {/* HERO SECTION */}
       <div className="text-center mb-12">
         {/* <div className="inline-block p-4 rounded-2xl bg-(--primary) shadow-md mb-6">
@@ -211,7 +211,7 @@ export default function HomePage() {
         {/* Empty State */}
         {!isLoading && !error && !hasResult && (
           <div className="text-center py-12">
-            <Package className="w-16 h-16 text-(--muted-foreground) mx-auto mb-4" />
+            <Package className="w-16 h-16 text-(--primary)/90 mx-auto mb-4" />
             <p className="text-(--muted-foreground)">
               Enter a package name above to get started
             </p>

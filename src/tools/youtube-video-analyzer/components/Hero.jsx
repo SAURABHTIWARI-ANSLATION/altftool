@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="w-full py-16 md:py-24 bg-(--background) border-b border-(--border)">
+    <section className="w-full pb-16 bg-(--background) border-b border-(--border)">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT TEXT BLOCK */}

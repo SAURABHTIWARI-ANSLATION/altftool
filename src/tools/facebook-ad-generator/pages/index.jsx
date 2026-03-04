@@ -5,6 +5,7 @@ import ResultsDisplay from "../components/ResultsDisplay";
 import HowItWorks from "../components/HowItWorks";
 import { TONE_OPTIONS } from "../utils/constants";
 import { fetchAdCopy } from "../utils/api";
+import Features from "../components/Features";
 
 export default function FacebookAdCopy() {
   const [productDetails, setProductDetails] = useState("");
@@ -34,7 +35,7 @@ export default function FacebookAdCopy() {
   }, [productDetails, selectedTone]);
 
   return (
-    <div className="min-h-screen bg-(--background) text-(--foreground) font-inter antialiased py-5 ">
+    <div className="min-h-screen bg-(--background) text-(--foreground) font-inter antialiased  ">
       {/* Main Content Container */}
       <div className="max-w-4xl mx-auto p-4 sm:p-0">
         {/* Page Description */}
@@ -59,7 +60,7 @@ export default function FacebookAdCopy() {
 
         {/* Generated Ad Copy Results */}
         <ResultsDisplay adCopy={adCopy} />
-
+       <Features/>
         {/* Informational Sections */}
         <HowItWorks />
       </div>

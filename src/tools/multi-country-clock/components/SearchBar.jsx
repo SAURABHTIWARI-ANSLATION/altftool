@@ -6,7 +6,7 @@ import { Search } from "lucide-react";
 const SearchBar = ({ searchQuery = "", setSearchQuery }) => {
   return (
     <section className="py-8 px-4">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div
           className="
             p-6 md:p-8

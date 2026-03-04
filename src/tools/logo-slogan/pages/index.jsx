@@ -1,9 +1,10 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Zap, RefreshCw, Copy, Check, TrendingUp, Target, Lightbulb } from 'lucide-react';
+import { Sparkles, Zap, RefreshCw, Copy, Check, TrendingUp, Target, Lightbulb, Gem } from 'lucide-react';
+import Features from '../components/Features';
 
-export default function toolHome(){
+export default function toolHome() {
   const [brandName, setBrandName] = useState('');
   const [industry, setIndustry] = useState('');
   const [tone, setTone] = useState('professional');
@@ -14,23 +15,23 @@ export default function toolHome(){
 
   // Industry options
   const industries = [
-    'Technology', 'Fashion', 'Food & Beverage', 'Healthcare', 
+    'Technology', 'Fashion', 'Food & Beverage', 'Healthcare',
     'Finance', 'Education', 'Entertainment', 'Automotive',
-    'Real Estate', 'Fitness', 'Beauty', 'Travel', 'E-commerce'
+    'Real Estate', 'Fitness', 'Beauty', 'Travel', 'E-commerce', 'Electronic'
   ];
 
- 
+
   const tones = [
     { value: 'professional', label: 'Professional', icon: Target },
     { value: 'playful', label: 'Playful', icon: Sparkles },
     { value: 'bold', label: 'Bold', icon: Zap },
     { value: 'inspirational', label: 'Inspirational', icon: Lightbulb },
-    { value: 'modern', label: 'Modern', icon: TrendingUp }
+    { value: 'modern', label: 'Modern', icon: TrendingUp },
+    { value: 'luxury', label: 'Luxury', icon: Gem }
   ];
 
 
-const  ANTHROPIC_API_KEY =""
-
+  const ANTHROPIC_API_KEY = process.env.NEXT_PUBLIC_ANTHROPIC_API_KEY || "";
 
 
 
@@ -49,7 +50,7 @@ const  ANTHROPIC_API_KEY =""
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-           'x-api-key': ANTHROPIC_API_KEY ,
+          'x-api-key': ANTHROPIC_API_KEY,
 
         },
         body: JSON.stringify({
@@ -68,13 +69,13 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
       });
 
       const data = await response.json();
-      
+
       if (data.content && data.content[0]) {
         const text = data.content[0].text.trim();
         const cleanedText = text.replace(/```json\n?|\n?```/g, '').trim();
         const parsedSlogans = JSON.parse(cleanedText);
-        
-      // generated slogan
+
+        // generated slogan
         parsedSlogans.forEach((slogan, index) => {
           setTimeout(() => {
             setSlogans(prev => [...prev, slogan]);
@@ -96,14 +97,14 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
   };
 
 
-  
+
 
   return (
     <div className="min-h-screen bg-(--background) relative overflow-hidden">
-    
+
 
       {/* Grain texture overlay */}
-      
+
 
       <div className="relative z-10 container mx-auto px-4 py-8 md:py-16 max-w-7xl">
         {/* Header */}
@@ -116,7 +117,7 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
             SLogan Generator
           </h1>
           <p className=" description mx-auto font-light animate-fade-up">
-            Transform your brand into unforgettable words. Real-time<br/> AI magic at your fingertips.
+            Transform your brand into unforgettable words. Real-time<br /> AI magic at your fingertips.
           </p>
         </div>
 
@@ -124,7 +125,7 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Input Section */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-(--card)  rounded-2xl p-6 md:p-8 border border-(--border) shadow-2xl">
+            <div className="bg-(--background)  rounded-2xl p-6 md:p-8 border border-(--border) shadow-2xl">
               <h2 className="text-2xl font-bold text-(--foreground) mb-6 flex items-center gap-2">
                 <Target className="w-6 h-6 text-blue-400" />
                 Brand Details
@@ -140,7 +141,7 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
                   value={brandName}
                   onChange={(e) => setBrandName(e.target.value)}
                   placeholder="Enter your brand name..."
-                  className="w-full bg- border border-(--border) rounded-md px-5 py-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2  transition-all duration-300 text-lg backdrop-blur-sm"
+                  className="w-full bg-(--muted) border border-(--border) rounded-md px-5 py-4 text-foreground  focus:outline-none focus:ring-2  transition-all duration-300 text-lg backdrop-blur-sm"
                 />
               </div>
 
@@ -177,13 +178,12 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
                     <button
                       key={value}
                       onClick={() => setTone(value)}
-                      className={`relative px-4 py-3 rounded-md font-medium transition-all cursor-pointer duration-300 ${
-                        tone === value
+                      className={`relative px-4 py-3 rounded-md font-medium transition-all cursor-pointer duration-300 ${tone === value
                           ? 'bg-(--card) text-(--foreground) shadow-lg shadow-blue-500/30 scale-105'
                           : 'bg-(--card) text-(--foreground) border border-(--border)'
-                      }`}
+                        }`}
                     >
-                      <Icon className="w-4 h-4 mx-auto mb-1" />
+                      <Icon className="w-4 h-4 text-(--primary) mx-auto mb-1" />
                       <span className="text-xs">{label}</span>
                     </button>
                   ))}
@@ -203,8 +203,8 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
                   </>
                 ) : (
                   <>
-                    
-                    Generate 
+
+                    Generate
                   </>
                 )}
               </button>
@@ -219,7 +219,7 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
 
           {/* Results Section */}
           <div className="lg:col-span-3">
-            <div className="bg-(--card) rounded-xl p-6 md:p-8 border border-white/10 shadow-2xl min-h-125 lg:min-h-150">
+            <div className="bg-(--background) rounded-xl p-6 md:p-8 border border-white/10 shadow-2xl min-h-125 lg:min-h-150">
               <h2 className="subheading mb-6 flex items-center gap-2">
                 <Lightbulb className="w-6 h-6 heading" />
                 Generated Slogans
@@ -227,7 +227,7 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
 
               {slogans.length === 0 && !isGenerating && (
                 <div className="flex flex-col items-center justify-center h-100 text-center">
-                  <div className="w-24 h-24 rounded-full bg-purple-500/10 flex items-center justify-center mb-6">
+                  <div className="w-24 h-24 rounded-full bg-purple-500/10 flex items-center animate-bounce justify-center mb-6">
                     <Sparkles className="w-12 h-12 text-blue-400" />
                   </div>
                   <p className="text-(--muted-foreground) text-lg mb-2">Start typing your brand name</p>
@@ -240,7 +240,7 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
                   <div
                     key={index}
                     className="group bg-(--card)   border border-(--border)  rounded-xl p-5 transition-all duration-300 hover:shadow-lg animate-fade"
-                    
+
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
@@ -255,7 +255,7 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
                       </div>
                       <button
                         onClick={() => copyToClipboard(slogan, index)}
-                        className="shrink-0 p-2 rounded-lg bg-(--card)  transition-all duration-200 group-hover:scale-110" 
+                        className="shrink-0 p-2 rounded-lg bg-(--card)  transition-all duration-200 group-hover:scale-110"
                         title="Copy to clipboard"
                       >
                         {copiedIndex === index ? (
@@ -282,10 +282,10 @@ Make each slogan unique, memorable, and brand-appropriate. Vary the length and s
           </div>
         </div>
 
-       
+        <Features />
       </div>
 
-      
+
     </div>
   );
 };

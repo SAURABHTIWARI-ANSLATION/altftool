@@ -12,6 +12,7 @@ import {
   X,
   Calendar,
 } from "lucide-react";
+import ToolChip from "@/shared/ui/ToolChip";
 
 export default function Main() {
   const [reminders, setReminders] = useState([]);
@@ -157,6 +158,7 @@ export default function Main() {
     <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-16 bg-(--background)  text-(--foreground)">
       {/* Hero Section */}
       <div className="text-center mb-12">
+        <ToolChip text="Motivation Reminder" />
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-(--foreground) mb-6 leading-tight">
           Stay Motivated
           <br />
@@ -314,23 +316,26 @@ export default function Main() {
           reminders.map((reminder) => (
             <div
               key={reminder.id}
-              className={`bg-background rounded-2xl shadow-lg border-2 p-6 transition-all ${reminder.enabled
-                ? "border-purple-200 hover:shadow-xl"
-                : "border border-border opacity-60"
-                }`}
+              className={`bg-background rounded-2xl shadow-lg border-2 p-6 transition-all ${
+                reminder.enabled
+                  ? "border-purple-200 hover:shadow-xl"
+                  : "border border-border opacity-60"
+              }`}
             >
               <div className="flex items-start gap-4">
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${reminder.enabled
-                    ? "bg-gradient-to-br from-purple-100 to-pink-100"
-                    : "bg-muted"
-                    }`}
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${
+                    reminder.enabled
+                      ? "bg-gradient-to-br from-purple-100 to-pink-100"
+                      : "bg-muted"
+                  }`}
                 >
                   <Clock
-                    className={`w-6 h-6 ${reminder.enabled
-                      ? "text-purple-600"
-                      : "text-muted-foreground"
-                      }`}
+                    className={`w-6 h-6 ${
+                      reminder.enabled
+                        ? "text-purple-600"
+                        : "text-muted-foreground"
+                    }`}
                   />
                 </div>
 
@@ -349,10 +354,11 @@ export default function Main() {
                     <div className="flex gap-2">
                       <button
                         onClick={() => toggleReminder(reminder.id)}
-                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${reminder.enabled
-                          ? "bg-green-100 text-green-700 hover:bg-green-200"
-                          : "bg-muted text-muted-foreground hover:bg-muted"
-                          }`}
+                        className={`px-3 py-1 rounded-lg text-sm font-medium transition-all ${
+                          reminder.enabled
+                            ? "bg-green-100 text-green-700 hover:bg-green-200"
+                            : "bg-muted text-muted-foreground hover:bg-muted"
+                        }`}
                       >
                         {reminder.enabled ? "ON" : "OFF"}
                       </button>

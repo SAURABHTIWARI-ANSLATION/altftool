@@ -29,6 +29,7 @@ import {
   LengthFactors,
   WeightFactors,
 } from "../lib/constants";
+import Features from "../components/Features";
 
 /*-----------------------------------
     Temperature Conversion
@@ -211,7 +212,7 @@ export default function UnitConverter() {
       MODERN NATIVE SELECT STYLE
   ------------------------------------*/
   const selectClass =
-    "w-full bg-(--background) border border-(--border) text-(--foreground) px-4 py-3 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-(--primary) relative";
+    "w-full bg-(--background) border border-(--border) text-(--foreground) px-4 py-3 rounded-lg appearance-none focus:outline-none focus:ring-2 cursor-pointer focus:ring-(--primary) relative";
 
   /*-----------------------------------
       COMPONENT UI
@@ -250,11 +251,10 @@ export default function UnitConverter() {
                   <button
                     key={cat}
                     onClick={() => setCategory(cat)}
-                    className={`py-3 px-2 rounded-lg text-xs sm:text-lg sm:font-medium border ${
-                      category === cat
+                    className={`py-3 px-2 rounded-lg text-xs sm:text-lg sm:font-medium border cursor-pointer ${category === cat
                         ? "bg-blue-500 text-white"
                         : "bg-(--muted) text-(--foreground)"
-                    }`}
+                      }`}
                   >
                     {cat.charAt(0).toUpperCase() + cat.slice(1)}
                   </button>
@@ -279,7 +279,7 @@ export default function UnitConverter() {
                     <label className="text-sm font-medium">From Value</label>
                     <input
                       type="number"
-                      className="w-full bg-(--background) border border-(--border) rounded-lg px-4 py-3 text-lg"
+                      className="w-full cursor-pointer bg-(--background) border border-(--border) rounded-lg px-4 py-3 text-lg"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                     />
@@ -308,10 +308,11 @@ export default function UnitConverter() {
                   </div>
 
                   {/* SWAP BUTTON */}
-                  <div className="flex justify-center">
+                  <div className="flex justify-center lg:justify-end ">
                     <button
+                    title="Swap Units"
                       onClick={handleSwap}
-                      className="h-12 w-12 bg-blue-500 hover:bg-blue-600 text-white rounded-full flex items-center justify-center"
+                      className="h-12 w-12 bg-blue-500 hover:bg-blue-600 text-white rounded-full flex items-center justify-center cursor-pointer"
                     >
                       <ArrowLeftRight className="w-5 h-5" />
                     </button>
@@ -375,7 +376,7 @@ export default function UnitConverter() {
                     setInputValue("");
                     setResult("");
                   }}
-                  className="px-4 py-2 rounded-lg border border-(--border) hover:bg-(--muted) cursor-pointer"
+                  className="px-4 py-2 rounded-lg border border-(--border) bg-(--background) hover:bg-(--muted) cursor-pointer"
                 >
                   Clear All
                 </button>
@@ -449,7 +450,7 @@ export default function UnitConverter() {
 
                             <button
                               onClick={() => handleDeleteHistoryItem(item.id)}
-                              className="opacity-0 group-hover:opacity-100 transition text-red-600 cursor-pointer"
+                              className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition text-red-600 cursor-pointer"
                             >
                               ×
                             </button>
@@ -507,8 +508,8 @@ export default function UnitConverter() {
           </div>
         </div>
 
-        {/* FAQ */}
-        {/* <FAQSection /> */}
+        {/* Features*/}
+        <Features />
       </div>
     </div>
   );

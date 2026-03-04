@@ -171,7 +171,7 @@ Geography: ${currentIdea.geography}
           </span>
         </div>
 
-        <h1 className="heading mt-6 ">Generate Your Next Big Idea</h1>
+        <h1 className="heading mt-6 mt-[40] ">Generate Your Next Big Idea</h1>
 
         <p className="text-(--muted-foreground) description">
           AI-powered startup ideas with tech stack, revenue model & MVP roadmap.

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Barcode, Zap, Shield, Download } from "lucide-react";
+import { Barcode, Zap, Shield, Download, Copy } from "lucide-react";
 
 export default function QRCodeFeatures() {
   const [clickedCard, setClickedCard] = useState(null);
@@ -26,10 +26,10 @@ export default function QRCodeFeatures() {
         "Privacy-focused: scanning is fully client-side, no data leaves your device.",
     },
     {
-      icon: Download,
-      title: "Offline & Export",
+      icon: Copy,
+      title: "Easily copy",
       description:
-        "Save scanned QR codes or generated codes as PNG or SVG for offline use.",
+        "Copy scanned QR codes or generated codes .",
     },
   ];
 
@@ -39,18 +39,18 @@ export default function QRCodeFeatures() {
   };
 
   return (
-    <section id="features" className="relative py-20 px-4 overflow-hidden">
+    <section id="features" className="relative pb-10 pt-5 px-4 overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full bg-(--primary) opacity-10 blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-10 -left-20 w-72 h-72 rounded-full bg-(--primary) opacity-10 blur-3xl animate-pulse"></div>
+      {/* <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full bg-(--primary) opacity-10 blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-10 -left-20 w-72 h-72 rounded-full bg-(--primary) opacity-10 blur-3xl animate-pulse"></div> */}
 
       {/* Header */}
       <div className="text-center mb-14 relative z-10">
-        <div className="inline-block px-4 py-1 rounded-full border border-(--border) bg-(--card) text-(--primary) text-sm font-semibold mb-4">
+        {/* <div className="inline-block px-4 py-1 rounded-full border border-(--border) bg-(--card) text-(--primary) text-sm font-semibold mb-4">
           ⚡ Powerful Features
-        </div>
+        </div> */}
 
-        <h2 className="heading">Everything You Need for QR Scanning</h2>
+        <h2 className="heading text-2xl sm:text-4xl text-(--foreground)">Everything You Need for QR Scanning</h2>
 
         <p className="description max-w-2xl mx-auto mt-4">
           Fast, secure, and offline-ready QR scanning for all your needs.
@@ -73,7 +73,8 @@ export default function QRCodeFeatures() {
                 transition-all duration-300
                 hover:-translate-y-3
                 hover:border-(--primary)
-                cursor-pointer
+                shadow-sm
+                hover:shadow-lg
                 ${clickedCard === i ? "scale-95" : "scale-100"}
               `}
             >

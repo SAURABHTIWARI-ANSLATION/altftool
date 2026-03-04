@@ -10,6 +10,7 @@ import HistoryGraph from "../components/HistoryGraph";
 import ControlPanel from "../components/ControlPanel";
 
 import { getNoiseLevel } from "../utils/useNoiseLevel";
+import Features from "../components/Features";
 
 export default function SoundDecibelChecker() {
   const [isListening, setIsListening] = useState(false);
@@ -181,6 +182,8 @@ export default function SoundDecibelChecker() {
           stopListening={stopListening}
           permission={permission}
         />
+
+        <Features/>
       </div>
     </div>
   );

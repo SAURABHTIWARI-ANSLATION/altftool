@@ -1,14 +1,11 @@
 
 "use client"
-
-
-
-
 import React, { useState, useEffect, useCallback } from 'react';
 import DropdownSelector from '../components/DropdownSelector';
 import InputArea from '../components/InputArea';
 import ResultView from '../components/ResultView';
 import { getEncoderDecoder } from '../utils/encodeDecode';
+import Features from '../components/Features';
 
 export default function ToolHome(){
     const [inputText, setInputText] = useState('');
@@ -54,7 +51,7 @@ export default function ToolHome(){
             </div>
 
             {/* Main Tool */}
-            <div className="bg-(--card)  rounded-lg shadow-lg p-6 md:p-8 mb-12">
+            <div className="w-full bg-(--background)  rounded-lg shadow-lg p-6 md:p-8 mb-12">
                 <div className="flex flex-col gap-6">
                     {/* Encoding Type Selector */}
                     <div>
@@ -80,7 +77,7 @@ export default function ToolHome(){
                 </div>
             </div>
 
-           
+           <Features/>
         </div>
     );
 };

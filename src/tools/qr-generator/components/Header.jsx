@@ -4,7 +4,7 @@ export default function Header() {
     <div className="container mx-auto px-4 py-8">
       {/* PAGE TITLE */}
       <header className="text-center mb-8">
-        <h2 className="heading">
+        <h2 className="heading mt-[-40]">
           {/* <QrCode className="w-5 h-5" /> */}
           QR Code Generator{" "}
         </h2>

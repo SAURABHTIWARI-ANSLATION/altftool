@@ -276,10 +276,10 @@ console.log(greet('World'));
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setView("split")}
-              className={`bg-(--card) border border-(--border) hover:bg-primary/90 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
+              className={`bg-(--card) hover:bg-(--primary) border border-(--border) hover:bg-primary/90 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 cursor-pointer shadow-lg ${
                 view === "split"
-                  ? "bg-primary text-foreground shadow-lg"
-                  : "bg-muted text-foreground hover:bg-accent"
+                  ? "bg-(--primary) text-(--foreground) shadow-lg"
+                  : "bg-(--muted) text-(--foreground) hover:bg-accent"
               }`}
             >
               <Code className="w-4 h-4" />
@@ -287,10 +287,10 @@ console.log(greet('World'));
             </button>
             <button
               onClick={() => setView("editor")}
-              className={`bg-(--card) border border-(--border) hover:bg-primary/90 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center cursor-pointer gap-2 shadow-lg ${
+              className={`bg-(--card) hover:bg-(--primary) border border-(--border)  text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center cursor-pointer gap-2 shadow-lg ${
                 view === "editor"
-                  ? "bg-primary text-foreground shadow-lg"
-                  : "bg-muted text-foreground hover:bg-accent"
+                  ? "bg-(--primary) text-(--foreground) shadow-lg"
+                  : "bg-(--muted) text-(--foreground) hover:bg-accent"
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -298,10 +298,10 @@ console.log(greet('World'));
             </button>
             <button
               onClick={() => setView("preview")}
-              className={`bg-(--card) border border-(--border) hover:bg-primary/90 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center cursor-pointer  shadow-lg gap-2 ${
+              className={`bg-(--card) hover:bg-(--primary) border border-(--border)  text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center cursor-pointer  shadow-lg gap-2 ${
                 view === "preview"
-                  ? "bg-primary text-foreground shadow-lg"
-                  : "bg-muted text-foreground hover:bg-accent"
+                  ? "bg-(--primary) text-(--foreground) shadow-lg"
+                  : "bg-(--muted) text-(--foreground)hover:bg-accent"
               }`}
             >
               <Eye className="w-4 h-4" />
@@ -310,13 +310,13 @@ console.log(greet('World'));
           
             <button
               onClick={loadSample}
-              className="bg-(--card) border border-(--border) hover:bg-primary/90 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center cursor-pointer gap-2 shadow-lg"
+              className="bg-(--card) hover:bg-(--primary) border border-(--border)  text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center cursor-pointer gap-2 shadow-lg"
             >
               Load Sample
             </button>
             <button
               onClick={copyMarkdown}
-              className="bg-(--card) border border-(--border) hover:bg-primary/90 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center cursor-pointer gap-2 shadow-lg"
+              className="bg-(--card) hover:bg-(--primary) border border-(--border)  text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center cursor-pointer gap-2 shadow-lg"
             >
               {copied ? (
                 <>
@@ -332,29 +332,23 @@ console.log(greet('World'));
             </button>
             <button
               onClick={downloadHTML}
-              className="bg-(--card) border border-(--border) hover:bg-primary/90 text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex cursor-pointer items-center gap-2 shadow-lg"
+              className="bg-(--card) hover:bg-(--primary) border border-(--border)  text-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all flex cursor-pointer items-center gap-2 shadow-lg"
             >
               <Download className="w-4 h-4" />
               Download HTML
             </button>
           </div>
         </div>
-
-
-
-
-
-
         <div
           className={`grid ${view === "split" ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1"} gap-6 h-full `}
         >
           {/* Editor */}
           {(view === "split" || view === "editor") && (
-            <div className="bg-card rounded-2xl shadow-xl border border-(--border) flex flex-col overflow-hidden">
+            <div className="bg-(--card) rounded-2xl shadow-xl border border-(--border) flex flex-col overflow-hidden">
               <div className="bg-(--card) px-6 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <Code className="w-5 h-5 text-foreground" />
-                  <h2 className="text-lg font-bold text-foreground">
+                  <Code className="w-5 h-5 text-(--primary) " />
+                  <h2 className="text-lg font-bold text-(--foreground)">
                     Markdown Editor
                   </h2>
                 </div>
@@ -366,7 +360,7 @@ console.log(greet('World'));
                 value={markdown}
                 onChange={(e) => setMarkdown(e.target.value)}
                 placeholder="Enter your markdown here..."
-                className="flex-1 p-6 font-mono text-sm text-foreground bg-background resize-none focus:outline-none"
+                className="flex-1 p-6 font-mono text-sm text-(--foreground) bg-(--background) resize-none focus:outline-none"
                 style={{ minHeight: "500px" }}
               />
             </div>
@@ -376,13 +370,13 @@ console.log(greet('World'));
           {(view === "split" || view === "preview") && (
             <div className="bg-card rounded-2xl shadow-xl border border-(--border) flex flex-col overflow-hidden">
               <div className="bg-(--card) px-6 py-4 flex items-center gap-3">
-                <Eye className="w-5 h-5 text-foreground" />
+                <Eye className="w-5 h-5 text-(--primary)" />
                 <h2 className="text-lg font-bold text-foreground">
                   Live Preview
                 </h2>
               </div>
               <div
-                className="flex-1 p-6 prose prose-sm max-w-none overflow-y-auto bg-background"
+                className="flex-1 p-6 prose prose-sm max-w-none overflow-y-auto bg-(--background)"
                 style={{ minHeight: "500px" }}
                 dangerouslySetInnerHTML={{ __html: htmlOutput }}
               />

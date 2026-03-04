@@ -62,7 +62,7 @@ export default function UserFinder() {
   };
 
   return (
-    <div className="min-h-screen pt-4 sm:pt-8 bg-(--background)">
+    <div className="pt-4 bg-(--background)">
       <div className="max-w-xl mx-auto">
         {/* HEADER */}
 
@@ -100,7 +100,7 @@ export default function UserFinder() {
               w-full rounded-2xl py-3.5 font-semibold 
               bg-(--primary) text-(--primary-foreground)
               hover:opacity-90 transition disabled:opacity-50
-              flex items-center justify-center gap-2
+              flex items-center justify-center gap-2 cursor-pointer
             "
           >
             {loading ? (

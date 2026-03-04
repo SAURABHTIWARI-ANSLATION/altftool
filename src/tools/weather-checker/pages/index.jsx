@@ -12,6 +12,7 @@ import {
   CloudRain,
 } from "lucide-react";
 import Header from "../components/Header";
+import Features from "../components/Features";
 
 /* ---------------- WEATHER ICON HELPERS ---------------- */
 const weatherCodeToIcon = (code) => {
@@ -177,7 +178,7 @@ export default function WeatherApp() {
 
   /* ---------------- UI ---------------- */
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6 p-4">
+    <div className="w-full max-w-5xl mx-auto space-y-6 p-4">
       <Header />
       {/* Search Card */}
 
@@ -373,6 +374,10 @@ export default function WeatherApp() {
       <div className="text-center text-sm text-(--muted-foreground) pt-4">
         Data provided by Open-Meteo API
       </div>
+      <div className="p-6 bg-(--card) border border-(--border) rounded-xl">
+      <Features/>
+      </div>
+
     </div>
   );
 }

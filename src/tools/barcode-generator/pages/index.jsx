@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import JsBarcode from 'jsbarcode';
 
- export default function ToolHome(){
+export default function ToolHome() {
   const [barcodeData, setBarcodeData] = useState('123456789012');
   const [barcodeFormat, setBarcodeFormat] = useState('CODE128');
   const [width, setWidth] = useState(2);
@@ -41,9 +41,7 @@ import JsBarcode from 'jsbarcode';
           fontSize: fontSize,
           margin: margin,
           valid: (valid) => {
-            if (!valid) {
-              setError('Invalid data for selected barcode format');
-            }
+            if (!valid) setError('Invalid data for selected barcode format');
           }
         };
 
@@ -56,9 +54,7 @@ import JsBarcode from 'jsbarcode';
   };
 
   useEffect(() => {
-    if (barcodeData) {
-      generateBarcode();
-    }
+    if (barcodeData) generateBarcode();
   }, [barcodeData, barcodeFormat, width, height, displayValue, backgroundColor, lineColor, fontSize, margin]);
 
   const downloadBarcode = (format) => {
@@ -84,163 +80,148 @@ import JsBarcode from 'jsbarcode';
 
   const setExample = () => {
     const format = barcodeFormats.find(f => f.value === barcodeFormat);
-    if (format) {
-      setBarcodeData(format.example);
-    }
+    if (format) setBarcodeData(format.example);
   };
 
   return (
     <div className="min-h-screen bg-(--background) text-(--foreground) p-4 md:p-8 font-sans">
-      
-
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 ">
-          
           <h1 className="heading text-center pt-5 animate-fade-up">
-            Barcode Generator 
+            Barcode Generator
           </h1>
-          <p className="text-slate-400 text-lg">Create professional barcodes with advanced customization</p>
+          <p className="text-slate-400 text-lg">
+            Create professional barcodes with advanced customization
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Left Panel - Controls */}
+          {/* LEFT PANEL */}
           <div className="space-y-6 animate-slide-in">
             <div className="bg-(--card) rounded-2xl p-6 backdrop-blur-sm">
-              <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                
-                Configuration
-              </h2>
+              <h2 className="text-2xl font-semibold mb-6">Configuration</h2>
 
-              {/* Barcode Data Input */}
               <div className="mb-6">
                 <label className="content block mb-2">Barcode Data</label>
                 <input
                   type="text"
                   value={barcodeData}
                   onChange={(e) => setBarcodeData(e.target.value)}
-                  className="w-full px-4 py-3 border border-(--border) rounded-md input-field text-(--foreground) mono"
-                  placeholder="Enter barcode data"
+                  className="w-full px-4 py-3 border border-(--border) rounded-md input-field text-(--foreground)"
                 />
               </div>
 
-              {/* Format Selection */}
               <div className="mb-6">
                 <label className="content block mb-2">Barcode Format</label>
                 <select
                   value={barcodeFormat}
                   onChange={(e) => setBarcodeFormat(e.target.value)}
-                  className="w-full bg-(--card) px-4 py-3  border border-(--border) rounded-md input-field text-(--foreground) cursor-pointer"
+                  className="w-full bg-(--card) px-4 py-3 border border-(--border) rounded-md cursor-pointer"
                 >
                   {barcodeFormats.map(format => (
-                    <option key={format.value} value={format.value} className="bg-(--card) text-(--foreground)">
+                    <option key={format.value} value={format.value}>
                       {format.label}
                     </option>
                   ))}
                 </select>
+
                 <button
                   onClick={setExample}
-                  className="mt-2 text-blue-400 text-sm hover:text-blue-300 transition-colors"
+                  className="mt-2 text-blue-400 text-sm hover:text-blue-300"
                 >
-                  Use example data for this format
+                  Use example data
                 </button>
               </div>
 
-              {/* Display Value Toggle */}
               <div className="mb-6 flex items-center justify-between">
-                <label className="label-text">Show Text Below Barcode</label>
+                <label>Show Text Below Barcode</label>
                 <button
                   onClick={() => setDisplayValue(!displayValue)}
-                  className={`w-14 h-7 rounded-full transition-colors relative ${
-                    displayValue ? 'bg-(--card) text-blue-500' : 'bg-blue-700'
-                  }`}
+                  className="w-14 h-7 rounded-full relative"
                 >
-                  <div
-                    className={`w-5 h-5 bg-(--card) rounded-full absolute top-1 transition-transform ${
-                      displayValue ? 'translate-x-8' : 'translate-x-1'
-                    }`}
-                  />
+                  <div className="w-5 h-5 bg-white rounded-full absolute top-1 left-1" />
                 </button>
               </div>
 
-              {/* Error Display */}
               {error && (
-                <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400">
+                <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400">
                   {error}
                 </div>
               )}
             </div>
 
-           
-
-  <div className="bg-(--card) rounded-2xl p-6 backdrop-blur-sm">
-              <h3 className="content  mb-3 text-(--foreground)">Current Format: {barcodeFormat}</h3>
+            {/* CURRENT FORMAT BLOCK */}
+            <div className="bg-(--card) rounded-2xl p-6 backdrop-blur-sm">
+              <h3 className="content mb-3 text-(--foreground)">
+                Current Format: {barcodeFormat}
+              </h3>
               <p className="text-sm text-(--foreground) leading-relaxed">
-                {barcodeFormat === 'CODE128' && 'CODE128 is a high-density linear barcode symbology that can encode all 128 ASCII characters. Widely used in shipping and packaging industries.'}
-                {barcodeFormat === 'CODE39' && 'CODE39 is a variable length barcode symbology. It can encode uppercase letters, digits, and some special characters.'}
-                {barcodeFormat === 'EAN13' && 'EAN-13 is a 13-digit barcode standard used worldwide for retail products. The last digit is a checksum.'}
-                {barcodeFormat === 'EAN8' && 'EAN-8 is an 8-digit barcode used for small packages where EAN-13 would be too large.'}
-                {barcodeFormat === 'UPC' && 'UPC-A is a 12-digit barcode used primarily in North America for retail products.'}
-                {barcodeFormat === 'ITF14' && 'ITF-14 is used for packaging levels of products. It encodes a 14-digit number.'}
-                {barcodeFormat === 'MSI' && 'MSI barcode is used primarily for inventory control and warehouse applications.'}
-                {barcodeFormat === 'pharmacode' && 'Pharmacode is used in the pharmaceutical industry for packaging control.'}
-                {barcodeFormat === 'codabar' && 'Codabar is used in libraries, blood banks, and delivery services.'}
+                {barcodeFormat === 'CODE128' && 'CODE128 is a high-density barcode supporting ASCII characters.'}
+                {barcodeFormat === 'CODE39' && 'CODE39 encodes uppercase letters and numbers.'}
+                {barcodeFormat === 'EAN13' && 'EAN-13 is used worldwide for retail products.'}
+                {barcodeFormat === 'EAN8' && 'EAN-8 is used for small packaging.'}
+                {barcodeFormat === 'UPC' && 'UPC-A is common in North America.'}
+                {barcodeFormat === 'ITF14' && 'ITF-14 is used for product packaging.'}
+                {barcodeFormat === 'MSI' && 'MSI is used for warehouse inventory.'}
+                {barcodeFormat === 'pharmacode' && 'Pharmacode is used in pharmaceuticals.'}
+                {barcodeFormat === 'codabar' && 'Codabar is used in libraries and blood banks.'}
               </p>
             </div>
-
           </div>
 
-          {/* Right Panel - Preview & Download */}
-          <div className="space-y-6 animate-slide-in" >
-            <div className="bg-(--card) rounded-2xl p-6 backdrop-blur-sm grid-pattern">
-              <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-               
-                Preview
-              </h2>
-
-              <div className="barcode-display flex items-center justify-center min-h-75">
-                <div className="text-center">
-                  <canvas ref={canvasRef} className="mx-auto" />
-                  <svg ref={svgRef} className="hidden" />
-                </div>
+          {/* RIGHT PANEL */}
+          <div className="space-y-6 animate-slide-in">
+            <div className="bg-(--card) rounded-2xl p-6">
+              <h2 className="text-2xl font-semibold mb-6">Preview</h2>
+              <div className="flex justify-center">
+                <canvas ref={canvasRef} />
+                <svg ref={svgRef} className="hidden" />
               </div>
             </div>
 
-            <div className="bg-(--card) rounded-2xl p-6 backdrop-blur-sm">
-             
-
+            <div className="bg-(--card) rounded-2xl p-6">
               <div className="grid grid-cols-2 gap-4">
                 <button
                   onClick={() => downloadBarcode('png')}
-                  className="glow-button px-6 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 border border-(--border) cursor-pointer "
+                  className="border px-6 py-4 rounded-xl"
                 >
-                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
                   Download PNG
                 </button>
                 <button
                   onClick={() => downloadBarcode('svg')}
-                  className="px-6 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 bg-(--card) transition-all group border border-(--border) cursor-pointer "
+                  className="border px-6 py-4 rounded-xl"
                 >
-                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
                   Download SVG
                 </button>
               </div>
-
-             
             </div>
-
-            
-          
           </div>
         </div>
 
-       
+        {/* HOW IT WORKS — 6 CARDS WITH LONGER TEXT */}
+        <div className="mt-20">
+          <h2 className="text-3xl font-bold text-center mb-10">How It Works ?</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Enter Data", desc: "Enter text or numbers for the barcode. Make sure to double-check your input because this data will be encoded into the barcode. " },
+              { title: "Select Format", desc: "Choose the barcode format from the available list. Different formats have different restrictions and use cases. " },
+              { title: "Customize", desc: "Adjust styling, size, and other layout options. You can modify width, height, colors. " },
+              { title: "Preview", desc: "See a live preview of your generated barcode. " },
+              { title: "Validate", desc: "The tool automatically validates the barcode data against the selected format. " },
+              { title: "Download", desc: "Export your barcode instantly as PNG or SVG." }
+            ].map((card, index) => (
+              <div
+                key={index}
+                className="group bg-(--card) rounded-2xl p-6 border border-(--border) hover:-translate-y-2 transition"
+              >
+                <h3 className="font-semibold mb-2 group-hover:text-blue-500">{card.title}</h3>
+                <p className="text-sm text-(--muted-foreground)">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
-};
-
+}

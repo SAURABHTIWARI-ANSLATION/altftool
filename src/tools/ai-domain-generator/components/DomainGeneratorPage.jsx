@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from "react";
-import { Search, Globe, CheckCircle, XCircle, Loader2 } from "lucide-react";
+import { Search, Globe, Copy, Check, Loader2 } from "lucide-react";
 
 import { fetchWordSuggestions } from "../utils/wordGeneratorApi";
 
 
 const getStatusColor = () => {
-  
+
   return {
     text: "text-indigo-600",
     bg: "bg-indigo-100",
@@ -20,6 +20,9 @@ const DomainGeneratorPage = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [copiedIndex, setCopiedIndex] = useState(null);
+  const [copiedAll, setCopiedAll] = useState(false);
+
 
   const generateDomains = useCallback(
     async (e) => {
@@ -35,7 +38,7 @@ const DomainGeneratorPage = () => {
       setSuggestions([]);
 
       try {
-       
+
         const results = await fetchWordSuggestions(keyword.trim());
         setSuggestions(results);
 
@@ -52,12 +55,38 @@ const DomainGeneratorPage = () => {
     },
     [keyword]
   );
+  const handleCopyOne = async (text, index) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedIndex(index);
+
+      setTimeout(() => {
+        setCopiedIndex(null);
+      }, 1500);
+    } catch (err) {
+      console.error("Copy failed:", err);
+    }
+  };
+
+  const handleCopyAll = async () => {
+    try {
+      const allDomains = suggestions.map(s => s.domain).join("\n");
+      await navigator.clipboard.writeText(allDomains);
+      setCopiedAll(true);
+
+      setTimeout(() => {
+        setCopiedAll(false);
+      }, 1500);
+    } catch (err) {
+      console.error("Copy all failed:", err);
+    }
+  };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       {/* Hero Section */}
       <div className="text-center mb-12">
-        
+
         <h1 className="heading text-center animate-fade-up mb-4">
           Domain  Generator
         </h1>
@@ -67,7 +96,7 @@ const DomainGeneratorPage = () => {
       </div>
 
       {/* Search Form */}
-      <div className="bg-(--card) rounded-2xl shadow-xl p-6 sm:p-8 border border-(--border) mb-8">
+      <div className="bg-(--background) rounded-2xl shadow-xl p-6 sm:p-8 border border-(--border) mb-8">
         <form onSubmit={generateDomains} className="space-y-4">
           <label
             htmlFor="keyword"
@@ -88,11 +117,10 @@ const DomainGeneratorPage = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`px-6 py-4 text-foreground font-semibold rounded-xl shadow-lg flex items-center justify-center transition-all whitespace-nowrap ${
-                isLoading
-                  ? "bg-indigo-400 cursor-not-allowed"
-                  : "bg-linear-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105"
-              }`}
+              className={`px-6 py-4 cursor-pointer text-white font-semibold rounded-xl shadow-lg flex items-center justify-center transition-all whitespace-nowrap ${isLoading
+                  ? "bg-(--primary) cursor-not-allowed"
+                  : "bg-(--primary) transform hover:scale-105"
+                }`}
             >
               {isLoading ? (
                 <>
@@ -123,6 +151,24 @@ const DomainGeneratorPage = () => {
               <h2 className="text-2xl font-bold text-foreground mb-4 mt-6">
                 Creative Domain Ideas ({suggestions.length})
               </h2>
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={handleCopyAll}
+                  className="px-4 py-2 text-sm font-semibold bg-(--primary)  text-white rounded-lg transition flex items-center space-x-2 cursor-pointer"
+                >
+                  {copiedAll ? (
+                    <>
+                      <Check className="w-4 h-4" />
+                      <span>Copied All!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4" />
+                      <span>Copy All</span>
+                    </>
+                  )}
+                </button>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {suggestions.map((suggestion, index) => {
                   const { text, bg, icon: Icon, label } = getStatusColor();
@@ -138,7 +184,7 @@ const DomainGeneratorPage = () => {
                           {domainName}
                         </p>
                         <div
-                          className={`p-1 rounded-full text-(--foreground) flex items-center space-x-1 text-sm font-medium`}
+                          className={`p-1 rounded-full text-(--primary) flex items-center space-x-1 text-sm font-medium`}
                         >
                           <Icon className="w-4 h-4 shrink-0" />
                         </div>
@@ -148,7 +194,7 @@ const DomainGeneratorPage = () => {
                         <span className="font-semibold text-(--muted-foreground)">{label}</span>
                       </div>
 
-                      
+
                       {/* <a
                         href={`https://domains.google/search?q=${domainName}`}
                         target="_blank"
@@ -157,6 +203,23 @@ const DomainGeneratorPage = () => {
                       >
                         Check Real Availability &rarr;
                       </a> */}
+                      <button
+                        onClick={() => handleCopyOne(domainName, index)}
+                        className="mt-3 px-3 py-2 text-xs font-semibold bg-(--card) rounded-lg flex items-center justify-center space-x-2 transition cursor-pointer"
+                      >
+                        {copiedIndex === index ? (
+                          <>
+                            <Check className="w-4 h-4 text-green-600" />
+                            <span className="text-green-600">Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-4 h-4" />
+                            <span>Copy</span>
+                          </>
+                        )}
+                      </button>
+
                     </div>
                   );
                 })}

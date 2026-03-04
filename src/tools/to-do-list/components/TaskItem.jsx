@@ -47,14 +47,14 @@ export default function TaskItem({
             <div className="flex gap-2">
               <button
                 onClick={save}
-                className="px-4 py-2 bg-(--primary) text-(--primary-foreground) rounded-lg"
+                className="px-4 py-2 bg-(--primary) text-(--primary-foreground) rounded-lg cursor-pointer"
               >
                 <Check size={18} /> Save
               </button>
 
               <button
                 onClick={() => setEditing(false)}
-                className="px-4 py-2 bg-(--muted) text-(--muted-foreground) rounded-lg"
+                className="px-4 py-2 bg-(--muted) text-(--muted-foreground) hover:text-red-500 cursor-pointer rounded-lg"
               >
                 <X size={18} /> Cancel
               </button>
@@ -65,7 +65,7 @@ export default function TaskItem({
             {/* Checkbox */}
             <button
               onClick={() => toggleComplete(task.id)}
-              className="w-6 h-6 rounded-full border-2 flex items-center justify-center"
+              className="w-6 h-6 rounded-full border-2 flex items-center justify-center bg-(--background) cursor-pointer"
               style={
                 task.completed
                   ? {
@@ -100,7 +100,7 @@ export default function TaskItem({
               {/* Important */}
               <button
                 onClick={() => toggleImportant(task.id)}
-                className="p-2 rounded-lg"
+                className="p-2 rounded-lg cursor-pointer"
                 style={{
                   background: task.important
                     ? "rgba(255,215,0,0.15)"
@@ -119,7 +119,7 @@ export default function TaskItem({
               {/* Edit */}
               <button
                 onClick={() => setEditing(true)}
-                className="p-2"
+                className="p-2 cursor-pointer"
                 style={{ color: "var(--primary)" }}
               >
                 <Edit2 size={18} />
@@ -128,8 +128,8 @@ export default function TaskItem({
               {/* Delete */}
               <button
                 onClick={() => deleteTask(task.id)}
-                className="p-2"
-                style={{ color: "crimson" }}
+                className="p-2 cursor-pointer text-red-700 hover:text-red-500"
+                // style={{ color: "crimson" }}
               >
                 <Trash2 size={18} />
               </button>

@@ -64,7 +64,7 @@ export default function PollMaker() {
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Title */}
         <h1 className="heading text-center">Poll Maker</h1>
-        <p className="description mt-5 max-w-2xl mx-auto">
+        <p className="description mt-5 max-w-2xl mx-auto text-center">
           Create interactive polls quickly and collect real-time responses.
         </p>
         {/* Create Poll Card */}
@@ -100,7 +100,7 @@ export default function PollMaker() {
               onClick={createPoll}
               className="flex-1 px-4 py-3 rounded-xl bg-linear-to-r from-green-600 to-emerald-600 text-white font-medium hover:opacity-90 transition cursor-pointer"
             >
-              ✅ Create Poll
+               Create Poll
             </button>
           </div>
         </div>

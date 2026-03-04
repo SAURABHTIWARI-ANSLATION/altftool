@@ -350,7 +350,7 @@ const MainComponent = () => {
       <div className="p-6 rounded-2xl bg-(--card) border border-(--border)">
         <h2 className="subheading mb-4">Upload PDF</h2>
 
-        <div className="flex flex-col items-center justify-center border-2 border-dashed border-(--border) rounded-xl p-10 hover:border-(--primary) transition">
+        <div className="flex flex-col items-center bg-(--background) justify-center border-2 border-dashed border-(--border) rounded-xl p-10 hover:border-(--primary) transition">
           <FileUp className="h-12 w-12 text-(--muted-foreground) mb-4" />
 
           <p className="font-medium text-(--foreground)">
@@ -372,7 +372,7 @@ const MainComponent = () => {
           <button
             onClick={() => fileInputRef.current?.click()}
             disabled={!pdfjsLib}
-            className="px-6 py-2 rounded-xl bg-(--primary) text-(--primary-foreground) font-medium hover:opacity-90 transition disabled:opacity-60"
+            className="px-6 py-2 rounded-xl bg-(--primary) text-(--primary-foreground) cursor-pointer font-medium hover:opacity-90 transition disabled:opacity-60"
           >
             {!pdfjsLib ? "Loading..." : file ? "Change File" : "Select PDF"}
           </button>
@@ -402,7 +402,7 @@ const MainComponent = () => {
             <div className="flex gap-3">
               <button
                 onClick={resetTool}
-                className="px-4 py-2 border border-(--border) rounded-lg hover:bg-(--muted) transition text-sm font-medium"
+                className="px-4 cursor-pointer bg-(--background) py-2 border border-(--border) rounded-lg hover:bg-(--muted) transition text-sm font-medium"
               >
                 <RotateCw className="h-4 w-4 inline mr-2" />
                 Reset
@@ -411,7 +411,7 @@ const MainComponent = () => {
               <button
                 onClick={downloadPDF}
                 disabled={isProcessing || pdfPages.length === 0}
-                className="px-4 py-2 rounded-lg bg-(--primary) text-(--primary-foreground) font-medium hover:opacity-90 transition disabled:opacity-60 text-sm flex items-center gap-2"
+                className="px-4 cursor-pointer py-2 rounded-lg bg-(--primary) text-(--primary-foreground) font-medium hover:opacity-90 transition disabled:opacity-60 text-sm flex items-center gap-2"
               >
                 <Download className="h-4 w-4" />
                 {isProcessing ? "Processing..." : "Download PDF"}
@@ -458,7 +458,7 @@ const MainComponent = () => {
                     {/* Delete Button */}
                     <button
                       onClick={() => deletePage(pageNum)}
-                      className="absolute top-2 right-2 z-10 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition"
+                      className="cursor-pointer absolute top-2 right-2 z-10 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition"
                       title="Delete page"
                     >
                       <Trash2 className="h-4 w-4" />
@@ -467,7 +467,7 @@ const MainComponent = () => {
                     {/* Preview Button */}
                     <button
                       onClick={() => openPreview(pageNum, index)}
-                      className="absolute top-12 right-2 z-10 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition"
+                      className="absolute cursor-pointer top-12 right-2 z-10 bg-blue-500 hover:bg-blue-600 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition"
                       title="Preview page"
                     >
                       <Maximize2 className="h-4 w-4" />
@@ -527,7 +527,7 @@ const MainComponent = () => {
 
               <button
                 onClick={() => setIsPreviewOpen(false)}
-                className="p-2 hover:bg-(--muted) rounded-lg transition"
+                className="p-2 hover:bg-(--muted) rounded-lg transition cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -538,7 +538,7 @@ const MainComponent = () => {
               {/* Navigation Buttons */}
               <button
                 onClick={() => navigatePreview("prev")}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full z-10"
+                className="absolute cursor-pointer left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full z-10"
               >
                 <ChevronLeft className="h-6 w-6" />
               </button>
@@ -574,7 +574,7 @@ const MainComponent = () => {
 
               <button
                 onClick={() => navigatePreview("next")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full z-10"
+                className="absolute cursor-pointer right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-black/70 text-white rounded-full z-10"
               >
                 <ChevronRight className="h-6 w-6" />
               </button>
@@ -589,14 +589,14 @@ const MainComponent = () => {
               <div className="flex gap-2">
                 <button
                   onClick={() => deletePage(selectedPage)}
-                  className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg flex items-center gap-2"
+                  className="px-4 cursor-pointer py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg flex items-center gap-2"
                 >
                   <Trash2 className="h-4 w-4" />
                   Delete This Page
                 </button>
                 <button
                   onClick={() => setIsPreviewOpen(false)}
-                  className="px-4 py-2 border border-(--border) hover:bg-(--muted) rounded-lg"
+                  className="px-4 cursor-pointer py-2 border border-(--border) hover:bg-(--muted) rounded-lg"
                 >
                   Close
                 </button>

@@ -3,6 +3,7 @@ import React from "react";
 import { ArrowRightLeft, TrendingUp } from "lucide-react";
 import CurrencySelect from "../components/CurrencySelect";
 import ConversionResult from "../components/ConversionResult";
+import Description from "../components/Description";   // 👈 ADDED
 import { useCurrencyConverter } from "../hooks/useCurrencyConverter";
 // import Header from "../components/Header";
 
@@ -27,8 +28,9 @@ const CurrencyConverter = () => {
   };
 
   return (
-    <div className="min-h-screen bg-(--background) text-(--foreground)  overflow-x-hidden ">
-      {/* <Header /> */}{" "}
+    <div className="min-h-screen bg-(--background) text-(--foreground) overflow-x-hidden">
+      {/* <Header /> */}
+
       <div className="flex items-center justify-center flex-col">
         <h1 className="heading mt-5">
           <TrendingUp className="inline w-7 h-7 mr-2 text-[#3b82f6]" />
@@ -36,10 +38,9 @@ const CurrencyConverter = () => {
         </h1>
         <p className="description">Real-time exchange rates .</p>
       </div>
-      <div className="flex items-center justify-center m-1 mt-10 ">
-        <div className="relative w-full max-w-3xl rounded-3xl p-10 shadow-2xl">
-          {/* Decorative gradients */}
 
+      <div className="flex items-center justify-center m-1 mt-10">
+        <div className="relative w-full max-w-3xl rounded-3xl p-10 shadow-2xl">
           <div className="absolute -top-12.5 -left-12.5 w-40 h-40 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-12.5 -right-12.5 w-60 h-60 rounded-full blur-3xl"></div>
 
@@ -51,11 +52,11 @@ const CurrencyConverter = () => {
             )}
 
             {/* Amount Input */}
-            <label className="text-sm font-medium text-(--foreground) ">
+            <label className="text-sm font-medium text-(--foreground)">
               Amount
             </label>
+
             <div className="relative mb-6">
-              {/* Glow */}
               <div className="absolute -bottom-10 -right-10 w-48 h-32 rounded-full blur-3xl"></div>
 
               <input
@@ -104,7 +105,10 @@ const CurrencyConverter = () => {
           </div>
         </div>
       </div>
-      <div className="space-y-4 "></div>
+
+      {/* 👇 HOW IT WORKS SECTION ADDED HERE */}
+      <Description />
+
       {/* footer */}
     </div>
   );

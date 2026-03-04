@@ -25,10 +25,10 @@ const ToneSelector = ({ selectedTone, setSelectedTone, isLoading }) => {
                     shadow-lg scale-105
                   `
                   : `
-                    bg-(--muted)
+                    bg-(--background)
                     border-(--border)
                     text(--muted-foreground)
-                    hover:bg-(--secondary)
+                    hover:bg-white
                   `
               }
             `}

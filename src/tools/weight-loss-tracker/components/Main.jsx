@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Features from "./Features";
 
 export default function MainComponent() {
   const [isEditingGoal, setIsEditingGoal] = useState(true);
@@ -102,7 +103,7 @@ export default function MainComponent() {
   const range = maxWeight - minWeight || 1;
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 bg-(--background)">
+    <div className="p-4 sm:p-8 bg-(--background)">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
@@ -175,7 +176,7 @@ export default function MainComponent() {
                 <h2 className="text-xl font-bold mb-4 text-(--foreground) font-primary">
                   🎯 Set Your Goal
                 </h2>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-col sm:flex-row">
                   <input
                     type="number"
                     step="0.1"
@@ -416,7 +417,7 @@ export default function MainComponent() {
                           </div>
 
                           <button
-                            className="text-sm px-2 py-1 rounded text-(--muted-foreground) cursor-pointer"
+                            className="text-sm px-2 py-1 rounded text-(--muted-foreground) hover:text-red-500 cursor-pointer"
                             onClick={() => deleteEntry(entry.id)}
                           >
                             ×
@@ -447,6 +448,7 @@ export default function MainComponent() {
             </div>
           </div>
         </div>
+        <Features/>
       </div>
     </div>
   );

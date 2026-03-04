@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AlertCircle, CheckCircle, FileText, Zap, BookOpen, Globe, Code } from 'lucide-react';
+import Features from '../components/Features';
 
    export default function ToolHome(){
   const [text, setText] = useState('');
@@ -338,7 +339,7 @@ import { AlertCircle, CheckCircle, FileText, Zap, BookOpen, Globe, Code } from '
   }, [text, useLanguageTool]);
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       {/* Header */}
       <div className="  ">
         <div className="max-w-6xl mx-auto">
@@ -353,7 +354,7 @@ import { AlertCircle, CheckCircle, FileText, Zap, BookOpen, Globe, Code } from '
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8 border border-(--border) rounded-xl mb-4 mt-12 ">
+      <div className="max-w-6xl mx-auto px-4 py-8 border shadow-2xl border-(--border) rounded-xl mb-4 mt-12 ">
         {/* Stats Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-(--card)  text-(--muted-foreground) rounded-lg p-4 animate-shake-x ">
@@ -400,13 +401,13 @@ import { AlertCircle, CheckCircle, FileText, Zap, BookOpen, Globe, Code } from '
                 </div>
               </div>
               
-              <div className="relative bg-(--card) ">
+              <div className="relative bg-(--background) ">
                 <textarea
                 type="text"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
-                  className="w-full h-96 p-4 text-(--foreground) resize-none focus:outline-none font-mono text-sm opacity-0 absolute top-0 left-0"
-                  placeholder="Start typing or paste your text here..."
+                  className="w-full h-96 p-4 text-(--foreground) resize-none focus:outline-none font-mono text-sm  absolute top-0 left-0"
+                  // placeholder="Start typing or paste your text here..."
                   
                 />
                 <div className="w-full h-96 p-4 overflow-auto font-mono text-sm">
@@ -418,9 +419,9 @@ import { AlertCircle, CheckCircle, FileText, Zap, BookOpen, Globe, Code } from '
                 <button
                   onClick={checkGrammar}
                   disabled={isChecking || !text}
-                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+                  className="flex items-center gap-2 cursor-pointer bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white px-6 py-2 rounded-lg font-medium transition-colors"
                 >
-                  <Zap className="w-4 h-4" />
+                  {/* <Zap className="w-4 h-4" /> */}
                   {isChecking ? 'Checking...' : 'Check Grammar'}
                 </button>
               </div>
@@ -502,7 +503,7 @@ import { AlertCircle, CheckCircle, FileText, Zap, BookOpen, Globe, Code } from '
 
                         <button
                           onClick={() => applySuggestion(suggestion)}
-                          className="mt-2 w-full bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1.5 rounded font-medium transition-colors"
+                          className="mt-2 w-full bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-1.5 rounded font-medium transition-colors cursor-pointer"
                         >
                           Apply Suggestion
                         </button>
@@ -513,9 +514,11 @@ import { AlertCircle, CheckCircle, FileText, Zap, BookOpen, Globe, Code } from '
               </div>
             </div>
           </div>
+
+         
         </div>
 
-      
+       <Features/>
       </div>
     </div>
   );

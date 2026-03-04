@@ -1,5 +1,6 @@
 "use-client";
 import React, { useState, useEffect, useMemo } from "react";
+import Features from "./Feature";
 
 export default function App() {
   const [pattern, setPattern] = useState(
@@ -640,6 +641,8 @@ export default function App() {
             </div>
           </div>
         </div>
+
+        <Features/>
       </div>
     </div>
   );

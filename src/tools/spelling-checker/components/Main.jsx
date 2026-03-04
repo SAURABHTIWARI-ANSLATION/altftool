@@ -8,6 +8,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 import Header from "./Header";
+import Features from "./Features";
 // import FAQSection from "./components/FAQs";
 
 export default function MainComponent() {
@@ -163,7 +164,7 @@ export default function MainComponent() {
                 px-5 py-3 rounded-xl text-sm font-semibold
                 bg-(--primary) text-(--primary-foreground)
                 shadow hover:shadow-lg transition
-                w-full sm:w-auto
+                w-full sm:w-auto cursor-pointer
               "
             >
               {loading ? "Checking..." : "Check Spelling & Grammar"}
@@ -354,9 +355,9 @@ export default function MainComponent() {
       </div>
 
       {/* ========================== FAQ SECTION ========================== */}
-      {/* <div className="bg-(--card) border border-(--border) rounded-2xl shadow-lg p-6">
-        <FAQSection />
-      </div> */}
+      <div className="bg-(--card) border border-(--border) rounded-2xl shadow-lg p-6">
+      <Features/>
+      </div>
     </div>
   );
 }

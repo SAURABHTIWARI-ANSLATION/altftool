@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-
+import Description from "../components/Description"; 
 
 
 // Field configuration - Add new fields here to automatically include them
@@ -381,6 +381,11 @@ export default function ToolHome(){
             )}
           </div>
         </div>
+        {/* ------------------- 6 Cards Section ------------------- */}
+        <div className="mt-12">
+          <Description /> {/* ← yaha render kar diya */}
+        </div>
+
 
       </div>
     </div>

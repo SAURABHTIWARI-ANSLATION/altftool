@@ -289,7 +289,7 @@ export default function Main() {
         <h1 className="heading font-bold mb-6">
           Generate Professional
           <br />
-          <span className="text-(--foreground)">README Files</span>
+          <span className="heading font-bold mb-6">README Files</span>
         </h1>
 
         <p className="description text-(--muted-foreground) max-w-2xl mx-auto">

@@ -1,0 +1,842 @@
+[
+    {
+        "id": 1,
+        "title": "The Mahabharata",
+        "author": "Vyasa",
+        "year": "400 BCE",
+        "cover": "https://covers.openlibrary.org/b/id/8231891-L.jpg",
+        "description": "Ancient Indian epic about the Kurukshetra war"
+    },
+    {
+        "id": 2,
+        "title": "The Ramayana",
+        "author": "Valmiki",
+        "year": "500 BCE",
+        "cover": "https://covers.openlibrary.org/b/id/8455168-L.jpg",
+        "description": "The journey of Prince Rama to rescue his wife Sita"
+    },
+    {
+        "id": 3,
+        "title": "Bhagavad Gita",
+        "author": "Vyasa",
+        "year": "200 BCE",
+        "cover": "https://covers.openlibrary.org/b/id/8226091-L.jpg",
+        "description": "Sacred Hindu scripture, part of the Mahabharata"
+    },
+    {
+        "id": 4,
+        "title": "The Upanishads",
+        "author": "Ancient Sages",
+        "year": "800 BCE",
+        "cover": "https://covers.openlibrary.org/b/id/8231892-L.jpg",
+        "description": "Philosophical texts forming the basis of Hindu philosophy"
+    },
+    {
+        "id": 5,
+        "title": "Shakuntala",
+        "author": "Kalidasa",
+        "year": "400 CE",
+        "cover": "https://covers.openlibrary.org/b/id/8231893-L.jpg",
+        "description": "Classical Sanskrit play about love and separation"
+    },
+    {
+        "id": 6,
+        "title": "Meghaduta",
+        "author": "Kalidasa",
+        "year": "400 CE",
+        "cover": "https://covers.openlibrary.org/b/id/8231894-L.jpg",
+        "description": "Lyrical poem about a cloud messenger"
+    },
+    {
+        "id": 7,
+        "title": "Raghuvamsa",
+        "author": "Kalidasa",
+        "year": "400 CE",
+        "cover": "https://covers.openlibrary.org/b/id/8231895-L.jpg",
+        "description": "Epic poem about the Raghu dynasty"
+    },
+    {
+        "id": 8,
+        "title": "Kumarasambhava",
+        "author": "Kalidasa",
+        "year": "400 CE",
+        "cover": "https://covers.openlibrary.org/b/id/8231896-L.jpg",
+        "description": "Epic poem about the birth of Kartikeya"
+    },
+    {
+        "id": 9,
+        "title": "Mrichchhakatika",
+        "author": "Shudraka",
+        "year": "300 CE",
+        "cover": "https://covers.openlibrary.org/b/id/8231897-L.jpg",
+        "description": "Sanskrit play about a merchant and a courtesan"
+    },
+    {
+        "id": 10,
+        "title": "Arthashastra",
+        "author": "Kautilya",
+        "year": "300 BCE",
+        "cover": "https://covers.openlibrary.org/b/id/8231898-L.jpg",
+        "description": "Ancient treatise on statecraft and economics"
+    },
+    {
+        "id": 11,
+        "title": "Panchatantra",
+        "author": "Vishnu Sharma",
+        "year": "200 BCE",
+        "cover": "https://covers.openlibrary.org/b/id/8231899-L.jpg",
+        "description": "Collection of animal fables with moral lessons"
+    },
+    {
+        "id": 12,
+        "title": "Jataka Tales",
+        "author": "Buddhist Monks",
+        "year": "300 BCE",
+        "cover": "https://covers.openlibrary.org/b/id/8231900-L.jpg",
+        "description": "Stories about previous lives of the Buddha"
+    },
+    {
+        "id": 13,
+        "title": "The Buddha and His Dhamma",
+        "author": "B.R. Ambedkar",
+        "year": "1957",
+        "cover": "https://covers.openlibrary.org/b/id/8231901-L.jpg",
+        "description": "Treatise on Buddhism and the life of Buddha"
+    },
+    {
+        "id": 14,
+        "title": "India: A Civilization",
+        "author": "Radhakumud Mookerji",
+        "year": "1936",
+        "cover": "https://covers.openlibrary.org/b/id/8231902-L.jpg",
+        "description": "Comprehensive history of Indian civilization"
+    },
+    {
+        "id": 15,
+        "title": "The Discovery of India",
+        "author": "Jawaharlal Nehru",
+        "year": "1946",
+        "cover": "https://covers.openlibrary.org/b/id/8231903-L.jpg",
+        "description": "Account of Indian history, philosophy, and culture"
+    },
+    {
+        "id": 16,
+        "title": "Anandamath",
+        "author": "Bankim Chandra Chatterjee",
+        "year": "1882",
+        "cover": "https://covers.openlibrary.org/b/id/8231904-L.jpg",
+        "description": "Bengali novel about the Sannyasi Rebellion"
+    },
+    {
+        "id": 17,
+        "title": "Gora",
+        "author": "Rabindranath Tagore",
+        "year": "1910",
+        "cover": "https://covers.openlibrary.org/b/id/8231905-L.jpg",
+        "description": "Novel exploring Indian identity and colonialism"
+    },
+    {
+        "id": 18,
+        "title": "The Home and the World",
+        "author": "Rabindranath Tagore",
+        "year": "1916",
+        "cover": "https://covers.openlibrary.org/b/id/8231906-L.jpg",
+        "description": "Novel about nationalism and personal relationships"
+    },
+    {
+        "id": 19,
+        "title": "Chokher Bali",
+        "author": "Rabindranath Tagore",
+        "year": "1903",
+        "cover": "https://covers.openlibrary.org/b/id/8231907-L.jpg",
+        "description": "Bengali novel about love and betrayal"
+    },
+    {
+        "id": 20,
+        "title": "Pather Panchali",
+        "author": "Bibhutibhushan Bandyopadhyay",
+        "year": "1929",
+        "cover": "https://covers.openlibrary.org/b/id/8231908-L.jpg",
+        "description": "Classic Bengali novel about rural life"
+    },
+    {
+        "id": 21,
+        "title": "Aranyak",
+        "author": "Bibhutibhushan Bandyopadhyay",
+        "year": "1939",
+        "cover": "https://covers.openlibrary.org/b/id/8231909-L.jpg",
+        "description": "Novel about nature and forest life"
+    },
+    {
+        "id": 22,
+        "title": "Devdas",
+        "author": "Sarat Chandra Chattopadhyay",
+        "year": "1917",
+        "cover": "https://covers.openlibrary.org/b/id/8231910-L.jpg",
+        "description": "Tragic love story set in Bengal"
+    },
+    {
+        "id": 23,
+        "title": "Srikanta",
+        "author": "Sarat Chandra Chattopadhyay",
+        "year": "1917",
+        "cover": "https://covers.openlibrary.org/b/id/8231911-L.jpg",
+        "description": "Autobiographical novel about a wanderer"
+    },
+    {
+        "id": 24,
+        "title": "The Guide",
+        "author": "R.K. Narayan",
+        "year": "1958",
+        "cover": "https://covers.openlibrary.org/b/id/8231912-L.jpg",
+        "description": "Novel about a reluctant spiritual guide"
+    },
+    {
+        "id": 25,
+        "title": "Malgudi Days",
+        "author": "R.K. Narayan",
+        "year": "1943",
+        "cover": "https://covers.openlibrary.org/b/id/8231913-L.jpg",
+        "description": "Collection of short stories set in Malgudi"
+    },
+    {
+        "id": 26,
+        "title": "The English Teacher",
+        "author": "R.K. Narayan",
+        "year": "1945",
+        "cover": "https://covers.openlibrary.org/b/id/8231914-L.jpg",
+        "description": "Novel about love, loss, and spiritual growth"
+    },
+    {
+        "id": 27,
+        "title": "Waiting for the Mahatma",
+        "author": "R.K. Narayan",
+        "year": "1955",
+        "cover": "https://covers.openlibrary.org/b/id/8231915-L.jpg",
+        "description": "Story set during the Indian independence movement"
+    },
+    {
+        "id": 28,
+        "title": "The Financial Expert",
+        "author": "R.K. Narayan",
+        "year": "1952",
+        "cover": "https://covers.openlibrary.org/b/id/8231916-L.jpg",
+        "description": "Comic novel about money and ambition"
+    },
+    {
+        "id": 29,
+        "title": "The Dark Room",
+        "author": "R.K. Narayan",
+        "year": "1938",
+        "cover": "https://covers.openlibrary.org/b/id/8231917-L.jpg",
+        "description": "Novel about marriage and female identity"
+    },
+    {
+        "id": 30,
+        "title": "Kanthapura",
+        "author": "Raja Rao",
+        "year": "1938",
+        "cover": "https://covers.openlibrary.org/b/id/8231918-L.jpg",
+        "description": "Novel about the Gandhian movement in a village"
+    },
+    {
+        "id": 31,
+        "title": "The Serpent and the Rope",
+        "author": "Raja Rao",
+        "year": "1960",
+        "cover": "https://covers.openlibrary.org/b/id/8231919-L.jpg",
+        "description": "Philosophical novel about East-West encounter"
+    },
+    {
+        "id": 32,
+        "title": "Train to Pakistan",
+        "author": "Khushwant Singh",
+        "year": "1956",
+        "cover": "https://covers.openlibrary.org/b/id/8231920-L.jpg",
+        "description": "Novel about the Partition of India"
+    },
+    {
+        "id": 33,
+        "title": "I Shall Not Hear the Nightingale",
+        "author": "Khushwant Singh",
+        "year": "1959",
+        "cover": "https://covers.openlibrary.org/b/id/8231921-L.jpg",
+        "description": "Novel set during the freedom struggle"
+    },
+    {
+        "id": 34,
+        "title": "A Bend in the Ganges",
+        "author": "Manohar Malgonkar",
+        "year": "1964",
+        "cover": "https://covers.openlibrary.org/b/id/8231922-L.jpg",
+        "description": "Novel about Partition and violence"
+    },
+    {
+        "id": 35,
+        "title": "The Princes",
+        "author": "Manohar Malgonkar",
+        "year": "1963",
+        "cover": "https://covers.openlibrary.org/b/id/8231923-L.jpg",
+        "description": "Story of a princely state in post-independence India"
+    },
+    {
+        "id": 36,
+        "title": "Coolie",
+        "author": "Mulk Raj Anand",
+        "year": "1936",
+        "cover": "https://covers.openlibrary.org/b/id/8231924-L.jpg",
+        "description": "Novel about a coolie's struggle for survival"
+    },
+    {
+        "id": 37,
+        "title": "Untouchable",
+        "author": "Mulk Raj Anand",
+        "year": "1935",
+        "cover": "https://covers.openlibrary.org/b/id/8231925-L.jpg",
+        "description": "A day in the life of a sweeper boy"
+    },
+    {
+        "id": 38,
+        "title": "The Private Life of an Indian Prince",
+        "author": "Mulk Raj Anand",
+        "year": "1953",
+        "cover": "https://covers.openlibrary.org/b/id/8231926-L.jpg",
+        "description": "Psychological portrait of a declining prince"
+    },
+    {
+        "id": 39,
+        "title": "The Village",
+        "author": "Mulk Raj Anand",
+        "year": "1939",
+        "cover": "https://covers.openlibrary.org/b/id/8231927-L.jpg",
+        "description": "First of a trilogy about rural Punjab"
+    },
+    {
+        "id": 40,
+        "title": "Across the Black Waters",
+        "author": "Mulk Raj Anand",
+        "year": "1940",
+        "cover": "https://covers.openlibrary.org/b/id/8231928-L.jpg",
+        "description": "Novel about Indian soldiers in World War I"
+    },
+    {
+        "id": 41,
+        "title": "Midnight's Children",
+        "author": "Salman Rushdie",
+        "year": "1981",
+        "cover": "https://covers.openlibrary.org/b/id/8231929-L.jpg",
+        "description": "Magical realism novel about India's independence"
+    },
+    {
+        "id": 42,
+        "title": "The God of Small Things",
+        "author": "Arundhati Roy",
+        "year": "1997",
+        "cover": "https://covers.openlibrary.org/b/id/8231930-L.jpg",
+        "description": "Booker Prize winning novel about family and love"
+    },
+    {
+        "id": 43,
+        "title": "A Suitable Boy",
+        "author": "Vikram Seth",
+        "year": "1993",
+        "cover": "https://covers.openlibrary.org/b/id/8231931-L.jpg",
+        "description": "Epic novel set in post-independence India"
+    },
+    {
+        "id": 44,
+        "title": "The Inheritance of Loss",
+        "author": "Kiran Desai",
+        "year": "2006",
+        "cover": "https://covers.openlibrary.org/b/id/8231932-L.jpg",
+        "description": "Man Booker Prize novel about globalization"
+    },
+    {
+        "id": 45,
+        "title": "The White Tiger",
+        "author": "Aravind Adiga",
+        "year": "2008",
+        "cover": "https://covers.openlibrary.org/b/id/8231933-L.jpg",
+        "description": "Darkly humorous novel about class struggle in India"
+    },
+    {
+        "id": 46,
+        "title": "A Fine Balance",
+        "author": "Rohinton Mistry",
+        "year": "1995",
+        "cover": "https://covers.openlibrary.org/b/id/8231934-L.jpg",
+        "description": "Novel set during The Emergency in India"
+    },
+    {
+        "id": 47,
+        "title": "Such a Long Journey",
+        "author": "Rohinton Mistry",
+        "year": "1991",
+        "cover": "https://covers.openlibrary.org/b/id/8231935-L.jpg",
+        "description": "Story of a Parsi family in Bombay"
+    },
+    {
+        "id": 48,
+        "title": "Family Matters",
+        "author": "Rohinton Mistry",
+        "year": "2002",
+        "cover": "https://covers.openlibrary.org/b/id/8231936-L.jpg",
+        "description": "Novel about an elderly Parsi professor"
+    },
+    {
+        "id": 49,
+        "title": "The Shadow Lines",
+        "author": "Amitav Ghosh",
+        "year": "1988",
+        "cover": "https://covers.openlibrary.org/b/id/8231937-L.jpg",
+        "description": "Novel about memory and borders"
+    },
+    {
+        "id": 50,
+        "title": "The Glass Palace",
+        "author": "Amitav Ghosh",
+        "year": "2000",
+        "cover": "https://covers.openlibrary.org/b/id/8231938-L.jpg",
+        "description": "Historical novel set in Burma and India"
+    },
+    {
+        "id": 51,
+        "title": "Sea of Poppies",
+        "author": "Amitav Ghosh",
+        "year": "2008",
+        "cover": "https://covers.openlibrary.org/b/id/8231939-L.jpg",
+        "description": "First of the Ibis trilogy about opium trade"
+    },
+    {
+        "id": 52,
+        "title": "River of Smoke",
+        "author": "Amitav Ghosh",
+        "year": "2011",
+        "cover": "https://covers.openlibrary.org/b/id/8231940-L.jpg",
+        "description": "Second in the Ibis trilogy"
+    },
+    {
+        "id": 53,
+        "title": "Flood of Fire",
+        "author": "Amitav Ghosh",
+        "year": "2015",
+        "cover": "https://covers.openlibrary.org/b/id/8231941-L.jpg",
+        "description": "Final in the Ibis trilogy"
+    },
+    {
+        "id": 54,
+        "title": "The Circle of Reason",
+        "author": "Amitav Ghosh",
+        "year": "1986",
+        "cover": "https://covers.openlibrary.org/b/id/8231942-L.jpg",
+        "description": "Debut novel about a weaver's journey"
+    },
+    {
+        "id": 55,
+        "title": "The Calcutta Chromosome",
+        "author": "Amitav Ghosh",
+        "year": "1995",
+        "cover": "https://covers.openlibrary.org/b/id/8231943-L.jpg",
+        "description": "Science fiction thriller set in Calcutta"
+    },
+    {
+        "id": 56,
+        "title": "The Hungry Tide",
+        "author": "Amitav Ghosh",
+        "year": "2004",
+        "cover": "https://covers.openlibrary.org/b/id/8231944-L.jpg",
+        "description": "Novel set in the Sundarbans"
+    },
+    {
+        "id": 57,
+        "title": "In an Antique Land",
+        "author": "Amitav Ghosh",
+        "year": "1992",
+        "cover": "https://covers.openlibrary.org/b/id/8231945-L.jpg",
+        "description": "History in the guise of a travelogue"
+    },
+    {
+        "id": 58,
+        "title": "The Great Indian Novel",
+        "author": "Shashi Tharoor",
+        "year": "1989",
+        "cover": "https://covers.openlibrary.org/b/id/8231946-L.jpg",
+        "description": "Satirical retelling of the Mahabharata"
+    },
+    {
+        "id": 59,
+        "title": "Riot",
+        "author": "Shashi Tharoor",
+        "year": "2001",
+        "cover": "https://covers.openlibrary.org/b/id/8231947-L.jpg",
+        "description": "Novel about religious violence"
+    },
+    {
+        "id": 60,
+        "title": "The Satanic Verses",
+        "author": "Salman Rushdie",
+        "year": "1988",
+        "cover": "https://covers.openlibrary.org/b/id/8231948-L.jpg",
+        "description": "Controversial novel about migration and identity"
+    },
+    {
+        "id": 61,
+        "title": "Shame",
+        "author": "Salman Rushdie",
+        "year": "1983",
+        "cover": "https://covers.openlibrary.org/b/id/8231949-L.jpg",
+        "description": "Novel about politics in Pakistan"
+    },
+    {
+        "id": 62,
+        "title": "Haroun and the Sea of Stories",
+        "author": "Salman Rushdie",
+        "year": "1990",
+        "cover": "https://covers.openlibrary.org/b/id/8231950-L.jpg",
+        "description": "Children's fantasy novel"
+    },
+    {
+        "id": 63,
+        "title": "The Moor's Last Sigh",
+        "author": "Salman Rushdie",
+        "year": "1995",
+        "cover": "https://covers.openlibrary.org/b/id/8231951-L.jpg",
+        "description": "Family saga set in Bombay"
+    },
+    {
+        "id": 64,
+        "title": "The Ground Beneath Her Feet",
+        "author": "Salman Rushdie",
+        "year": "1999",
+        "cover": "https://covers.openlibrary.org/b/id/8231952-L.jpg",
+        "description": "Retelling of the Orpheus myth"
+    },
+    {
+        "id": 65,
+        "title": "Fury",
+        "author": "Salman Rushdie",
+        "year": "2001",
+        "cover": "https://covers.openlibrary.org/b/id/8231953-L.jpg",
+        "description": "Novel set in New York City"
+    },
+    {
+        "id": 66,
+        "title": "Shalimar the Clown",
+        "author": "Salman Rushdie",
+        "year": "2005",
+        "cover": "https://covers.openlibrary.org/b/id/8231954-L.jpg",
+        "description": "Novel about Kashmir and terrorism"
+    },
+    {
+        "id": 67,
+        "title": "The Enchantress of Florence",
+        "author": "Salman Rushdie",
+        "year": "2008",
+        "cover": "https://covers.openlibrary.org/b/id/8231955-L.jpg",
+        "description": "Historical novel about Mughal empire"
+    },
+    {
+        "id": 68,
+        "title": "Two Years Eight Months and Twenty-Eight Nights",
+        "author": "Salman Rushdie",
+        "year": "2015",
+        "cover": "https://covers.openlibrary.org/b/id/8231956-L.jpg",
+        "description": "Fantasy novel about jinns"
+    },
+    {
+        "id": 69,
+        "title": "The Golden House",
+        "author": "Salman Rushdie",
+        "year": "2017",
+        "cover": "https://covers.openlibrary.org/b/id/8231957-L.jpg",
+        "description": "Novel about contemporary America"
+    },
+    {
+        "id": 70,
+        "title": "Quichotte",
+        "author": "Salman Rushdie",
+        "year": "2019",
+        "cover": "https://covers.openlibrary.org/b/id/8231958-L.jpg",
+        "description": "Modern retelling of Don Quixote"
+    },
+    {
+        "id": 71,
+        "title": "Victory City",
+        "author": "Salman Rushdie",
+        "year": "2023",
+        "cover": "https://covers.openlibrary.org/b/id/8231959-L.jpg",
+        "description": "Epic tale of a woman who changes history"
+    },
+    {
+        "id": 72,
+        "title": "The Lowland",
+        "author": "Jhumpa Lahiri",
+        "year": "2013",
+        "cover": "https://covers.openlibrary.org/b/id/8231960-L.jpg",
+        "description": "Novel about two brothers in Calcutta"
+    },
+    {
+        "id": 73,
+        "title": "The Namesake",
+        "author": "Jhumpa Lahiri",
+        "year": "2003",
+        "cover": "https://covers.openlibrary.org/b/id/8231961-L.jpg",
+        "description": "Story of a Bengali-American family"
+    },
+    {
+        "id": 74,
+        "title": "Interpreter of Maladies",
+        "author": "Jhumpa Lahiri",
+        "year": "1999",
+        "cover": "https://covers.openlibrary.org/b/id/8231962-L.jpg",
+        "description": "Pulitzer Prize winning short stories"
+    },
+    {
+        "id": 75,
+        "title": "Unaccustomed Earth",
+        "author": "Jhumpa Lahiri",
+        "year": "2008",
+        "cover": "https://covers.openlibrary.org/b/id/8231963-L.jpg",
+        "description": "Short stories about Bengali immigrants"
+    },
+    {
+        "id": 76,
+        "title": "The Ministry of Utmost Happiness",
+        "author": "Arundhati Roy",
+        "year": "2017",
+        "cover": "https://covers.openlibrary.org/b/id/8231964-L.jpg",
+        "description": "Second novel two decades after debut"
+    },
+    {
+        "id": 77,
+        "title": "The End of Imagination",
+        "author": "Arundhati Roy",
+        "year": "2016",
+        "cover": "https://covers.openlibrary.org/b/id/8231965-L.jpg",
+        "description": "Collection of political essays"
+    },
+    {
+        "id": 78,
+        "title": "An Era of Darkness",
+        "author": "Shashi Tharoor",
+        "year": "2016",
+        "cover": "https://covers.openlibrary.org/b/id/8231966-L.jpg",
+        "description": "Non-fiction about British rule in India"
+    },
+    {
+        "id": 79,
+        "title": "Inglorious Empire",
+        "author": "Shashi Tharoor",
+        "year": "2017",
+        "cover": "https://covers.openlibrary.org/b/id/8231967-L.jpg",
+        "description": "About British colonialism in India"
+    },
+    {
+        "id": 80,
+        "title": "The Paradoxical Prime Minister",
+        "author": "Shashi Tharoor",
+        "year": "2018",
+        "cover": "https://covers.openlibrary.org/b/id/8231968-L.jpg",
+        "description": "Analysis of Narendra Modi's leadership"
+    },
+    {
+        "id": 81,
+        "title": "Chemmeen",
+        "author": "Thakazhi Sivasankara Pillai",
+        "year": "1956",
+        "cover": "https://covers.openlibrary.org/b/id/8231969-L.jpg",
+        "description": "Malayalam novel about fishermen community"
+    },
+    {
+        "id": 82,
+        "title": "Aadujeevitham",
+        "author": "Benyamin",
+        "year": "2008",
+        "cover": "https://covers.openlibrary.org/b/id/8231970-L.jpg",
+        "description": "Malayalam novel about a migrant worker's suffering"
+    },
+    {
+        "id": 83,
+        "title": "The Legends of Khasak",
+        "author": "O.V. Vijayan",
+        "year": "1969",
+        "cover": "https://covers.openlibrary.org/b/id/8231971-L.jpg",
+        "description": "Malayalam novel blending myth and reality"
+    },
+    {
+        "id": 84,
+        "title": "Karukku",
+        "author": "Bama",
+        "year": "1992",
+        "cover": "https://covers.openlibrary.org/b/id/8231972-L.jpg",
+        "description": "Tamil Dalit autobiography"
+    },
+    {
+        "id": 85,
+        "title": "Silappathikaram",
+        "author": "Ilango Adigal",
+        "year": "500 CE",
+        "cover": "https://covers.openlibrary.org/b/id/8231973-L.jpg",
+        "description": "Tamil epic about a merchant's wife"
+    },
+    {
+        "id": 86,
+        "title": "Manimekalai",
+        "author": "Seethalai Saathanar",
+        "year": "600 CE",
+        "cover": "https://covers.openlibrary.org/b/id/8231974-L.jpg",
+        "description": "Tamil Buddhist epic"
+    },
+    {
+        "id": 87,
+        "title": "Tirukkural",
+        "author": "Thiruvalluvar",
+        "year": "300 BCE",
+        "cover": "https://covers.openlibrary.org/b/id/8231975-L.jpg",
+        "description": "Classical Tamil couplets on ethics"
+    },
+    {
+        "id": 88,
+        "title": "Gitanjali",
+        "author": "Rabindranath Tagore",
+        "year": "1910",
+        "cover": "https://covers.openlibrary.org/b/id/8231976-L.jpg",
+        "description": "Nobel Prize winning poetry collection"
+    },
+    {
+        "id": 89,
+        "title": "The Post Office",
+        "author": "Rabindranath Tagore",
+        "year": "1912",
+        "cover": "https://covers.openlibrary.org/b/id/8231977-L.jpg",
+        "description": "Symbolic play about a sick child"
+    },
+    {
+        "id": 90,
+        "title": "The Gardener",
+        "author": "Rabindranath Tagore",
+        "year": "1913",
+        "cover": "https://covers.openlibrary.org/b/id/8231978-L.jpg",
+        "description": "Lyrical poetry about love"
+    },
+    {
+        "id": 91,
+        "title": "Kabuliwala",
+        "author": "Rabindranath Tagore",
+        "year": "1892",
+        "cover": "https://covers.openlibrary.org/b/id/8231979-L.jpg",
+        "description": "Short story about a Pathan and a Bengali girl"
+    },
+    {
+        "id": 92,
+        "title": "The Wreck",
+        "author": "Rabindranath Tagore",
+        "year": "1906",
+        "cover": "https://covers.openlibrary.org/b/id/8231980-L.jpg",
+        "description": "Novel about mistaken identity"
+    },
+    {
+        "id": 93,
+        "title": "Binodini",
+        "author": "Rabindranath Tagore",
+        "year": "1902",
+        "cover": "https://covers.openlibrary.org/b/id/8231981-L.jpg",
+        "description": "Novel about a young widow"
+    },
+    {
+        "id": 94,
+        "title": "Shesher Kabita",
+        "author": "Rabindranath Tagore",
+        "year": "1929",
+        "cover": "https://covers.openlibrary.org/b/id/8231982-L.jpg",
+        "description": "Poetic novel about love"
+    },
+    {
+        "id": 95,
+        "title": "Yayati",
+        "author": "Vishnu Sakharam Khandekar",
+        "year": "1959",
+        "cover": "https://covers.openlibrary.org/b/id/8231983-L.jpg",
+        "description": "Marathi novel about Mahabharata character"
+    },
+    {
+        "id": 96,
+        "title": "Kosala",
+        "author": "Bhalchandra Nemade",
+        "year": "1963",
+        "cover": "https://covers.openlibrary.org/b/id/8231984-L.jpg",
+        "description": "Marathi novel about rural-urban divide"
+    },
+    {
+        "id": 97,
+        "title": "Bharat Bharati",
+        "author": "Maithili Sharan Gupt",
+        "year": "1912",
+        "cover": "https://covers.openlibrary.org/b/id/8231985-L.jpg",
+        "description": "Hindi epic poem about India's glory"
+    },
+    {
+        "id": 98,
+        "title": "Godaan",
+        "author": "Munshi Premchand",
+        "year": "1936",
+        "cover": "https://covers.openlibrary.org/b/id/8231986-L.jpg",
+        "description": "Hindi novel about peasant life"
+    },
+    {
+        "id": 99,
+        "title": "Gaban",
+        "author": "Munshi Premchand",
+        "year": "1931",
+        "cover": "https://covers.openlibrary.org/b/id/8231987-L.jpg",
+        "description": "Novel about greed and corruption"
+    },
+    {
+        "id": 100,
+        "title": "Nirmala",
+        "author": "Munshi Premchand",
+        "year": "1927",
+        "cover": "https://covers.openlibrary.org/b/id/8231988-L.jpg",
+        "description": "Novel about dowry system"
+    },
+    {
+        "id": 101,
+        "title": "Karmabhoomi",
+        "author": "Munshi Premchand",
+        "year": "1932",
+        "cover": "https://covers.openlibrary.org/b/id/8231989-L.jpg",
+        "description": "Novel about social reform"
+    },
+    {
+        "id": 102,
+        "title": "Sevasadan",
+        "author": "Munshi Premchand",
+        "year": "1919",
+        "cover": "https://covers.openlibrary.org/b/id/8231990-L.jpg",
+        "description": "Novel about courtesans and society"
+    },
+    {
+        "id": 103,
+        "title": "Rangbhoomi",
+        "author": "Munshi Premchand",
+        "year": "1925",
+        "cover": "https://covers.openlibrary.org/b/id/8231991-L.jpg",
+        "description": "Social novel about a blind beggar"
+    },
+    {
+        "id": 104,
+        "title": "Kayar",
+        "author": "Thakazhi Sivasankara Pillai",
+        "year": "1978",
+        "cover": "https://covers.openlibrary.org/b/id/8231992-L.jpg",
+        "description": "Malayalam novel about caste system"
+    },
+    {
+        "id": 105,
+        "title": "Oru Desathinte Katha",
+        "author": "S.K. Pottekkatt",
+        "year": "1971",
+        "cover": "https://covers.openlibrary.org/b/id/8231993-L.jpg",
+        "description": "Malayalam novel about a village"
+    }
+]

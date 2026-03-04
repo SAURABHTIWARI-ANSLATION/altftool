@@ -3,12 +3,15 @@
 import { useState, useMemo } from "react";
 import { formulas } from "../data/formula";
 import { Search } from "lucide-react";
+import Features from "../components/Features";
 
 
 export default function ToolHome() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedId, setExpandedId] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(12);
+
 
   
   const categories = useMemo(() => {
@@ -35,7 +38,7 @@ export default function ToolHome() {
   const displayedFormulas =
     searchTerm || selectedCategory !== "All"
       ? filteredFormulas
-      : filteredFormulas.slice(0, 6);
+      : filteredFormulas;
 
   const handleToggleExpand = (id) => {
     setExpandedId(expandedId === id ? null : id);
@@ -47,7 +50,7 @@ export default function ToolHome() {
         <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
         
             
-            <h1 className="heading text-center animate-fade-up pt-8 mt-4">Excel Formula </h1>
+            <h1 className="heading text-center animate-fade-up ">Excel Formula </h1>
         
           <p className="description text-center animate-fade-up pt-2">Search and discover Excel formulas to boost your productivity</p>
          
@@ -91,13 +94,13 @@ export default function ToolHome() {
         </div>
 
         {/* Results Info */}
-        {/* <div className="mb-6">
-          <p className="text-sm text-gray-600">
+        <div className="mb-6">
+          <p className="text-sm text-(--foreground)">
             Showing {displayedFormulas.length} of {formulas.length} formulas
             {searchTerm && ` • Searching for "${searchTerm}"`}
             {selectedCategory !== "All" && ` • Category: ${selectedCategory}`}
           </p>
-        </div> */}
+        </div>
 
         {/* Formulas Grid */}
         {displayedFormulas.length > 0 ? (
@@ -105,7 +108,7 @@ export default function ToolHome() {
             {displayedFormulas.map((formula) => (
               <div
                 key={formula.id}
-                className="flex flex-col rounded-lg border border-gray-300 bg-(--card) shadow-sm transition-all hover:shadow-md"
+                className="flex flex-col rounded-lg border border-gray-300 bg-(--card) shadow-sm transition-all hover:shadow-md hover:border-l-4 hover:border-l-(--primary)"
               >
                 {/* Card Header */}
                 <div
@@ -117,7 +120,7 @@ export default function ToolHome() {
                       <h3 className="text-lg font-bold text-(--foreground)">
                         {formula.name}
                       </h3>
-                      <span className="inline-block mt-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">
+                      <span className="inline-block mt-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-500">
                         {formula.category}
                       </span>
                     </div>
@@ -165,7 +168,7 @@ export default function ToolHome() {
                         <p className="text-xs font-semibold text-(--muted-foreground) uppercase tracking-wide">
                           Example
                         </p>
-                        <p className="mt-1 rounded bg-(--card) px-2 py-2 font-mono text-sm text-blue-900">
+                        <p className="mt-1 rounded bg-(--card) px-2 py-2 font-mono text-sm text-blue-500">
                           {formula.example}
                         </p>
                       </div>
@@ -208,7 +211,7 @@ export default function ToolHome() {
             </p>
           </div>
         )}
-
+       
         {/* Info Section */}
         {/* {!searchTerm && selectedCategory === "All" && (
           <div className="mt-12 rounded-lg bg-blue-50 p-6 text-center">
@@ -220,7 +223,7 @@ export default function ToolHome() {
         )} */}
       </main>
 
-    
+    <Features/>
     </div>
   );
 }

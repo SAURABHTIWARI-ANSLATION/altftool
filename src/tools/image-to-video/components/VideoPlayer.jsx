@@ -2,7 +2,7 @@
 
 export default function VideoPlayer({ src }) {
   return (
-    <div className="w-full h-full rounded-xl overflow-hidden border border-(--border) bg-(--card)">
+    <div className="w-full h-full rounded-xl overflow-hidden border border-(--border) bg-(--background)">
       <video
         src={src}
         controls

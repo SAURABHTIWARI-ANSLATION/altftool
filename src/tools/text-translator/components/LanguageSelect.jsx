@@ -27,14 +27,14 @@ export default function LanguageSelect({ label, value, onChange, options }) {
       {/* Select Button */}
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className={`w-full px-4 py-3 bg-(--card) border border-(--border) rounded-xl shadow-inner
+        className={`w-full px-4 py-3 bg-(--background) border border-(--border) rounded-xl shadow-inner
                    flex justify-between items-center text-(--foreground)
-                   focus:ring-2 focus:ring-(--primary) transition-all`}
+                   focus:ring-2 focus:ring-(--primary) transition-all cursor-pointer`}
       >
         <span>{selected?.name}</span>
 
         <ChevronDown
-          className={`w-5 h-5 text-(--muted-foreground) transition-transform ${
+          className={`w-5 h-5 text-(--muted-foreground) transition-transform cursor-pointer ${
             open ? "rotate-180" : "rotate-0"
           }`}
         />
@@ -43,7 +43,7 @@ export default function LanguageSelect({ label, value, onChange, options }) {
       {/* Dropdown */}
       {open && (
         <div
-          className="absolute z-20 w-full mt-2 bg-(--card) border border-(--border)
+          className="absolute z-20 w-full mt-2 bg-(--background) border border-(--border)
                         rounded-xl shadow-xl overflow-hidden origin-top animate-scaleFade"
         >
           {options.map((lang) => (
@@ -54,7 +54,7 @@ export default function LanguageSelect({ label, value, onChange, options }) {
                 setOpen(false);
               }}
               className="w-full text-left px-4 py-2 text-(--foreground)
-                         hover:bg-(--muted) transition-colors"
+                         hover:bg-(--muted) cursor-pointer transition-colors"
             >
               {lang.name}
             </button>

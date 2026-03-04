@@ -20,7 +20,7 @@ const TimezoneList = ({
 
   if (filteredTimezones.length === 0) {
     return (
-      <div className="max-w-3xl mx-auto py-8 px-4">
+      <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="p-4 rounded-xl bg-(--card) border border-(--border) text-(--muted-foreground)">
           No timezones found. Try a different search term.
         </div>
@@ -29,7 +29,7 @@ const TimezoneList = ({
   }
 
   return (
-    <section className="max-w-3xl mx-auto py-8 px-4">
+    <section className="max-w-4xl mx-auto py-8 px-4">
       {/* Header */}
       <div className="text-center mb-6">
         <h3 className="subheading">

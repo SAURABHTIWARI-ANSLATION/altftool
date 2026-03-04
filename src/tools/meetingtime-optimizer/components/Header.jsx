@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* PAGE TITLE */}
-      <header className="text-center mb-8">
+      <header className="text-center mb-8 mt-[-50]">
         <h2 className="heading">Meeting Time Optimizer</h2>
         <p className="text-center description">
           Check current weather conditions worldwide

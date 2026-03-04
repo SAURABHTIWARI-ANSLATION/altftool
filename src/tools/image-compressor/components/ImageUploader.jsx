@@ -56,11 +56,11 @@ export default function ImageUploader({ onImageUpload, hasImage }) {
   return (
     <div
       {...getRootProps()}
-      className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition
+      className={`border-2 border-dashed hover:border-(--primary) rounded-lg p-8 text-center cursor-pointer transition
         ${
           isDragActive
             ? "border-(--primary) bg-(--muted)"
-            : "border-(--border) bg-(--card) hover:bg-(--muted)"
+            : "border-(--border) bg-(--card) hover:bg-(--background)"
         }`}
     >
       <input {...getInputProps()} />

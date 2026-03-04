@@ -1,13 +1,11 @@
 "use client";
-import QRScannerHero from "../components/QRScannerHero";
 import QRCodeFeatures from "../components/QRCodeFeatures";
 import QrCodeScannerJsQR from "../components/QrCodeScannerJsQR";
+import Description from "../components/Description";
 
 export default function QRScannerApp() {
   return (
     <div className="min-h-screen bg-(--background) text-(--foreground)">
-      {/* Hero */}
-      <QRScannerHero />
 
       {/* Scanner Section */}
       <div id="scanner">
@@ -16,6 +14,8 @@ export default function QRScannerApp() {
 
       {/* Features */}
       <QRCodeFeatures />
+
+       <Description/>
     </div>
   );
 }

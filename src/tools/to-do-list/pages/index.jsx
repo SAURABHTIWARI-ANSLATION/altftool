@@ -7,6 +7,7 @@ import FilterTabs from "../components/FilterTabs";
 import TaskList from "../components/TaskList";
 import FooterNote from "../components/FooterNote";
 import useTasks from "../hooks/useTasks";
+import Features from "../components/Features";
 
 export default function SimpleTaskManager() {
   const {
@@ -24,8 +25,8 @@ export default function SimpleTaskManager() {
   const [input, setInput] = useState("");
 
   return (
-    <div className="min-h-screen bg-(--background) text-(--foreground) transition-colors py-6 px-4">
-      <div className="mx-auto max-w-4xl">
+    <div className=" bg-(--background) text-(--foreground) transition-colors py-6 px-4">
+      <div className="mx-auto max-w-5xl">
         <Header />
 
         <Stats stats={stats} />
@@ -54,6 +55,7 @@ export default function SimpleTaskManager() {
         </div>
 
         <FooterNote />
+        <Features/>
       </div>
     </div>
   );

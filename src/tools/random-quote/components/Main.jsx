@@ -12,6 +12,7 @@ import {
   Heart,
 } from "lucide-react";
 import Header from "./Header";
+import Features from "./Features";
 
 export default function Main() {
   const [quote, setQuote] = useState(null);
@@ -82,11 +83,11 @@ export default function Main() {
   };
 
   return (
-    <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-16 flex flex-col items-center">
+    <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6  flex flex-col items-center">
       <Header />
 
       {/* Quote Card */}
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-4xl">
         <div className="relative overflow-hidden rounded-3xl bg-(--card) border border-(--border) shadow-xl p-8 sm:p-10 md:p-12 mb-10 min-h -95 flex flex-col justify-center transition-all duration-300 hover:shadow-2xl">
           {/* Decorative Blur */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-(--primary)/10 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/2" />
@@ -136,7 +137,7 @@ export default function Main() {
               <div className="flex flex-wrap gap-4 justify-center pt-6">
                 <button
                   onClick={copyQuote}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-(--card) border border-(--border) hover:bg-(--muted) transition-all cursor-pointer"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-(--background) border border-(--border) hover:bg-(--muted) transition-all cursor-pointer"
                 >
                   {copied ? (
                     <>
@@ -161,7 +162,7 @@ export default function Main() {
 
                 <button
                   onClick={shareQuote}
-                  className="cursor-pointer flex items-center gap-2 px-5 py-2.5 rounded-xl bg-(--card) border border-(--border) hover:bg-(--muted) transition-all"
+                  className="cursor-pointer flex items-center gap-2 px-5 py-2.5 rounded-xl bg-(--background) border border-(--border) hover:bg-(--muted) transition-all"
                 >
                   <Share2 className="w-5 h-5" />
                   Share
@@ -225,6 +226,7 @@ export default function Main() {
           );
         })}
       </div>
+      <Features/>
     </main>
   );
 }

@@ -93,7 +93,7 @@ export default function PetNameGenerator() {
       {/* HERO */}
       <section className="min-h-[40vh] flex items-center justify-center px-4 text-center">
         <div className="max-w-5xl">
-          <h1 className="heading font-extrabold mb-4">
+          <h1 className="heading font-extrabold mb-4 mt-[-40]">
             Find The Perfect Pet Name
           </h1>
 
@@ -119,7 +119,7 @@ export default function PetNameGenerator() {
       </section>
 
       {/* GENERATOR */}
-      <section id="generator" className="py-16 px-4">
+      <section id="generator" className="py-16 px-4 mt-[-60]">
         <div className="max-w-6xl mx-auto bg-(--card) border border-(--border) rounded-2xl p-6 md:p-10">
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold flex items-center gap-2 mb-8">
             <Sparkles className="text-(--primary)" />

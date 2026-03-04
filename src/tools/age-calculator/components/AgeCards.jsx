@@ -10,12 +10,12 @@ export default function AgeCards({ age }) {
       {["Years", "Months", "Days"].map((label, i) => (
         <div
           key={label}
-          className="bg-(--background) text-(--secondary) rounded-lg p-4 border border(--border)"
+          className="bg-(--background) text-(--foreground) rounded-lg p-4 border border(--border)"
         >
-          <div className="text-3xl font-bold bg-(--background)">
+          <div className="text-3xl font-bold bg-(--background )">
             {label === "Years" ? age.years : label === "Months" ? age.months : age.days}
           </div>
-          <div className="text-sm opacity-90">{label}</div>
+          <div className="text-sm text-(--secondary)">{label}</div>
         </div>
       ))}
     </motion.div>

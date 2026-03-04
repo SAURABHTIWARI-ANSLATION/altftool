@@ -10,6 +10,7 @@ import ErrorState from "../components/ErrorState";
 import ShareButton from "../components/ShareButton";
 import { timeframes } from "../constants/data";
 import { proxyFetch } from "../utils/proxyFetch";
+import Features from "../components/Features";
 // import LuckyDetails from "../components/LuckyDetails";
 
 export default function HoroscopeReader() {
@@ -104,6 +105,7 @@ export default function HoroscopeReader() {
             )}
           </>
         )}
+        <Features/>
       </div>
     </div>
   );

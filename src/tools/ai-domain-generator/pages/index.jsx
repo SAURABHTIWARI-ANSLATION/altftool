@@ -264,15 +264,17 @@
 import React from "react";
 
 import DomainGeneratorPage from "../components/DomainGeneratorPage";
+import Features from "../components/Features";
 
 export default function ToolHome() {
   
 
   return (
-    <div className="min-h-screen bg-(--background) flex flex-col">
+    <div className="min-h-auto bg-(--background) flex flex-col">
      
       <main className="grow">
         <DomainGeneratorPage />
+         <Features/>
       </main>
     </div>
   );

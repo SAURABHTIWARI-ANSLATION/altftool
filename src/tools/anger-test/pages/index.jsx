@@ -5,6 +5,7 @@
 import { useState } from 'react';
 import { questions } from '../utils/question';
 import { angerLevels } from '../utils/level';
+import Features from '../components/Features';
 
 
 
@@ -125,19 +126,20 @@ const ResultCard = ({ levelData, score }) => (
     </div>
 
     {/* Disclaimer */}
-    <div className="mt-8 p-4 bg-(--card) rounded-xl border-l-4 border-gray-400">
+    <div className="mt-8 p-4 bg-(--card) rounded-xl border-l-4 border-(--primary)">
       <p className="text-sm text-(--muted-foreground)">
-        <strong>Important Disclaimer:</strong> This assessment is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. If you're experiencing persistent anger issues or thoughts of self-harm, please consult a qualified mental health professional.
+        <span className='text-(--primary)'><strong>Important Disclaimer :</strong> </span>This assessment is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. If you're experiencing persistent anger issues or thoughts of self-harm, please consult a qualified mental health professional.
       </p>
     </div>
 
     {/* Restart Button */}
-    <button
+    <div className='w-full flex justify-center md:justify-start'><button
       onClick={() => window.location.reload()}
-      className="mt-8 px-8 py-4 bg-(--primary) text-white rounded-xl font-semibold text-lg  transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+      className="mt-8 px-8 py-4 bg-(--primary) text-white rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
     >
       🔄 Take Assessment Again
-    </button>
+    </button></div>
+    
   </div>
 );
 
@@ -154,7 +156,7 @@ const QuestionCard = ({
 
     <ProgressBar current={questionNumber} total={totalQuestions}  />
     
-    <div className="bg-(--card) rounded-2xl p-8 shadow-lg border-2 border-(--border) pt-5 mt-15">
+    <div className="bg-(--background) rounded-2xl p-8 shadow-lg border-2 border-(--border) pt-5 mt-15">
       <h2 className="text-2xl font-bold text-(--foreground) mb-6 leading-relaxed">
         {question.text}
       </h2>
@@ -164,14 +166,14 @@ const QuestionCard = ({
           <button
             key={index}
             onClick={() => onAnswer(option.value)}
-            className="w-full p-4 text-left rounded-xl border-2 border-(--border)  transition-all duration-200 cursor-pointer"
+            className="w-full p-4 text-left rounded-xl border-2 border-(--border)  transition-all duration-200 cursor-pointer hover:bg-(--primary) "
           >
             <div className="flex items-center gap-4">
               <span className="shrink-0 w-8 h-8 bg-(--card)  rounded-lg flex items-center justify-center font-semibold transition-colors ">
                 {String.fromCharCode(65 + index)}
               </span>
-              <span className="text-(--muted-foreground)  font-medium">
-                {option.text}
+              <span className="text-(--foreground) font-medium">
+                {option.text} 
               </span>
             </div>
           </button>
@@ -183,7 +185,7 @@ const QuestionCard = ({
 
 // Start Screen Component
 const StartScreen = ({ onStart }) => (
-  <div className="max-w-2xl mx-auto text-center">
+  <div className="max-w-4xl mx-auto text-center">
     <div className="mb-8">
       
       <h1 className="heading text-center animate-fade-up mb-4">
@@ -194,7 +196,7 @@ const StartScreen = ({ onStart }) => (
       </p>
     </div>
 
-    <div className="bg-(--card) rounded-2xl p-8 mb-8 border-2 border-(--border)">
+    <div className="bg-(--background) rounded-2xl p-8 mb-8 border-2 border-(--border)">
       <h2 className="subheading mb-6">How It Works</h2>
       <div className="grid gap-6">
         <div className="flex items-center gap-4 text-left">
@@ -246,18 +248,40 @@ export default  function ToolHome() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [result, setResult] = useState(null);
+  const [shuffledQuestions, setShuffledQuestions] = useState([]);
 
+//suffling the array
+  const shuffleArray = (array) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+  // const handleStart = () => {
+  //   setCurrentStep('question');
+  //   setCurrentQuestion(0);
+  //   setAnswers([]);
+  // };
+
+  //updated the  start  
   const handleStart = () => {
-    setCurrentStep('question');
-    setCurrentQuestion(0);
-    setAnswers([]);
-  };
+  const shuffled = shuffleArray(questions);
+  setShuffledQuestions(shuffled);
+
+  setCurrentStep('question');
+  setCurrentQuestion(0);
+  setAnswers([]);
+};
+
 
   const handleAnswer = (value) => {
-    const newAnswers = [...answers, { questionId: questions[currentQuestion].id, value }];
+    const newAnswers = [...answers, { questionId: shuffledQuestions[currentQuestion].id, value }];
     setAnswers(newAnswers);
 
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion < shuffledQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       // Calculate result
@@ -269,27 +293,30 @@ export default  function ToolHome() {
   };
 
   return (
-    <div className="min-h-screen bg-(--background)">
+    <div className="min-h-auto bg-(--background)">
       
 
       {/* Main Content */}
-      <main className="py-12 px-4">
+      <main className="py-6 px-4">
         {currentStep === 'start' && (
           <StartScreen onStart={handleStart} />
         )}
 
         {currentStep === 'question' && (
-          <QuestionCard
-            question={questions[currentQuestion]}
-            onAnswer={handleAnswer}
-            questionNumber={currentQuestion + 1}
-            totalQuestions={questions.length}
-          />
+         <QuestionCard
+  question={shuffledQuestions[currentQuestion]}
+  onAnswer={handleAnswer}
+  questionNumber={currentQuestion + 1}
+  totalQuestions={shuffledQuestions.length}
+/>
+
         )}
 
         {currentStep === 'result' && result && (
           <ResultCard levelData={result.levelData} score={result.score} />
         )}
+
+        <Features/>
       </main>
 
      

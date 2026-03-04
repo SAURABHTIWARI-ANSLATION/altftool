@@ -1,5 +1,6 @@
 import BestTimeCalculator from "../components/BestTimeCalculator";
 import Header from "../components/Header";
+import Description from "../components/Description";
 
 
 export default function ToolHome() {
@@ -7,6 +8,7 @@ export default function ToolHome() {
     <div className="min-h-screen bg-(--background) transition px-4 py-8">
       <Header />
       <BestTimeCalculator />
+      <Description />
       
     </div>
   );

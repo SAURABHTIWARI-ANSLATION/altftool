@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import PreviewCard from "../components/PreviewCard";
 import ProcessBreakdown from "../components/ProcessBreakdown";
+import Features from "../components/Features";
 
 export default function LinkPreview() {
   const [url, setUrl] = useState("");
@@ -59,7 +60,7 @@ export default function LinkPreview() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col transition-colors duration-500 overflow-x-hidden bg-(--background) text-(--foreground)">
+    <div className="min-h-auto flex flex-col transition-colors duration-500 overflow-x-hidden bg-(--background) text-(--foreground)">
       <main className="grow container mx-auto text-center px-4 mt-10">
         {/* Title */}
         <h2 className="heading ">Generate Website Preview</h2>
@@ -77,7 +78,7 @@ export default function LinkPreview() {
           />
           <button
             onClick={fetchPreview}
-            className="px-8 py-3 rounded-xl text-(--primary-foreground) bg-(--primary) font-semibold hover:opacity-90 transition-all"
+            className="px-8 py-3 cursor-pointer rounded-xl text-(--primary-foreground) bg-(--primary) font-semibold hover:opacity-90 transition-all"
           >
             {loading ? "Loading..." : "Generate"}
           </button>
@@ -113,6 +114,8 @@ export default function LinkPreview() {
 
         {/* Process Breakdown */}
         <ProcessBreakdown />
+
+        <Features/>
       </main>
     </div>
   );

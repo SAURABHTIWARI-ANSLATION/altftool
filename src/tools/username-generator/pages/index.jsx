@@ -4,6 +4,7 @@ import { Copy, Check } from "lucide-react";
 import HowItWorks from "../components/HowItWorks";
 import { toast } from "react-toastify";
 import Header from "../components/Header";
+import Features from "../components/Features";
 // import FAQSection from "./src/components/FAQs";
 
 export default function UsernameGenerator() {
@@ -67,7 +68,7 @@ export default function UsernameGenerator() {
     <div className="space-y-6 pb-6 px-6 bg-(--background)">
       {/* Header */}
       <Header />
-      <div className="p-6 bg-(--card) border border-(--border) rounded-xl">
+      {/* <div className="p-6 bg-(--card) border border-(--border) rounded-xl">
         <h2 className="text-xl font-semibold text-(--foreground) mb-2">
           How to Use
         </h2>
@@ -75,7 +76,7 @@ export default function UsernameGenerator() {
           Enter a keyword and style to generate usernames. Tap a username to
           copy it.
         </p>
-      </div>
+      </div> */}
 
       {/* Generator Layout */}
       <div className="grid md:grid-cols-2 gap-6">
@@ -120,7 +121,7 @@ export default function UsernameGenerator() {
             {/* Button */}
             <button
               onClick={generateUsername}
-              className="w-full py-3 bg-(--primary) text-(--primary-foreground) rounded-lg font-semibold hover:opacity-90"
+              className="w-full py-3 bg-(--primary) text-(--primary-foreground) cursor-pointer rounded-lg font-semibold hover:opacity-90"
             >
               Generate Usernames
             </button>
@@ -145,9 +146,10 @@ export default function UsernameGenerator() {
                       {name}
                     </span>
 
-                    <button
+                    <button 
+                    title="Copy"
                       onClick={() => copyToClipboard(name, index)}
-                      className="p-2 rounded-lg border border-(--border) bg-(--background)"
+                      className="p-2 rounded-lg cursor-pointer border border-(--border) bg-(--background)"
                     >
                       {copiedIndex === index ? (
                         <Check className="w-4 h-4 text-green-500" />
@@ -196,6 +198,9 @@ export default function UsernameGenerator() {
       {/* More sections */}
       <div className="p-6 bg-(--card) border border-(--border) rounded-xl">
         <HowItWorks />
+      </div>
+      <div className="p-6 bg-(--card) border border-(--border) rounded-xl">
+        <Features/>
       </div>
 
       {/* <div className="p-6 bg-(--card) border border-(--border) rounded-xl">

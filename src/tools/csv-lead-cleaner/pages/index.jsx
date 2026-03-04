@@ -5,6 +5,7 @@ import LeadPreviewTable from "../components/LeadPreviewTable";
 import Cards from "../components/Cards";
 import Privacy from "../components/Privacy";
 import CsvLeadCleaner from "../components/CsvLeadCleaner";
+import Description from "../components/Description";
 
 // Utilities
 import * as helpers from "../utils/helpers";
@@ -32,7 +33,7 @@ export default function App() {
 
       {/* ================= UPLOAD + PREVIEW ================= */}
       <section className="max-w-6xl mx-auto px-6 py-14">
-        <h2 className="subheading text-center mb-10">
+        <h2 className="subheading text-center mb-10 mt-[-50]">
           Upload Your CSV
         </h2>
 
@@ -47,28 +48,17 @@ export default function App() {
           mx-auto
           space-y-8
         ">
-          {/* Cleaner Tool */}
           <CsvLeadCleaner
             csvText={csvDataToText(csvData)}
             helpers={helpers}
           />
 
-          {/* Preview Table */}
           <LeadPreviewTable data={csvData} />
         </div>
       </section>
 
       {/* ================= FEATURES ================= */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <h2 className="subheading">
-            Key Features
-          </h2>
-          <p className="description mt-3">
-            Everything you need to prepare CRM-ready lead files.
-          </p>
-        </div>
-
         <Cards />
       </section>
 
@@ -78,6 +68,9 @@ export default function App() {
           <Privacy />
         </div>
       </section>
+
+      {/* ================= HOW IT WORKS (NOW LAST) ================= */}
+      <Description />
 
     </div>
   );

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Mic, Pause, Play, Square, Volume2, Gauge, Music } from "lucide-react";
 // import HowItWorks from "../components/HowItWorks";
 import Header from "../components/Header";
+import Description from "../components/Description";
 // import FAQSection from "../src/components/FAQs";
 
 /* ----------------- Speech Utils ----------------- */
@@ -128,7 +129,7 @@ export default function TextToVoice() {
     setIsPaused(false);
   };
 
-  /* UI STARTS HERE — PURE TAILWIND CSS */
+
 
   return (
     <div className="space-y-6 pb-6 px-5">
@@ -155,7 +156,7 @@ export default function TextToVoice() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Enter text to convert to speech..."
-              className="w-full min-h-60 rounded-lg bg-(--muted) text-(--foreground) border border-(--border) p-4 resize-none"
+              className="w-full min-h-67 rounded-lg bg-(--muted) text-(--foreground) border border-(--border) p-4 resize-none"
             />
           </div>
 
@@ -167,7 +168,7 @@ export default function TextToVoice() {
               <button
                 onClick={handleSpeak}
                 disabled={isSpeaking || !text.trim()}
-                className="flex-1 min-w-30 px-4 py-3 rounded-lg bg-(--primary) text-white font-bold disabled:opacity-40"
+                className="flex-1 min-w-30 px-4 py-3 cursor-pointer rounded-lg bg-(--primary) text-white font-bold disabled:opacity-40"
               >
                 <Play className="w-4 h-4 inline mr-2" />
                 Speak
@@ -177,7 +178,7 @@ export default function TextToVoice() {
               <button
                 onClick={handlePause}
                 disabled={!isSpeaking || isPaused}
-                className="flex-1 min-w-30 px-4 py-3 rounded-lg bg-(--muted) text-(--foreground) disabled:opacity-40"
+                className="flex-1 min-w-30 px-4 py-3 cursor-pointer rounded-lg bg-(--muted) text-(--foreground) disabled:opacity-40"
               >
                 <Pause className="w-4 h-4 inline mr-2" />
                 Pause
@@ -187,7 +188,7 @@ export default function TextToVoice() {
               <button
                 onClick={handleResume}
                 disabled={!isSpeaking || !isPaused}
-                className="flex-1 min-w-30 px-4 py-3 rounded-lg bg-(--muted) text-(--foreground) disabled:opacity-40"
+                className="flex-1 min-w-30 px-4 py-3 cursor-pointer rounded-lg bg-(--muted) text-(--foreground) disabled:opacity-40"
               >
                 <Play className="w-4 h-4 inline mr-2" />
                 Resume
@@ -197,7 +198,7 @@ export default function TextToVoice() {
               <button
                 onClick={handleStop}
                 disabled={!isSpeaking}
-                className="flex-1 min-w-30 px-4 py-3 rounded-lg bg-red-500 text-white font-bold disabled:opacity-40"
+                className="flex-1 min-w-30 px-4 py-3 cursor-pointer rounded-lg bg-red-500 text-white font-bold disabled:opacity-40"
               >
                 <Square className="w-4 h-4 inline mr-2" />
                 Stop
@@ -240,12 +241,12 @@ export default function TextToVoice() {
               </label>
               <input
                 type="range"
-                min="0.5"
-                max="2"
+                min="0.1"
+                max="3"
                 step="0.1"
                 value={rate}
                 onChange={(e) => setRate(parseFloat(e.target.value))}
-                className="w-full"
+                className="w-full cursor-pointer"
               />
             </div>
 
@@ -256,12 +257,12 @@ export default function TextToVoice() {
               </label>
               <input
                 type="range"
-                min="0"
+                min="0.1"
                 max="2"
                 step="0.1"
                 value={pitch}
                 onChange={(e) => setPitch(parseFloat(e.target.value))}
-                className="w-full"
+                className="w-full cursor-pointer"
               />
             </div>
 
@@ -272,12 +273,12 @@ export default function TextToVoice() {
               </label>
               <input
                 type="range"
-                min="0"
-                max="1"
+                min="0.1"
+                max="2"
                 step="0.1"
                 value={volume}
                 onChange={(e) => setVolume(parseFloat(e.target.value))}
-                className="w-full"
+                className="w-full cursor-pointer"
               />
             </div>
           </div>
@@ -289,7 +290,7 @@ export default function TextToVoice() {
               <button
                 onClick={handleSpeak}
                 disabled={isSpeaking || !text.trim()}
-                className="flex-1 min-w-30 px-4 py-3 rounded-lg bg-(--primary) text-white font-bold disabled:opacity-40"
+                className="flex-1 min-w-30 cursor-pointer px-4 py-3 rounded-lg bg-(--primary) text-white font-bold disabled:opacity-40"
               >
                 <Play className="w-4 h-4 inline mr-2" />
                 Speak
@@ -299,7 +300,7 @@ export default function TextToVoice() {
               <button
                 onClick={handlePause}
                 disabled={!isSpeaking || isPaused}
-                className="flex-1 min-w-30 px-4 py-3 rounded-lg bg-(--muted) text-(--foreground) disabled:opacity-40"
+                className="flex-1 min-w-30 px-4 py-3 cursor-pointer rounded-lg bg-(--muted) text-(--foreground) disabled:opacity-40"
               >
                 <Pause className="w-4 h-4 inline mr-2" />
                 Pause
@@ -309,7 +310,7 @@ export default function TextToVoice() {
               <button
                 onClick={handleResume}
                 disabled={!isSpeaking || !isPaused}
-                className="flex-1 min-w-30 px-4 py-3 rounded-lg bg-(--muted) text-(--foreground) disabled:opacity-40"
+                className="flex-1 min-w-30 px-4 py-3 cursor-pointer rounded-lg bg-(--muted) text-(--foreground) disabled:opacity-40"
               >
                 <Play className="w-4 h-4 inline mr-2" />
                 Resume
@@ -319,7 +320,7 @@ export default function TextToVoice() {
               <button
                 onClick={handleStop}
                 disabled={!isSpeaking}
-                className="flex-1 min-w-30 px-4 py-3 rounded-lg bg-red-500 text-white font-bold disabled:opacity-40"
+                className="flex-1 min-w-30 cursor-pointer px-4 py-3 rounded-lg bg-red-500 text-white font-bold disabled:opacity-40"
               >
                 <Square className="w-4 h-4 inline mr-2" />
                 Stop
@@ -360,7 +361,7 @@ export default function TextToVoice() {
           </div>
         ))}
       </div>
-
+   <Description/>
       {/* INFO SECTIONS */}
       {/* <div className="rounded-xl bg-(--card) border border-(--border) shadow p-6">
         <HowItWorks />

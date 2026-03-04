@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import html2canvas from "html2canvas";
+import Features from "../components/Features";
 // import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
@@ -92,19 +93,19 @@ export default function ToolHome() {
           
           <div className="space-y-6">
             
-            <div className="rounded-lg border border-(--border) bg-(--card) text-(--foreground) p-4 sm:p-6">
+            <div className="rounded-lg border border-(--border) bg-(--cackground) shadow-2xl text-(--foreground) p-4 sm:p-6">
               <h2 className="mb-4 text-lg font-semibold text-(--foreground)">1. Upload Image</h2>
               <input
                 ref={fileInputRef}
                 type="file"
                 accept="image/*"
                 onChange={handleImageUpload}
-                className="block w-full cursor-pointer rounded-lg border border-(--border) px-3 py-2 text-sm text-(--foreground) file:mr-4 file:rounded-lg file:border-0 file:bg-(--primary) file:px-4 file:py-2 file:text-sm file:font-medium file:text-white "
+                className="block w-full cursor-pointer rounded-lg bg-(--card) border border-(--border) px-3 py-2 text-sm text-(--foreground) file:mr-4 file:rounded-lg file:border-0 file:bg-(--primary) file:px-4 file:py-2 file:text-sm file:font-medium file:text-white "
               />
             </div>
 
             {/* Text Controls */}
-            <div className="rounded-lg border border-(--border) bg-(--card) text-(--foreground) p-4 sm:p-6">
+            <div className="rounded-lg border shadow-2xl border-(--border) bg-(--background) text-(--foreground) p-4 sm:p-6">
               <h2 className="mb-4 text-lg font-semibold text-(--foreground)">2. Add Text</h2>
               
               <div className="space-y-4">
@@ -115,7 +116,7 @@ export default function ToolHome() {
                     value={meme.topText}
                     onChange={(e) => setMeme((prev) => ({ ...prev, topText: e.target.value }))}
                     placeholder="Enter top text..."
-                    className="w-full rounded-lg border border-(--border) px-4 py-2 text-(--foreground) focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)"
+                    className="w-full rounded-lg border bg-(--card) border-(--border) px-4 py-2 text-(--foreground) focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)"
                   />
                 </div>
 
@@ -126,7 +127,7 @@ export default function ToolHome() {
                     value={meme.bottomText}
                     onChange={(e) => setMeme((prev) => ({ ...prev, bottomText: e.target.value }))}
                     placeholder="Enter bottom text..."
-                    className="w-full rounded-lg border border-(--border) px-4 py-2 text-(--foreground) focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)"
+                    className="w-full rounded-lg bg-(--card) border border-(--border) px-4 py-2 text-(--foreground) focus:border-(--primary) focus:outline-none focus:ring-1 focus:ring-(--primary)"
                   />
                 </div>
 
@@ -253,17 +254,17 @@ export default function ToolHome() {
             </div> */}
 
           
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row shadow-2xl">
               <button
                 onClick={handleDownload}
                 disabled={!meme.image}
-                className="flex-1 rounded-lg bg-green-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400"
+                className="flex-1 rounded-lg cursor-pointer bg-green-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-green-600 disabled:cursor-not-allowed disabled:bg-gray-400"
               >
                 ⬇ Download Meme
               </button>
               <button
                 onClick={handleReset}
-                className="rounded-lg border-2 border-red-300 px-6 py-3 font-semibold text-red-500 transition-colors hover:bg-red-100"
+                className="rounded-lg border-2 cursor-pointer border-red-300 px-6 py-3 font-semibold text-red-500 transition-colors hover:bg-red-100"
               >
                  Reset
               </button>
@@ -271,7 +272,7 @@ export default function ToolHome() {
           </div>
 
           {/* Right Panel - Preview */}
-          <div className="rounded-lg border border-(--border) bg-(--card) text-(--foreground) p-4 sm:p-6">
+          <div className="rounded-lg border border-(--border) shadow-2xl bg-(--background) text-(--foreground) p-4 sm:p-6">
             <h2 className="mb-4 text-lg font-semibold text-(--foreground)">Preview</h2>
             
             <div className="flex items-center justify-center rounded-lg bg-(--card) p-4">
@@ -331,7 +332,7 @@ export default function ToolHome() {
                 </div>
               ) : (
                 <div className="flex h-64 w-full flex-col items-center justify-center text-(--muted-foreground)">
-                  <svg className="mb-4 h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="mb-4 h-16 w-16 text-(--primary)" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -347,6 +348,7 @@ export default function ToolHome() {
            
           </div>
         </div>
+         <Features/>
       </main>
     </div>
   );

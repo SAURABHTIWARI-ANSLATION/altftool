@@ -1,4 +1,6 @@
+// pages/ToolHome.jsx
 import { useState } from 'react';
+import Description from "../components/Description"; 
 
 const questions = [
   {
@@ -142,43 +144,36 @@ export default function ToolHome() {
   };
 
   return (
-    <div className="min-h-screen bg-(--background ) text-(--foreground) p-4">
-    <div>
-      <h1 className="heading text-center mt-5 animate-fade-up">Hair Care </h1>
-          <p className="description text-center animate-fade-up">Get personalized hair care recommendations</p>
+    <div className="min-h-screen bg-(--background) text-(--foreground) p-4">
+      <div>
+        <h1 className="heading text-center mt-5 animate-fade-up">Hair Care</h1>
+        <p className="description text-center animate-fade-up">Get personalized hair care recommendations</p>
       </div>
 
-
       <div className="max-w-2xl mx-auto mt-10">
-        
-
         {!showResults ? (
           <div className="bg-(--card) rounded-lg shadow-lg p-8">
             <div className="mb-6">
               <div className="flex justify-between items-center mb-4">
-                <span className="text-sm text-(--foregorund)">Question {currentQuestion + 1} of {questions.length}</span>
-                <span className="text-sm text-(--foreground">{Math.round(((currentQuestion) / questions.length) * 100)}%</span>
+                <span className="text-sm text-(--foreground)">Question {currentQuestion + 1} of {questions.length}</span>
+                <span className="text-sm text-(--foreground)">{Math.round((currentQuestion / questions.length) * 100)}%</span>
               </div>
               <div className="w-full bg-(--card) rounded-full h-2">
                 <div 
-                  className="bg-
-                  (--card) h-2 rounded-full transition-all duration-300"
+                  className="bg-(--card) h-2 rounded-full transition-all duration-300"
                   style={{ width: `${(currentQuestion / questions.length) * 100}%` }}
                 />
               </div>
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold">
-                {questions[currentQuestion].question}
-              </h2>
-              
+              <h2 className="text-2xl font-semibold">{questions[currentQuestion].question}</h2>
               <div className="space-y-3">
                 {questions[currentQuestion].options.map((option) => (
                   <button
                     key={option}
                     onClick={() => handleAnswer(option)}
-                    className="w-full text-left p-4 border-2 border-(--border) rounded-lg transition-all duration-200 focus:outline-none cursor-pointer "
+                    className="w-full text-left p-4 border-2 border-(--border) rounded-lg transition-all duration-200 focus:outline-none cursor-pointer"
                   >
                     {option}
                   </button>
@@ -189,7 +184,7 @@ export default function ToolHome() {
         ) : (
           <div className="bg-(--card) rounded-lg shadow-lg p-8 space-y-6">
             <div className="text-center">
-              <h2 className="text-3xl font-bold mb-4">Your Hair  Results</h2>
+              <h2 className="text-3xl font-bold mb-4">Your Hair Results</h2>
               <div className="inline-flex items-center justify-center w-20 h-20 bg-(--primary) text-white rounded-full mb-4">
                 <span className="text-2xl">✨</span>
               </div>
@@ -202,7 +197,6 @@ export default function ToolHome() {
                   <p className="text-(--foreground) mb-4">
                     {getSuggestionForHairType(hairProfile.type).description}
                   </p>
-                  
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold mb-2">Care Tips:</h4>
@@ -212,7 +206,6 @@ export default function ToolHome() {
                         ))}
                       </ul>
                     </div>
-
                     <div>
                       <h4 className="font-semibold mb-2">Recommended Products:</h4>
                       <div className="flex flex-wrap gap-2">
@@ -234,7 +227,7 @@ export default function ToolHome() {
                 <div className="text-center pt-4">
                   <button
                     onClick={restartQuiz}
-                    className="bg-(--primary) text-white px-8 py-3 rounded-lg font-semibold  transition-colors duration-200 cursor-pointer"
+                    className="bg-(--primary) text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 cursor-pointer"
                   >
                     Retake Quiz
                   </button>
@@ -244,6 +237,9 @@ export default function ToolHome() {
           </div>
         )}
       </div>
+
+      {/* Render How It Works cards */}
+      <Description />
     </div>
   );
 }

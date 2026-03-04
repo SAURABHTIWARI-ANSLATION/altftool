@@ -24,7 +24,7 @@ export default function SelectedSignHeader({ sign, onBack }) {
         {/* RIGHT SIDE BUTTON */}
         <button
           onClick={onBack}
-          className="px-4 py-2 bg-(--card) text-(--card-foreground) border border-(--border) rounded-lg shadow hover:shadow-md transition text-sm sm:text-base"
+          className="px-4 py-2 bg-(--card) text-(--card-foreground) border border-(--border) rounded-lg shadow hover:shadow-md transition cursor-pointer text-sm sm:text-base"
         >
           Change Sign
         </button>

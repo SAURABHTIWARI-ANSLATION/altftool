@@ -4,7 +4,7 @@ export default function Header() {
     <div className="container mx-auto px-4 py-8">
       {/* PAGE TITLE */}
       <header className="text-center mb-8">
-        <div className="inline-flex items-center gap-3 bg-(--muted/50) border border-(--border) rounded-full px-5 py-2.5 mb-8 shadow-sm">
+        <div className="inline-flex items-center gap-3 bg-(--muted)/50 border border-(--border) rounded-full px-5 py-2.5 mb-8 shadow-sm">
           <div className="p-1.5 rounded-full bg-(--primary/10)">
             <Sparkles className="w-4 h-4 text-(--primary)" />
           </div>

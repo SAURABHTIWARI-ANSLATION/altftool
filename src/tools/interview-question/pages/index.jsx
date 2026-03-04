@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import LandingPage from '../components/LandingPage';
 import QuestionBank from '../components/QuestionBank';
+import Features from '../components/Features';
 
 
 export default function ToolHome() {
@@ -23,6 +24,7 @@ export default function ToolHome() {
             onBack={() => setSelectedDomain(null)} 
           />
         )}
+        <Features/>
       </main>
 
   

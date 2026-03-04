@@ -105,23 +105,31 @@ export default function MainComponent() {
       <Header />
 
       {/* HERO */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 mt-[-60]">
         <div className="max-w-xl mx-auto bg-(--card) border border-(--border) rounded-2xl p-8 shadow-lg text-center">
           <h2 className="text-xl font-semibold mb-4 text-(--primary)">
             Discover Your Moon Sign
           </h2>
 
           <input
-            type="date"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
-            className="
-              w-full mb-4 px-4 py-2 rounded-lg
-              bg-(--background) border border-(--border)
-              text-(--foreground)
-              focus:ring-2 focus:ring-(--primary) outline-none
-            "
-          />
+  type="date"
+  value={dob}
+  onChange={(e) => {
+    const date = e.target.value;
+    const year = date.split("-")[0]; // extract year
+    if (year.length === 4) {
+      setDob(date);
+    } else {
+      alert("Year must be 4 digits");
+    }
+  }}
+  className="
+    w-full mb-4 px-4 py-2 rounded-lg
+    bg-(--background) border border-(--border)
+    text-(--foreground)
+    focus:ring-2 focus:ring-(--primary) outline-none
+  "
+/>
 
           <button
             onClick={findRashi}

@@ -10,7 +10,7 @@ export default function CompressionControl({
   hasImage,
 }) {
   return (
-    <div className="bg-(--card) border border-(--border) rounded-lg shadow-md p-6">
+    <div className="bg-(--background) border border-(--border) rounded-lg shadow-md p-6">
       <h3 className="text-lg font-semibold text-(--foreground) mb-4">
         Compression Settings
       </h3>

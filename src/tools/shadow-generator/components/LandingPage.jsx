@@ -6,7 +6,7 @@ const LandingPage = ({ onStart }) => {
   return (
     <div className="w-full">
       {/* HERO SECTION */}
-      <section className="py-12 md:py-20 bg-(--background)">
+      <section className="py-12  bg-(--background)">
         <div className="max-w-4xl mx-auto text-center px-4">
           {/* Heading */}
           <h1 className="heading">CSS Shadows Made Simple</h1>

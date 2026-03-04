@@ -93,7 +93,7 @@ function YouTubeVideoAnalyzer() {
   };
 
   return (
-    <div className="min-h-screen bg-(--background) text-(--foreground) flex flex-col overflow-x-hidden">
+    <div className=" bg-(--background) text-(--foreground) flex flex-col overflow-x-hidden">
       {!videoData ? (
         <>
           <Header />
@@ -132,7 +132,7 @@ function YouTubeVideoAnalyzer() {
               </div>
             </div>
 
-            <div className="mt-16">
+            <div className="mt-6">
               <Features />
             </div>
           </main>

@@ -23,10 +23,10 @@ const QuestionBank = ({ selectedDomainId, onBack }) => {
   };
 
   return (
-    <div className=" m-8 bg-(--card) text-(--foreground) border border-(--border)">
+    <div className=" m-8 bg-(--background) text-(--foreground) border border-(--border)">
       
       <div className=" m-8  bg-(--card) p-8 rounded-2xl shadow-sm border border-(--border) mb-12">
-        <button className="flex items-center gap-2 text-text-medium font-semibold text-sm hover:text-primary transition mb-6" onClick={onBack}>
+        <button className="flex items-center gap-2 cursor-pointer text-text-medium font-semibold text-sm hover:text-primary transition mb-6" onClick={onBack}>
           <ArrowLeft size={20} /> Back to Domains
         </button>
         
@@ -39,7 +39,7 @@ const QuestionBank = ({ selectedDomainId, onBack }) => {
           <span className="question-count">{filteredQuestions.length} results</span>
         </div>
 
-        <div className="flex flex-wrap gap-4 border border-(--border) rounded-xl p-4">
+        <div className="flex flex-wrap gap-4 border bg-(--background) border-(--border) rounded-xl p-4">
           {/* Search Input with Icon */}
           <div className="relative flex-1 min-w-60
 ">
@@ -50,7 +50,7 @@ const QuestionBank = ({ selectedDomainId, onBack }) => {
               placeholder="Search keywords..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-xl border-2 border-(--border) "
+              className="w-full pl-12 pr-4 py-3 bg-(--card) rounded-xl border-2 border-(--border) "
             />
           </div>
 
@@ -61,7 +61,7 @@ const QuestionBank = ({ selectedDomainId, onBack }) => {
             <select 
               value={filterDifficulty} 
               onChange={(e) => setFilterDifficulty(e.target.value)}
-              className="filter-select modern-input"
+              className="filter-select modern-input cursor-pointer"
             >
               <option value="All">All Difficulties</option>
               <option value="Beginner">Beginner</option>
@@ -72,7 +72,7 @@ const QuestionBank = ({ selectedDomainId, onBack }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-5 m-8 bg-(--card) text-(--foreground)">
+      <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-5 m-8 bg-(--background) text-(--foreground)">
         {filteredQuestions.length > 0 ? (
           filteredQuestions.map((q) => {
             const isAnswerVisible = visibleAnswerId === q.id;
@@ -81,7 +81,7 @@ const QuestionBank = ({ selectedDomainId, onBack }) => {
  ${isAnswerVisible ? 'active-card' : ''}`}>
                 <div className="flex justify-between mb-4
 ">
-                  <span className={`inline-block px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide
+                  <span className={`inline-block px-3 p-1.5 bg-(--background) rounded-full text-xs font-bold uppercase tracking-wide
  ${q.difficulty.toLowerCase()}`}>
                     {q.difficulty}
                   </span>
@@ -91,7 +91,7 @@ const QuestionBank = ({ selectedDomainId, onBack }) => {
 ">{q.question}</h3>
                 
                 <button 
-                  className="show-answer-btn modern-btn"
+                  className="show-answer-btn modern-btn cursor-pointer "
                   onClick={() => toggleAnswer(q.id)}
                 >
                   {isAnswerVisible ? 'Hide Answer' : 'Show Answer'}

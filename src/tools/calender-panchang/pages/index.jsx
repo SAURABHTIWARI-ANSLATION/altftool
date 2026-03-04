@@ -4,6 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import moment from 'moment-timezone';
+import Features from '../components/Features';
 
 export default function ToolHome() {
   const [panchang, setPanchang] = useState(null);
@@ -143,7 +144,7 @@ export default function ToolHome() {
           <p className="description "></p>
         </header>
 
-        <div className="bg-(--card) rounded-2xl shadow-xl p-6 mb-8 max-w-4xl mx-auto">
+        <div className="bg-(--background) rounded-2xl shadow-xl p-6 mb-8 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative">
               <label className="block text-sm font-semibold text-(--foreground) mb-2">Select Date</label>
@@ -151,7 +152,7 @@ export default function ToolHome() {
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-4 py-3 border-2 border-(--border) rounded-xl focus:border-orange-500 focus:outline-none transition-colors"
+                className="w-full px-4 py-3 border-2 bg-(--card) border-(--border) rounded-xl focus:border-orange-500 focus:outline-none transition-colors"
               />
             </div>
             <div className="relative">
@@ -166,7 +167,7 @@ export default function ToolHome() {
                   }
                 }}
                 placeholder="e.g., Mumbai, New Delhi"
-                className="w-full px-4 py-3 border-2 border-(--border) rounded-xl  focus:outline-none transition-colors"
+                className="w-full px-4 py-3 border-2 border-(--border) bg-(--card) rounded-xl  focus:outline-none transition-colors"
               />
             </div>
             <div className="flex items-end">
@@ -401,7 +402,7 @@ export default function ToolHome() {
                   </div>
                 </div>
                 <div className="flex items-center border border-(--border) p-4 text-(--foreground)  rounded-lg">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-linear-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center mr-4">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
                     </svg>
@@ -415,6 +416,7 @@ export default function ToolHome() {
             </div>
           </>
         ) : null}
+      <Features/>
 
         {/* <footer className="text-center py-8 text-gray-500">
           <p className="mb-2">Panchang data is calculated based on astronomical algorithms and geographical location.</p>

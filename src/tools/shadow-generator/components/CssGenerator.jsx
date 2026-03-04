@@ -87,7 +87,7 @@ export default function Generator({ onStart }) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-4 md:p-6 lg:p-10">
+    <div className="max-w-7xl mx-auto p-4 md:p-10 lg:p-20">
       {/* ==== GRID LAYOUT ==== */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
         {/* ==== LEFT CONTROL PANEL ==== */}

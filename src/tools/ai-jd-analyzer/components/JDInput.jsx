@@ -73,16 +73,16 @@ const JDInput = ({ onAnalyze, onReset, loading }) => {
     "
       >
         {/* HEADER */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-20 p-[-50px] mt-[-100px]">
           <h1
             className="
-          heading animate-fade-up
+          heading animate-fade-up mb-20
         "
           >
             Job Description Analyzer
           </h1>
 
-          <p className="description animate-fade-up">
+          <p className="description animate-fade-up mt-[-42px]">
             Analyze job descriptions with AI-powered insights
           </p>
         </div>

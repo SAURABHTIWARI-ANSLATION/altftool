@@ -235,7 +235,7 @@ export default function MainComponent() {
     <div className="min-h-screen bg-(--background) py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 mt-[-30]">
           <h1 className="heading mb-3">Internet Speed Test</h1>
           <p className="description">
             Quickly measure internet speed with accurate upload and download

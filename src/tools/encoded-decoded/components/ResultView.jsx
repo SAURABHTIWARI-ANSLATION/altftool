@@ -33,6 +33,14 @@ const ResultView = ({ value, error }) => {
   };
 
   const handleDownload = () => {
+    if (!value?.trim()) {
+    setSnackbar({
+      open: true,
+      message: "Nothing to download",
+      severity: "error",
+    });
+    return;
+  }
     const blob = new Blob([value], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -56,17 +64,17 @@ const ResultView = ({ value, error }) => {
           readOnly
           value={value}
           placeholder="Result will appear here..."
-          className={`w-full min-h-25 p-3 rounded-md text-sm bg-(--card)  border border-(--border) ${error ? "border-red-500" : "border-(--border) "} text-(--foreground)  focus:outline-none`}
+          className={`w-full min-h-50 p-3 rounded-md text-sm bg-(--card)  border border-(--border) ${error ? "border-red-500" : "border-(--border) "} text-(--foreground)  focus:outline-none`}
         />
 
         <div className="flex flex-row sm:flex-col gap-2 justify-center items-center">
           <button
             onClick={handleCopy}
             title="Copy to clipboard"
-            className="p-2 rounded-md bg-(--card) border border-(--border)  "
+            className="p-2 rounded-md bg-(--card) border border-(--border) cursor-pointer "
           >
             <svg
-              className="h-5 w-5 text-gray-600 dark:text-gray-200"
+              className="h-5 w-5 text-(--foreground)"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -83,7 +91,7 @@ const ResultView = ({ value, error }) => {
           <button
             onClick={handleDownload}
             title="Download as TXT"
-            className="p-2 rounded-md bg-(--card) border border-(--border) "
+            className="p-2 rounded-md bg-(--card) border border-(--border) cursor-pointer "
           >
             <svg
               className="h-5 w-5 text-gray-600 dark:text-gray-200"

@@ -9,6 +9,7 @@ import {
   Check,
   Share2,
 } from "lucide-react";
+import Features from "./Features";
 
 export default function Main() {
   const [joke, setJoke] = useState(null);
@@ -81,7 +82,7 @@ export default function Main() {
   };
 
   return (
-    <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-16 flex flex-col items-center justify-center">
+    <main className="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 pt-8 flex flex-col items-center justify-center">
       {/* Hero Section */}
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 bg-(--muted) border border-(--border) rounded-full px-4 py-2 mb-6">
@@ -97,14 +98,14 @@ export default function Main() {
           <span className="heading">Laugh?</span>
         </h1>
 
-        <p className="text-(--muted-foreground) text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto font-medium">
+        <p className="description text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto font-medium">
           Get instant jokes and brighten your day with our premium joke
           generator.
         </p>
       </div>
 
       {/* Joke Card */}
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-4xl">
         <div className="bg-(--card) rounded-2xl shadow-lg border border-(--border) p-6 mb-6">
           {!joke ? (
             <div className="text-center py-10">
@@ -128,7 +129,7 @@ export default function Main() {
           ) : (
             <div className="space-y-5">
               {/* Setup Card */}
-              <div className="bg-(--muted) rounded-lg p-5 border border-(--border)">
+              <div className="bg-(--background) rounded-lg p-5 border border-(--border)">
                 <p className="text-lg font-medium text-(--foreground)">
                   {joke.setup}
                 </p>
@@ -150,7 +151,7 @@ export default function Main() {
                   ${
                     copied
                       ? "bg-green-500 text-white"
-                      : "bg-(--muted) hover:bg-(--muted)/70 text-(--foreground)"
+                      : "bg-(--background) hover:bg-(--muted)/70 text-(--foreground)"
                   }`}
                 >
                   {copied ? (
@@ -215,7 +216,7 @@ export default function Main() {
       </div>
 
       {/* Info Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 w-full max-w-3xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 w-full max-w-4xl">
         <div className="bg-(--card) rounded-lg border border-(--border) p-5 text-center">
           <div className="w-10 h-10 bg-(--primary) rounded-full flex items-center justify-center mx-auto mb-3">
             <Smile className="w-5 h-5 text-(--primary-foreground)" />
@@ -248,6 +249,8 @@ export default function Main() {
           </p>
         </div>
       </div>
+
+      <Features/>
     </main>
   );
 }

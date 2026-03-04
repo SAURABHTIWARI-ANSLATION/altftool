@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Features from "./Features";
 
 export default function MainSection() {
   const [from, setFrom] = useState("");
@@ -9,9 +10,9 @@ export default function MainSection() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // -----------------------------
+ 
   //  SIMPLE SPAM SCORE CALCULATOR
-  // -----------------------------
+  
   function simpleSpamScore({ from, to, subject, body }) {
     const text = `${subject} ${body}`.toLowerCase();
 
@@ -121,9 +122,9 @@ export default function MainSection() {
     };
   }
 
-  // ------------------------
+
   //       FORM SUBMIT
-  // ------------------------
+ 
   function handleCheck(e) {
     e.preventDefault();
 
@@ -147,18 +148,17 @@ export default function MainSection() {
     }, 600);
   }
 
-  // ==============================
   //          UI SECTION
-  // ==============================
+  
   return (
     <div
       id="check-spam"
-      className="min-h-screen bg-(--background) text-(--foreground) mt-5"
+      className="bg-(--background) text-(--foreground) mt-5"
     >
       <div className="max-w-5xl mx-auto px-4">
         {/* HEADER */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-(--primary)">
+          <h1 className="heading text-(--primary)">
             Email Spam Checker
           </h1>
           <p className="text-(--muted-foreground) text-lg mt-2">
@@ -166,7 +166,7 @@ export default function MainSection() {
           </p>
         </div>
 
-        {/* ================= FORM CARD ================= */}
+        {/* FORM CARD  */}
         <div className="bg-(--card) border border-(--border) rounded-2xl shadow-lg p-6 sm:p-8 mb-12">
           <form onSubmit={handleCheck} className="space-y-6">
             {/* ROW 1: FROM + TO */}
@@ -277,7 +277,7 @@ export default function MainSection() {
           </form>
         </div>
 
-        {/* ================= RESULTS ================= */}
+        {/* RESULTS  */}
         {result && (
           <div className="bg-(--card) border border-(--border) rounded-2xl shadow-lg p-6 sm:p-8 mb-12">
             {/* SCORE DISPLAY */}
@@ -391,6 +391,7 @@ export default function MainSection() {
             </div>
           </div>
         )}
+        <Features/>
       </div>
     </div>
   );

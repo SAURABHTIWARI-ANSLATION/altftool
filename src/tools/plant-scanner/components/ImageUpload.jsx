@@ -73,7 +73,7 @@ export default function ImageUpload({ onUpload, loading }) {
       {/* Preview Box */}
       <div
         className="
-          border-2 border-dashed border-(--primary)
+          border-2 border-dashed border-(--border) hover:border-(--primary)
           rounded-xl p-6 mb-4
           bg-(--background)
           min-h-50

@@ -10,6 +10,7 @@ import AgeCards from "../components/AgeCards";
 import TimeLived from "../components/TimeLived";
 import NextBirthday from "../components/NextBirthday";
 import { calculateAgeData } from "../utils/dateUtils.js"; 
+import Features from "../components/Features";
 
 
 export default function ToolHome() {
@@ -71,11 +72,11 @@ useEffect(() => {
 }, [birthDate, error]);
 
   return (
-    <div className="min-h-screen  px-4 py-8">
+    <div className="px-4 py-6">
 
            <Header />
 
-      <div className="max-w-4xl mx-auto bg-(--card) rounded-xl shadow-lg overflow-hidden pt">
+      <div className="max-w-5xl mx-auto bg-(--card) rounded-xl shadow-lg overflow-hidden py-5">
        
 
         <div className="p-6 space-y-6 ">
@@ -105,6 +106,7 @@ useEffect(() => {
 
       
       </div>
+      <Features/>
     </div>
   );
 }

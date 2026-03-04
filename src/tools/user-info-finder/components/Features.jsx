@@ -5,7 +5,7 @@ import {
   Gauge,
   ShieldCheck,
   CloudCheck,
-  UserSearch,
+  UserSearch,RefreshCw
 } from "lucide-react";
 
 export default function Features() {
@@ -37,10 +37,16 @@ export default function Features() {
       title: "Advanced Filters",
       description: "Filter and sort results to find exactly what you need.",
     },
+    {
+  icon: <RefreshCw className="w-10 h-10" />,
+  title: "Real-Time Updates",
+  description:
+    "Get live user data updates instantly without refreshing the page.",
+}
   ];
 
   return (
-    <div className="py-6 sm:py-8 px-4 bg-(--background)">
+    <div className="py-6 sm:py-16 px-4 bg-(--background)">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10">

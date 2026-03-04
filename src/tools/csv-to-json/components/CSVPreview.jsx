@@ -1,36 +1,33 @@
-
-
-
 import React from "react";
 
 const CSVPreview = ({ csvData = [] }) => {
- 
   if (!Array.isArray(csvData) || csvData.length === 0) {
-    return (
-      <p className="text-sm text-(--secondary) mb-4">
-        No CSV data to display
-      </p>
-    );
+    return null; // Don't show anything if no data
   }
 
   const headers = Object.keys(csvData[0]);
 
   return (
     <div className="mb-6">
-      <h3 className="text-lg font-semibold mb-2 text-(--primary)">
-        CSV Data Preview
-      </h3>
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="text-lg font-semibold text-(--primary)">
+          CSV Preview
+        </h3>
+        <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+          {csvData.length} row{csvData.length !== 1 ? "s" : ""}
+        </span>
+      </div>
 
-      <div className="relative overflow-x-auto border border-(--border) rounded-lg hide-scrollbar ">
-        {/* height ≈ 10 rows */}
-        <div className="max-h-[420px] overflow-y-auto ">
-          <table className="min-w-full bg-(--background) border-collapse">
-            <thead className="bg-(--background) sticky top-0 z-10 text-(--secondary)">
+      {/* Responsive scrollable table wrapper */}
+      <div className="relative border border-(--border) rounded-lg overflow-hidden">
+        <div className="overflow-x-auto overflow-y-auto max-h-64 sm:max-h-80">
+          <table className="min-w-full border-collapse text-sm">
+            <thead className="sticky top-0 z-10 bg-(--background)">
               <tr>
                 {headers.map((header) => (
                   <th
                     key={header}
-                    className="py-2 px-4 border-b text-left text-sm font-semibold whitespace-nowrap"
+                    className="py-2 px-3 sm:px-4 border-b border-(--border) text-left font-semibold text-(--secondary) whitespace-nowrap text-xs sm:text-sm"
                   >
                     {header}
                   </th>
@@ -42,14 +39,18 @@ const CSVPreview = ({ csvData = [] }) => {
               {csvData.map((row, index) => (
                 <tr
                   key={index}
-                  className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                  className={`transition-colors ${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                  } hover:bg-blue-50`}
                 >
                   {headers.map((header) => (
                     <td
                       key={header}
-                      className="py-2 px-4 border-b text-sm text-(--secondary) whitespace-nowrap bg-(--background)"
+                      className="py-2 px-3 sm:px-4 border-b border-(--border) text-xs sm:text-sm text-(--secondary) whitespace-nowrap"
                     >
-                      {row[header] || "-"}
+                      {row[header] !== undefined && row[header] !== "" ? row[header] : (
+                        <span className="text-gray-300 italic">—</span>
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -58,14 +59,8 @@ const CSVPreview = ({ csvData = [] }) => {
           </table>
         </div>
       </div>
-
-      <p className="text-xs text-gray-500 mt-2">
-        Total rows: {csvData.length}
-      </p>
     </div>
   );
 };
 
 export default CSVPreview;
-
-

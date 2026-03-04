@@ -13,7 +13,7 @@ export default function ZodiacGrid({ onSelect }) {
           <button
             key={sign.name}
             onClick={() => onSelect(sign)}
-            className={`${sign.bgColor} p-4 sm:p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 hover:shadow-2xl border-2 border-transparent hover:border-(--primary)`}
+            className={`${sign.bgColor} p-4 sm:p-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 hover:shadow-2xl border-2 border-transparent cursor-pointer hover:border-(--primary)`}
             style={{ animationDelay: `${idx * 50}ms` }}
           >
             <div className="mb-2 text-4xl sm:text-5xl">{sign.icon}</div>

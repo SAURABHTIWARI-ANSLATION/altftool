@@ -18,9 +18,9 @@ const InputArea = ({ value, onChange, onClear }) => {
     <div className="flex flex-col gap-2 w-full">
       <label className="text-sm font-medium">Input Text</label>
 
-      <div className="flex flex-col sm:flex-row items-stretch gap-2">
+      <div className="flex flex-col sm:flex-row items-stretch gap-2 ">
         <textarea
-          className="flex-1  p-3 border border-(--border)  rounded-md bg-(--card)  text-sm text-(--foreground) "
+         className="flex-1 min-h-50 p-3 border border-(--border) rounded-md bg-(--card) text-sm text-(--foreground)"
           placeholder="Enter text here..."
           value={value}
           onChange={onChange}
@@ -31,10 +31,10 @@ const InputArea = ({ value, onChange, onClear }) => {
             type="button"
             onClick={handlePaste}
             title="Paste from clipboard"
-            className="p-2 rounded-md bg-(--primary)  border border-(--border) "
+            className="p-2 rounded-md bg-(--primary) cursor-pointer border border-(--border) "
           >
             <svg
-              className="h-5 w-5 text-gray-600 dark:text-gray-200"
+              className="h-5 w-5 text-(--foreground)"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -52,7 +52,7 @@ const InputArea = ({ value, onChange, onClear }) => {
             type="button"
             onClick={onClear}
             title="Clear text"
-            className="p-2 rounded-md bg-(--card) border border-(--border)   text-red-600"
+            className="p-2 rounded-md bg-(--card) border border-(--border) cursor-pointer text-red-600"
           >
             <svg
               className="h-5 w-5"

@@ -6,9 +6,9 @@ const HowItWorks = () => {
   return (
     <section
       //   id="how-it-works"
-      className="bg-(--card) p-6 rounded-2xl shadow-xl my-10 pt-16 border border-(--border) "
+      className="bg-(--background) p-6 rounded-2xl shadow-xl my-10 pt-16 border border-(--border) "
     >
-      <h2 className="text-3xl font-extrabold text-(--foreground) mb-8 flex items-center">
+      <h2 className="text-3xl font-extrabold text-(--foreground) mb-8 flex items-center justify-center sm:justify-start ">
         <BookOpen size={28} className="text-(--primary) mr-3" />
         How It Works
       </h2>

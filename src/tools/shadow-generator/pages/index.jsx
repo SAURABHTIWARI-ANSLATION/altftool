@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import LandingPage from "../components/LandingPage";
 import Generator from "../components/CssGenerator";
+import Features from "../components/Features";
 
 export default function ShadowApp() {
   const [view, setView] = useState("landing");
@@ -13,6 +14,7 @@ export default function ShadowApp() {
       ) : (
         <Generator onStart={() => setView("landing")} />
       )}
+      <Features/>
     </div>
   );
 }

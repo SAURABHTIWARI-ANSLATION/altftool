@@ -36,11 +36,11 @@ const Landing = ({ onGetStarted, isDark }) => {
  
   return (
     <div
-      className="max-w-312 mx-auto py-[clamp(30px,5vw,60px)] px-[clamp(16px,3vw,24px)]"
+      className="max-w-312 mx-auto px-[clamp(16px,3vw,24px)]"
 
     >
       {/* Hero Section */}
-      <div className="text-center mb-[clamp(60px,10vw,100px)]"
+      <div className="text-center ]"
 >
         <div
           className="

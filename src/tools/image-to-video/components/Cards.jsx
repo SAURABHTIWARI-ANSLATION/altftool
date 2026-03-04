@@ -72,7 +72,7 @@ export default function Cards() {
             "
           >
             {/* Icon */}
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-(--primary)/10 mb-4 group-hover:bg-(--primary)/20 transition">
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-(--primary)/10 mb-4 group-hover:bg-white transition">
               <Icon className="w-6 h-6 text-(--primary)" />
             </div>
 

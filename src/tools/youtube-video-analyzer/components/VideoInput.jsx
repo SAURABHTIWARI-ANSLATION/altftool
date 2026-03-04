@@ -53,6 +53,7 @@ const VideoInput = ({ onSubmit, loading = false }) => {
               border border-(--border)
               focus-visible:ring-2 focus-visible:ring-(--primary)
               transition-all
+              outline-none
             "
           />
         </div>
@@ -70,7 +71,7 @@ const VideoInput = ({ onSubmit, loading = false }) => {
         >
           {loading ? (
             <>
-              <div className="h-4 w-4 border-2 border-(--primary-foreground) border-t-transparent rounded-full animate-spin"></div>
+              <div className="h-4 cursor-pointer w-4 border-2 border-(--primary-foreground) border-t-transparent rounded-full animate-spin"></div>
               Analyzing...
             </>
           ) : (

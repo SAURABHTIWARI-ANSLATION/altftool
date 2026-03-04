@@ -1,18 +1,18 @@
-
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
- 
   Sparkles,
   Loader2,
-  
 } from "lucide-react";
 import { SearchBar } from "../components/SearchBar";
 import { Toast } from "../components/Toast";
 import { generateCaptionsAPI } from "../utils/api";
 import { CaptionCard } from "../components/CaptionCard";
 import { DUMMY_CAPTIONS } from "../utils/dummyCaption";
+
+// Import Description component instead of HowItWorks
+import Description from "../components/Description";
 
 export default function ToolHome() {
   const [productName, setProductName] = useState("");
@@ -84,14 +84,12 @@ export default function ToolHome() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
-            
-            <h1 className="heading text-center pt-5 animate-fade-up">
+            <h1 className="heading text-center pt-1 animate-fade-up">
               Ad Caption Generator
             </h1>
           </div>
           <p className="description text-center animate-fade-up">
-            Transform your product into compelling stories with AI-powered
-            captions that convert
+            Transform your product into compelling stories with AI-powered captions that convert
           </p>
         </div>
 
@@ -111,7 +109,7 @@ export default function ToolHome() {
           <div className="text-center mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
               <Sparkles className="w-4 h-4" />
-              Showing  captions - Try searching for your product!
+              Showing captions - Try searching for your product!
             </span>
           </div>
         )}
@@ -142,21 +140,8 @@ export default function ToolHome() {
         )}
       </div>
 
-      {/* <style jsx>{`
-@keyframes slideIn {
-from {
-transform: translateX(100%);
-opacity: 0;
-}
-to {
-transform: translateX(0);
-opacity: 1;
-}
-}
-.animate-slideIn {
-animation: slideIn 0.3s ease-out;
-}
-`}</style> */}
+      {/* Render Description Section Below */}
+      <Description />
     </div>
   );
 }

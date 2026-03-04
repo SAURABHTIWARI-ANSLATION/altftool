@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-
+import Description from "../component/Description";
 
 export default function ToolHome() {
-  
   const [color1, setColor1] = useState("#6366f1");
   const [color2, setColor2] = useState("#0ea5e9");
   const [angle, setAngle] = useState(120);
@@ -19,14 +18,12 @@ export default function ToolHome() {
 
   const gradient = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
 
- const copyCSS = () => {
-  navigator.clipboard.writeText(`${gradient};`);
-
-  toast.success("CSS Copied!", {
-    description: "Gradient CSS has been copied to your clipboard.",
-  });
-};
-
+  const copyCSS = () => {
+    navigator.clipboard.writeText(`${gradient};`);
+    toast.success("CSS Copied!", {
+      description: "Gradient CSS has been copied to your clipboard.",
+    });
+  };
 
   const gradientDefinitions = [
     {
@@ -58,13 +55,16 @@ export default function ToolHome() {
 
   return (
     <div className="space-y-8 bg-(--background) text-(--foreground) p-6 ">
+      {/* Toaster for toast notifications */}
+      <Toaster />
+
       {/* How to Use */}
       <div className="p-6 ">
-        <h2 className="heading text-center pt-5 mb-2 animate-fade-up">
+        <h2 className="heading text-center pt-5 mb-2 animate-fade-up mt-[-40]">
           Generate Gradients
         </h2>
         <p className="description text-center animate-fade-up ">
-          Create beautiful CSS gradients for your projects. Select  colors, <br/> adjust the angle, and copy the CSS code.
+          Create beautiful CSS gradients for your projects. Select colors, <br /> adjust the angle, and copy the CSS code.
         </p>
       </div>
 
@@ -72,16 +72,12 @@ export default function ToolHome() {
       <div className=" m-8 grid lg:grid-cols-2 gap-8">
         {/* Controls */}
         <div className="p-6 border border-(--border) rounded-xl shadow-sm animate-fade-up">
-          <h3 className="text-lg font-semibold mb-4">
-            Gradient Controls
-          </h3>
+          <h3 className="text-lg font-semibold mb-4">Gradient Controls</h3>
 
           <div className="space-y-6">
             {/* Color 1 */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">
-                First Color
-              </label>
+              <label className="text-sm font-medium">First Color</label>
               <div className="flex items-center gap-3">
                 <input
                   type="color"
@@ -97,9 +93,7 @@ export default function ToolHome() {
 
             {/* Color 2 */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Second Color
-              </label>
+              <label className="text-sm font-medium">Second Color</label>
               <div className="flex items-center gap-3">
                 <input
                   type="color"
@@ -115,9 +109,7 @@ export default function ToolHome() {
 
             {/* Angle */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">
-                Angle: {angle}°
-              </label>
+              <label className="text-sm font-medium">Angle: {angle}°</label>
               <input
                 type="range"
                 min="0"
@@ -130,12 +122,8 @@ export default function ToolHome() {
 
             {/* CSS Code */}
             <div className="p-4 bg-(--card) rounded-lg">
-              <p className="text-xs font-mono mb-2">
-                CSS Code:
-              </p>
-              <code className="text-sm">
-                background: {gradient};
-              </code>
+              <p className="text-xs font-mono mb-2">CSS Code:</p>
+              <code className="text-sm">background: {gradient};</code>
             </div>
 
             {/* Button */}
@@ -149,25 +137,18 @@ export default function ToolHome() {
         </div>
 
         {/* Preview */}
-        <div className="p-6  border border-(--border) rounded-xl shadow-sm animate-fade-up">
-          <h3 className="subheading">
-            Live Preview
-          </h3>
+        <div className="p-6 border border-(--border) rounded-xl shadow-sm animate-fade-up">
+          <h3 className="subheading">Live Preview</h3>
           <div
-            className="w-full mt-8 sm:mt-16 md:mt-12 h-64  rounded-lg  border border(--border) item-center"
+            className="w-full mt-8 sm:mt-16 md:mt-12 h-64 rounded-lg border border(--border) item-center"
             style={{ background: gradient }}
           />
-          {/* <p className="text-sm text-blue-500">
-            Exact output you will get on a real website.
-          </p> */}
         </div>
       </div>
 
       {/* Presets */}
-      <div className=" m-8 p-6 border border-(--border) rounded-xl shadow-sm">
-        <h3 className="text-lg font-semibold mb-4">
-          Popular Presets
-        </h3>
+      <div className="m-8 p-6 border border-(--border) rounded-xl shadow-sm">
+        <h3 className="text-lg font-semibold mb-4">Popular Presets</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
           {presets.map((p, i) => (
             <div
@@ -177,40 +158,30 @@ export default function ToolHome() {
                 setColor2(p[1]);
               }}
               className="h-20 rounded-lg cursor-pointer border hover:shadow-md transition"
-              style={{
-                background: `linear-gradient(135deg, ${p[0]}, ${p[1]})`,
-              }}
+              style={{ background: `linear-gradient(135deg, ${p[0]}, ${p[1]})` }}
             />
           ))}
         </div>
       </div>
 
       {/* Gradient Guide */}
-      <div className=" m-8 p-6 border border-(--border) rounded-xl shadow-sm mb-4 ">
-        <h3 className="text-lg font-semibold mb-4">
-          CSS Gradients Guide
-        </h3>
+      <div className="m-8 p-6 border border-(--border) rounded-xl shadow-sm mb-4">
+        <h3 className="text-lg font-semibold mb-4">CSS Gradients Guide</h3>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {gradientDefinitions.map((g, i) => (
             <div key={i} className="p-4 bg-(--card) rounded-lg">
-              <div
-                className="h-20 rounded mb-3"
-                style={{ background: g.code }}
-              />
-              <h4 className="font-medium mb-1">
-                {g.type}
-              </h4>
-              <p className="text-sm text-(--foreground) mb-2">
-                {g.desc}
-              </p>
-              <code className="text-xs font-mono bg-(--card) p-2 rounded block">
-                {g.code};
-              </code>
+              <div className="h-20 rounded mb-3" style={{ background: g.code }} />
+              <h4 className="font-medium mb-1">{g.type}</h4>
+              <p className="text-sm text-(--foreground) mb-2">{g.desc}</p>
+              <code className="text-xs font-mono bg-(--card) p-2 rounded block">{g.code};</code>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Description rendered at the very end */}
+      <Description />
     </div>
   );
 }

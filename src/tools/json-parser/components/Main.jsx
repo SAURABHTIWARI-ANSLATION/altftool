@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Code, CheckCircle, AlertCircle, Copy, Check, Download, Trash2, Wand2 } from "lucide-react";
+import Features from "./Features";
 
 export default function Main(){
       const [jsonInput, setJsonInput] = useState("");
@@ -185,19 +186,19 @@ export default function Main(){
             </button> */}
             <button
               onClick={minifyJSON}
-              className="bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium px-4 py-2 rounded-lg transition-all"
+              className="bg-purple-100 cursor-pointer hover:bg-purple-200 text-purple-700 font-medium px-4 py-2 rounded-lg transition-all"
             >
               Minify
             </button>
             <button
               onClick={loadSample}
-              className="bg-muted hover:bg-muted text-foreground font-medium px-4 py-2 rounded-lg transition-all"
+              className="bg-muted hover:bg-muted cursor-pointer text-foreground font-medium px-4 py-2 rounded-lg transition-all"
             >
               Sample
             </button>
             <button
               onClick={clearAll}
-              className="bg-red-100 hover:bg-red-200 text-red-700 font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-2"
+              className="bg-red-100 hover:bg-red-200 cursor-pointer text-red-700 font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-2"
             >
               <Trash2 className="w-4 h-4" />
               Clear
@@ -206,7 +207,7 @@ export default function Main(){
               <>
                 <button
                   onClick={copyToClipboard}
-                  className="bg-muted hover:bg-muted text-foreground font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-2 ml-auto"
+                  className="bg-muted hover:bg-muted cursor-pointer text-foreground font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-2 ml-auto"
                 >
                   {copied ? (
                     <>
@@ -222,7 +223,7 @@ export default function Main(){
                 </button>
                 <button
                   onClick={downloadJSON}
-                  className="bg-muted hover:bg-muted text-foreground font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-2"
+                  className="bg-muted hover:bg-muted cursor-pointer text-foreground font-medium px-4 py-2 rounded-lg transition-all flex items-center gap-2"
                 >
                   <Download className="w-4 h-4" />
                   Download
@@ -309,9 +310,9 @@ export default function Main(){
                 </div>
               )}
             </div>
-          </div>
+          </div>  
         </div>
-
+   <Features/>
         {/* Info Cards */}
         {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           <div className="bg-background rounded-xl border border-green-100 p-6 text-center hover:shadow-lg transition-shadow">

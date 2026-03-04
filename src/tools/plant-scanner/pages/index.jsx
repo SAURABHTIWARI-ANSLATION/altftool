@@ -5,7 +5,8 @@ import { useState } from "react";
 import Header from "../components/Header";
 import ImageUpload from "../components/ImageUpload";
 import PlantResults from "../components/PlantResults";
-import Features from "../components/FeaturesSection";
+import FeaturesSection from "../components/FeaturesSection";
+import Features from "../components/Features";
 // import FAQ from "./components/FAQ";
 
 export default function PlantScanner() {
@@ -88,7 +89,7 @@ export default function PlantScanner() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-(--background) text-(--foreground)">
+    <div className=" flex flex-col bg-(--background) text-(--foreground)">
       {/* Hero */}
       <section id="home">
         <Header />
@@ -116,7 +117,8 @@ export default function PlantScanner() {
       </main>
 
       {/* Extra Sections */}
-      <Features />
+      <FeaturesSection />
+      <Features/>
       {/* <FAQ /> */}
     </div>
   );

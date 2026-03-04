@@ -5,13 +5,8 @@ import {
   RotateCcw,
   Copy,
   Download,
-  Settings,
-  Eye,
-  Code,
-  Sparkles,
   Check,
 } from "lucide-react";
-
 
 const animations = {
   fadeIn: {
@@ -61,10 +56,8 @@ const animations = {
 };
 
 const easingOptions = ["ease", "linear", "ease-in", "ease-out", "ease-in-out"];
-const iterationOptions = ["1", "2", "3", "5", "10", "infinite"];
-const directionOptions = ["normal", "reverse", "alternate"];
 
-export default function ToolHome(){
+export default function ToolHome() {
   const [animation, setAnimation] = useState("fadeIn");
   const [controls, setControls] = useState({
     duration: "1",
@@ -102,7 +95,6 @@ ${animations[animation].keyframes}`;
   const handleCopy = async () => {
     await navigator.clipboard.writeText(cssCode);
     setCopied(true);
-   
     setTimeout(() => setCopied(false), 1500);
   };
 
@@ -121,27 +113,25 @@ ${animations[animation].keyframes}`;
     : "none";
 
   return (
-    <div className="p-6space-y-6">
+    <div className="p-6 space-y-6">
 
-      {/* Keyframes Inject */}
       <style>{Object.values(animations).map(a => a.keyframes).join("\n")}</style>
 
       {/* Header */}
-      <div className="p-6  ">
-        <h1 className="heading text-center aniamte-fade-up ">
-           Animation Generator
-        </h1>
-        <p className="description text-center ">Create beautiful animations for your projects in easy way</p>
+      <div className="p-6">
+        <h1 className="heading text-center">Animation Generator</h1>
+        <p className="description text-center">
+          Create beautiful animations for your projects in easy way
+        </p>
       </div>
 
-      <div className=" m-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="m-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
 
         {/* Controls */}
         <div className="space-y-4 border p-4 rounded-xl">
-
           <label>Animation</label>
           <select
-            className="border p-2 rounded w-full bg-(--card) text-(--foreground) cursor-pointer"
+            className="border p-2 rounded w-full bg-(--card) text-(--foreground)"
             value={animation}
             onChange={(e) => { setAnimation(e.target.value); handleReplay(); }}
           >
@@ -160,7 +150,7 @@ ${animations[animation].keyframes}`;
 
           <label>Easing</label>
           <select
-            className="border p-2 rounded w-full bg-(--card) text-(--foreground) cursor-pointer"
+            className="border p-2 rounded w-full bg-(--card) text-(--foreground)"
             value={controls.easing}
             onChange={e => updateControl("easing", e.target.value)}
           >
@@ -169,31 +159,32 @@ ${animations[animation].keyframes}`;
 
           <div className="flex gap-2">
             <button onClick={handleReplay} className="border px-4 py-2 rounded">
-              <RotateCcw /> Replay
+              <RotateCcw />
             </button>
 
             <button onClick={() => setIsPlaying(p => !p)} className="border px-4 py-2 rounded">
               {isPlaying ? <Pause /> : <Play />}
             </button>
           </div>
-
         </div>
 
         {/* Preview + Code */}
         <div className="border p-4 rounded-xl">
-
-          {/* Tabs */}
           <div className="flex gap-3 mb-4">
-            <button onClick={() => setActiveTab("preview")} className="border px-3 py-2 rounded cursor-pointer">Preview</button>
-            <button onClick={() => setActiveTab("code")} className="border px-3 py-2 rounded">CSS</button>
+            <button onClick={() => setActiveTab("preview")} className="border px-3 py-2 rounded">
+              Preview
+            </button>
+            <button onClick={() => setActiveTab("code")} className="border px-3 py-2 rounded">
+              CSS
+            </button>
           </div>
 
           {activeTab === "preview" && (
-            <div className="h-48 flex items-center justify-center bg-(--card) text-(--foreground) rounded">
+            <div className="h-48 flex items-center justify-center bg-(--card) rounded">
               <div
                 key={animationKey}
                 style={{ animation: animationStyle }}
-                className="w-24 h-24 bg-(--primary)  rounded-lg flex items-center justify-center text-3xl"
+                className="w-24 h-24 bg-(--primary) rounded-lg flex items-center justify-center text-3xl"
               >
                 ✨
               </div>
@@ -202,30 +193,65 @@ ${animations[animation].keyframes}`;
 
           {activeTab === "code" && (
             <>
-              <pre className="bg-(--card) text-(--foreground)  p-4 rounded text-sm overflow-x-auto">
+              <pre className="bg-(--card) p-4 rounded text-sm overflow-x-auto">
                 {cssCode}
               </pre>
 
               <div className="flex gap-3 mt-3">
-                <button onClick={handleCopy} className="border px-3 py-2 rounded cursor-pointer">
+                <button onClick={handleCopy} className="border px-3 py-2 rounded">
                   {copied ? <Check /> : <Copy />}
                 </button>
 
-                <button onClick={handleDownload} className="border px-3 py-2 rounded cursor-pointer">
+                <button onClick={handleDownload} className="border px-3 py-2 rounded">
                   <Download />
                 </button>
               </div>
             </>
           )}
-
         </div>
-
       </div>
 
-     
+      {/* HOW IT WORKS CARDS */}
+      <section className="py-16 sm:py-20 px-4 bg-(--background)">
+        <div className="mx-auto max-w-6xl">
+
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-(--foreground) mb-4">
+              How It Works ?
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+            {[
+              { title: "Choose Animation", description: "Select animation type like fade, slide or bounce." },
+              { title: "Adjust Controls", description: "Set duration, delay and easing easily." },
+              { title: "Preview Animation", description: "See real-time animation output instantly." },
+              { title: "Replay & Pause", description: "Control playback anytime." },
+              { title: "Copy CSS Code", description: "Copy ready CSS animation code." },
+              { title: "Download CSS", description: "Download animation stylesheet instantly." }
+            ].map((card, index) => (
+
+              <div
+                key={index}
+                className="group bg-(--card) rounded-2xl shadow-md border border-(--border) p-6 sm:p-8 flex flex-col hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+              >
+                {/*  Heading hover blue */}
+                <h3 className="text-lg sm:text-xl font-bold mb-3 transition-colors duration-300 group-hover:text-blue-500">
+                  {card.title}
+                </h3>
+
+                <p className="text-sm sm:text-base text-(--muted-foreground) leading-relaxed">
+                  {card.description}
+                </p>
+              </div>
+
+            ))}
+
+          </div>
+        </div>
+      </section>
 
     </div>
   );
-};
-
-
+}

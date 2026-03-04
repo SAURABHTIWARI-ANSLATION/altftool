@@ -12,6 +12,9 @@ import {
 import { consonants } from "../data/consonents";
 import { vowels } from "../data/vovels";
 
+
+import Description from "../components/Description"; 
+
 export default function ToolHome() {
   const [mode, setMode] = useState("browse");
   const [category, setCategory] = useState("vowels");
@@ -58,7 +61,7 @@ export default function ToolHome() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-8 lg:mb-12 ">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-(--primary) mb-3 lg:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-(--primary) mb-3 lg:mb-4 mt-[20]">
             हिंदी वर्णमाला
           </h1>
 
@@ -275,6 +278,9 @@ export default function ToolHome() {
             </div>
           </div>
         )}
+
+        {/* ✅ Render Description */}
+        <Description />
 
         {/* FOOTER */}
         <div className="mt-12 lg:mt-16 text-center">

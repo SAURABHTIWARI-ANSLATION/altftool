@@ -7,7 +7,7 @@ import Header from "../components/Header";
 
 export default function EncoderDecoderApp() {
   return (
-    <div className="min-h-screen w-full bg-(--background) text-(--foreground) flex flex-col">
+    <div className="w-full bg-(--background) text-(--foreground) flex flex-col">
 
       {/* Header */}
      <Header/>
@@ -19,7 +19,7 @@ export default function EncoderDecoderApp() {
 
       {/* Feature Section */}
       <section className="bg-(--muted) py-16 px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <Feature/>
         </div>
       </section>

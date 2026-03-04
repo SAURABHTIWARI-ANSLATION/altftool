@@ -1,6 +1,7 @@
 "use-client";
 import React, { useState } from "react";
 import Header from "../components/Header";
+import Description from "../components/Description"
 // import { FiMenu, FiX } from "react-icons/fi";
 
 function localSummarize(text, level) {
@@ -187,6 +188,9 @@ export default function App() {
             )}
           </div>
         </section>
+            {/* Render Description at the very end */}
+        <Description />
+        
       </main>
     </div>
   );

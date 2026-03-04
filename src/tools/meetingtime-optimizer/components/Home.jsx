@@ -8,7 +8,7 @@ export default function Home() {
 
       {/* HERO */}
       <div className="max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
-        <h1 className="heading mb-6">
+        <h1 className="heading mb-6 mt-[-50]">
           Schedule Meetings{" "}
           <span className="text-(--primary)">
             Without Time Zone Headaches
@@ -83,7 +83,7 @@ export default function Home() {
       </div>
 
       {/* VALUE SECTION */}
-      <div className="max-w-6xl mx-auto px-6 py-24 text-center">
+      <div className="max-w-6xl mx-auto px-6 py-24 text-center mt-[-60]">
         <h2 className="subheading mb-4">
           Built for Remote Teams
         </h2>

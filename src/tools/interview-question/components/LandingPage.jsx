@@ -3,7 +3,7 @@ import { domains } from '../data/questions';
 
 const LandingPage = ({ onSelectDomain }) => {
   return (
-    <div className=" m-8 bg-(--card) text-(--foreground) border border-(--border) rounded-xl shadow-lg">
+    <div className=" m-8 bg-(--background) text-(--foreground) border border-(--border) rounded-xl shadow-lg">
       <div className=" ">
         <p className="subheading m-5 ">Select your role to browse curated interview questions.</p>
       </div>

@@ -9,7 +9,7 @@ import {
   Smartphone,
 } from "lucide-react";
 
-const Count = () => {
+const Count = ({ onBack }) => {
   const [steps, setSteps] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [sessionStart, setSessionStart] = useState(null);
@@ -130,7 +130,7 @@ const Count = () => {
     return (
       <div
         className="
-      rounded-2xl bg-white border border-gray-200 
+      rounded-2xl bg-(--background) border border-gray-200 
       p-3 sm:p-4 flex flex-col items-center justify-center
       transition hover:-translate-y-1 hover:border-(--primary)
     "
@@ -167,29 +167,38 @@ const Count = () => {
   return (
     <div
       className="
-      flex justify-center items-center min-h-dvh py-4 sm:py-8 px-3
+      flex justify-center items-center  py-4 sm:py-8 px-3
       bg-[linear-gradient(135deg,var(--background),var(--muted))]
     "
     >
-      <div className="w-full max-w-sm space-y-4">
+      <div className="w-full max-w-sm md:max-w-md lg:max-w-2xl space-y-4">
         {/* MAIN CARD */}
         <div
           className="
-          relative w-full rounded-2xl sm:rounded-3xl bg-white/90
+          relative w-full rounded-2xl sm:rounded-3xl bg-(--background)
           border border-white shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)]
           backdrop-blur p-4 sm:p-6
         "
         >
+          <button
+            onClick={onBack}
+            className=" bg-(--muted)
+    mb-3 px-3 py-2 rounded-lg
+    border border-gray-300 text-sm font-semibold
+    hover:bg-gray-100 transition cursor-pointer
+  "
+          >
+            ← Back
+          </button>
           {/* STATUS CHIP */}
           <div className="absolute top-4 right-4">
             <div
               className={`
               flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold 
-              ${
-                isActive
+              ${isActive
                   ? "bg-green-100 border-green-300 text-green-700"
                   : "bg-gray-100 border-gray-300 text-gray-600"
-              }
+                }
             `}
             >
               {isActive ? (
@@ -223,21 +232,19 @@ const Count = () => {
               className={`
               relative z-10 w-full h-full rounded-full flex flex-col items-center justify-center
               transition-all
-              ${
-                isActive
+              ${isActive
                   ? "bg-white shadow-[inset_0_4px_20px_rgba(0,0,0,0.03),0_12px_30px_-10px_rgba(59,130,246,0.25)]"
                   : "bg-gray-100 shadow-inner"
-              }
+                }
             `}
             >
               <h1
                 className={`
                 font-extrabold tracking-tight 
-                ${
-                  isActive
+                ${isActive
                     ? "bg-linear-to-r from-gray-800 to-blue-500 bg-clip-text text-transparent"
                     : "text-gray-500"
-                }
+                  }
                 text-4xl sm:text-5xl
               `}
               >
@@ -285,12 +292,11 @@ const Count = () => {
               onClick={toggleTimer}
               className={`
               flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-base
-              transition shadow-sm
-              ${
-                isActive
+              transition shadow-sm cursor-pointer
+              ${isActive
                   ? "bg-gray-900 text-white"
                   : "bg-(--primary) text-(--primary-foreground)"
-              }
+                }
             `}
             >
               {isActive ? <Pause size={20} /> : <Play size={20} />}
@@ -301,7 +307,7 @@ const Count = () => {
               onClick={reset}
               className="
               flex items-center justify-center gap-2 py-3 rounded-xl font-semibold 
-              text-base border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition
+              text-base border-2 border-gray-300 text-gray-600 hover:bg-gray-100 transition cursor-pointer
             "
             >
               <RotateCcw size={20} />

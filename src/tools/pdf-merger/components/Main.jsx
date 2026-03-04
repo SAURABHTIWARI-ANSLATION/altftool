@@ -5,14 +5,15 @@ import { FileText, Upload, Trash2, GripVertical, Files } from "lucide-react";
 import { useDropzone } from "react-dropzone";
 import { v4 as uuidv4 } from "uuid";
 import { PDFDocument } from "pdf-lib";
+import Features from "./Features";
 
-/* ---------------- Save File ---------------- */
+/* Save File */
 const saveFile = async (blob, filename) => {
   const { saveAs } = await import("file-saver");
   saveAs(blob, filename);
 };
 
-/* ---------------- Merge PDFs ---------------- */
+/*  Merge PDFs */
 const mergePdfs = async (files) => {
   try {
     const mergedPdf = await PDFDocument.create();
@@ -32,7 +33,7 @@ const mergePdfs = async (files) => {
   }
 };
 
-/* ---------------- Draggable Item ---------------- */
+/*  Draggable Item  */
 const DraggableFileItem = ({
   file,
   index,
@@ -47,7 +48,7 @@ const DraggableFileItem = ({
       onDragStart={(e) => onDragStart(e, index)}
       onDragOver={onDragOver}
       onDrop={onDrop}
-      className="flex items-center justify-between p-3 bg-(--muted) rounded-lg border border-(--border) hover:bg-(--card) transition"
+      className="flex items-center justify-between p-3 bg-(--background) rounded-lg border border-(--border) hover:bg-(--background)/60 transition"
     >
       <div className="flex items-center gap-3">
         <GripVertical className="h-4 w-4 text-(--muted-foreground)" />
@@ -72,7 +73,7 @@ const DraggableFileItem = ({
   );
 };
 
-/* ---------------- Dropzone ---------------- */
+/*  Dropzone  */
 const PDFDropzone = ({ onFilesAdded }) => {
   const onDrop = (acceptedFiles) => {
     const pdfFiles = acceptedFiles.filter(
@@ -92,7 +93,7 @@ const PDFDropzone = ({ onFilesAdded }) => {
   return (
     <div
       {...getRootProps()}
-      className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition
+      className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer bg-(--background) transition
         ${
           isDragActive
             ? "border-(--primary) bg-(--primary)/10"
@@ -111,7 +112,7 @@ const PDFDropzone = ({ onFilesAdded }) => {
   );
 };
 
-/* ---------------- Main Component ---------------- */
+/*  Main Component */
 export default function MainComponent() {
   const [files, setFiles] = useState([]);
   const [isMerging, setIsMerging] = useState(false);
@@ -175,11 +176,11 @@ export default function MainComponent() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto px-4 py-8">
+    <div className="space-y-6 max-w-5xl mx-auto px-4 py-8">
       {/* Header */}
-      <div className=" p-6 rounded-2xl flex justify-center items-center flex-col ">
-        <h2 className="heading">PDF Merger</h2>
-        <p className="description mt-3">
+      <div className=" px-6 rounded-2xl flex justify-center items-center flex-col ">
+        <h2 className="heading text-center">PDF Merger</h2>
+        <p className="description text-center mt-3">
           Merge multiple PDF files quickly into a single document.
         </p>
       </div>
@@ -211,9 +212,9 @@ export default function MainComponent() {
             </button>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-2 ">
             {files.map((file, index) => (
-              <div
+              <div className=""
                 key={file.id}
                 onDragOver={handleDragOver}
                 onDrop={(e) => handleDrop(e, index)}
@@ -233,7 +234,7 @@ export default function MainComponent() {
       )}
 
       {/* Merge Button */}
-      <div className="bg-(--card) p-6 rounded-2xl border border-(--border) flex justify-end">
+      <div className="bg-(--card) p-6 rounded-2xl border border-(--border) flex justify-center sm:justify-end">
         <button
           onClick={handleMerge}
           disabled={files.length === 0 || isMerging}
@@ -243,6 +244,7 @@ export default function MainComponent() {
           {isMerging ? "Merging..." : "Merge Files"}
         </button>
       </div>
+      <Features/>
     </div>
   );
 }

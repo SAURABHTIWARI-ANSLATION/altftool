@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Activity, Heart, Droplet, Flame, TrendingDown, TrendingUp, Download, RotateCcw, AlertCircle } from 'lucide-react';
 
@@ -648,4 +647,3 @@ export default function ToolHome() {
     </div>
   );
 };
-

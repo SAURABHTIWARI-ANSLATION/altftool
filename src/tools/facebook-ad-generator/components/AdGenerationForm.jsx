@@ -37,7 +37,7 @@ const AdGenerationForm = ({
       />
 
       {/* TONE SELECTOR */}
-      <h2 className="text-2xl font-bold text-((--card-foreground) mt-6 mb-4 border-b border-(--border) pb-2">
+      <h2 className="text-2xl font-bold text-(--card-foreground) mt-6 mb-4 border-b border-(--border) pb-2">
         2. Select Tone
       </h2>
 
@@ -53,7 +53,7 @@ const AdGenerationForm = ({
           onClick={generateAdCopy}
           disabled={isLoading || !productDetails.trim()}
           className={`w-full py-3 px-4 rounded-xl text-lg font-bold flex items-center justify-center
-                      transition-all duration-300 shadow-lg cursor-pointer
+                      transition-all duration-300 shadow-lg cursor-pointer bg-(--primary) text-white
                       ${
                         isLoading || !productDetails.trim()
                           ? "bg(--muted) text-(--muted-foreground) cursor-not-allowed"
@@ -68,7 +68,7 @@ const AdGenerationForm = ({
             </>
           ) : (
             <>
-              <Sparkles size={20} className="mr-2" />
+              {/* <Sparkles size={20} className="mr-2" /> */}
               Generate Ad Copy
             </>
           )}

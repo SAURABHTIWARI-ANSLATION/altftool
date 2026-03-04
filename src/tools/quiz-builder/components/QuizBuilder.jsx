@@ -110,7 +110,7 @@ export default function QuizBuilder({ onStartQuiz }) {
 
       {/* HEADER */}
       <div className="text-center space-y-4">
-        <h1 className="heading text-(--primary)">
+        <h1 className="heading text-(--primary) mt-[-50]">
           Quiz Builder
         </h1>
         <p className="description max-w-2xl mx-auto">

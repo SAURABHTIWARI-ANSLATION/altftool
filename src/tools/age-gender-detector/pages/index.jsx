@@ -125,10 +125,10 @@ export default function ToolHome() {
           <div className="">
             {/* <ToolChip className="w-8 h-8 text-white" /> */}
           </div>
-          <h1 className="heading mt-5 mb-2 animate-fade-up">
+          <h1 className="heading mb-10 animate-fade-up">
             Age & Gender Detector
           </h1>
-          <p className="description mt-2 mb-4 animate-fade-up">A smart image analysis app that detects age and gender<br/> from facial features using machine learning.</p>
+          <p className="description mt-[-15px] mb-4 animate-fade-up">A smart image analysis app that detects age and gender<br/> from facial features using machine learning.</p>
         </div>
 
         {/* Main Card */}
@@ -140,12 +140,12 @@ export default function ToolHome() {
               onDrop={handleDrop}
               className="p-8 sm:p-12 lg:p-16"
             >
-              <div className="border-3 border-dashed border-gray-300 rounded-2xl p-8 sm:p-12 text-center hover:border-purple-400 transition-all duration-300 cursor-pointer bg-(--card)"
+              <div className="border-3 border-dashed border-gray-300 rounded-2xl p-8 sm:p-12 text-center hover:border-blue-400 transition-all duration-300 cursor-pointer bg-(--card)"
                 onClick={() => fileInputRef.current?.click()}
               >
                 <div className="flex flex-col items-center space-y-4">
                   <div className="w-24 h-24 bg-(--card) rounded-full flex items-center justify-center">
-                    <Upload className="w-12 h-12 text-purple-600" />
+                    <Upload className="w-12 h-12 text-blue-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-gray-700 mb-2">
@@ -193,7 +193,7 @@ export default function ToolHome() {
                 <div className="flex flex-col justify-center space-y-6">
                   {analyzing && (
                     <div className="text-center py-12">
-                      <div className="inline-block w-16 h-16 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mb-4"></div>
+                      <div className="inline-block w-16 h-16 border-4 border-blue-200 border-t-purple-600 rounded-full animate-spin mb-4"></div>
                       <p className="text-lg text-(--muted-foreground) font-medium">Analyzing image...</p>
                     </div>
                   )}
@@ -272,6 +272,86 @@ export default function ToolHome() {
             </div>
           )}
         </div>
+        {/*  How This Tool Works */}
+<div className="mt-16">
+
+  {/* Heading */}
+  <div className="text-center mb-10">
+    <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+      How Our Age & Gender Detector Works?
+    </h2>
+    <p className="text-(--muted-foreground) max-w-2xl mx-auto">
+      Our tool uses advanced AI models to analyze facial features and generate 
+      accurate age and gender predictions in just a few simple steps.
+    </p>
+  </div>
+
+  {/* Cards */}
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    {/* Card */}
+    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+        Upload Image
+      </h3>
+      <p className="text-(--muted-foreground) text-sm">
+        Upload or drag & drop your photo into the tool interface.
+      </p>
+    </div>
+
+    {/* Card */}
+    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+        Face Detection
+      </h3>
+      <p className="text-(--muted-foreground) text-sm">
+        AI scans the image and detects human facial features automatically.
+      </p>
+    </div>
+
+    {/* Card */}
+    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+        Feature Analysis
+      </h3>
+      <p className="text-(--muted-foreground) text-sm">
+        Machine learning analyzes facial patterns and characteristics.
+      </p>
+    </div>
+
+    {/* Card */}
+    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+        Age Estimation
+      </h3>
+      <p className="text-(--muted-foreground) text-sm">
+        AI predicts approximate age using trained neural network models.
+      </p>
+    </div>
+
+    {/* Card */}
+    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+        Gender Detection
+      </h3>
+      <p className="text-(--muted-foreground) text-sm">
+        The system identifies gender based on facial attributes.
+      </p>
+    </div>
+
+    {/* Card */}
+    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+        Instant Result Display
+      </h3>
+      <p className="text-(--muted-foreground) text-sm">
+        Results are displayed instantly after the analysis is completed.
+      </p>
+    </div>
+
+  </div>
+</div>
+
 
       
       </div>

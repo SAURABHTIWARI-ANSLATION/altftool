@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import TotalDisplay from "../components/TotalDisplay";
 // import HowItWorks from "../components/HowItWorks";
 import { calculateTotal } from "../utils/calculateTotal";
+import Description from "../components/Description";
 
 export default function PricingCalculatorApp() {
   const [price, setPrice] = useState(0);
@@ -81,6 +82,7 @@ export default function PricingCalculatorApp() {
 
         {/* HOW IT WORKS */}
         {/* <HowItWorks/> */}
+        <Description />
 
       </main>
 

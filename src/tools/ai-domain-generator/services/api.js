@@ -3,8 +3,7 @@
 
 
 
-const getApiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY || "";
-
+const getApiKey = () => process.env.NEXT_PUBLIC_OPENAI_API_KEY || "";
 function buildPrompt(p) {
   return [
     "You are a domain name generator.",

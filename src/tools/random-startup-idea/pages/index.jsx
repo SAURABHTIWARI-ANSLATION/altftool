@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import IdeaGenerator from "../components/IdeaGenerator";
 import SavedIdeas from "../components/SavedIdeas";
+import Description from "../components/Description";
 
 export default function RandomStartupIdea() {
   const [darkMode, setDarkMode] = useState(false);
@@ -75,6 +76,7 @@ export default function RandomStartupIdea() {
         />
 
         <SavedIdeas ideas={savedIdeas} onDelete={deleteIdea} />
+        <Description />
       </main>
     </div>
   );
