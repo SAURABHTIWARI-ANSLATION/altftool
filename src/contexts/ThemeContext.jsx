@@ -77,7 +77,14 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     if (typeof window !== "undefined" && window.parent !== window) {
       const sendHeight = () => {
-        const height = document.documentElement.scrollHeight;
+        // Compute exact content height instead of full scroll area which sometimes leaves huge gaps
+        const height = Math.max(
+          document.body.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.clientHeight,
+          document.documentElement.scrollHeight,
+          document.documentElement.offsetHeight
+        );
         window.parent.postMessage({ type: "RESIZE_IFRAME", height }, "*");
       };
 
