@@ -12,25 +12,25 @@ export default function ToolHome() {
 
   const validateImage = (file) => {
     if (!file) return false;
-    
+
     const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     if (!validTypes.includes(file.type)) {
       setError('Please upload a valid image (JPG, PNG, or WEBP)');
       return false;
     }
-    
+
     if (file.size > 10 * 1024 * 1024) {
       setError('Image size should be less than 10MB');
       return false;
     }
-    
+
     return true;
   };
 
   const analyzeImage = async (imageData) => {
     setAnalyzing(true);
     setError(null);
-    
+
     try {
       // Using Face++ API for real-time detection
       const formData = new FormData();
@@ -51,8 +51,8 @@ export default function ToolHome() {
         setResult({
           gender: face.attributes.gender.value,
           age: face.attributes.age.value,
-          confidence: Math.round((face.attributes.gender.confidence + 
-                                  (100 - Math.abs(face.attributes.age.value - 25))) / 2)
+          confidence: Math.round((face.attributes.gender.confidence +
+            (100 - Math.abs(face.attributes.age.value - 25))) / 2)
         });
       } else {
         setError('No face detected in the image. Please upload a clear photo of a person.');
@@ -100,7 +100,7 @@ export default function ToolHome() {
   const handleDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     const file = e.dataTransfer.files?.[0];
     if (!file) return;
 
@@ -118,7 +118,7 @@ export default function ToolHome() {
   };
 
   return (
-    <div className="min-h-screen bg-(--background) p-4 sm:p-6 lg:p-8">
+    <div className="min-h-full bg-(--background) p-4 sm:p-6 lg:p-8 w-full border-none">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -128,7 +128,7 @@ export default function ToolHome() {
           <h1 className="heading mb-10 animate-fade-up">
             Age & Gender Detector
           </h1>
-          <p className="description mt-[-15px] mb-4 animate-fade-up">A smart image analysis app that detects age and gender<br/> from facial features using machine learning.</p>
+          <p className="description mt-[-15px] mb-4 animate-fade-up">A smart image analysis app that detects age and gender<br /> from facial features using machine learning.</p>
         </div>
 
         {/* Main Card */}
@@ -213,7 +213,7 @@ export default function ToolHome() {
                   {result && !analyzing && (
                     <div className="space-y-4">
                       <h3 className="subheading">Analysis Results</h3>
-                      
+
                       {/* Gender Card */}
                       <div className="bg-(--card) rounded-2xl p-6 border-2 border-blue-200">
                         <div className="flex items-center space-x-4">
@@ -273,87 +273,87 @@ export default function ToolHome() {
           )}
         </div>
         {/*  How This Tool Works */}
-<div className="mt-16">
+        <div className="mt-16">
 
-  {/* Heading */}
-  <div className="text-center mb-10">
-    <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-      How Our Age & Gender Detector Works?
-    </h2>
-    <p className="text-(--muted-foreground) max-w-2xl mx-auto">
-      Our tool uses advanced AI models to analyze facial features and generate 
-      accurate age and gender predictions in just a few simple steps.
-    </p>
-  </div>
+          {/* Heading */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+              How Our Age & Gender Detector Works?
+            </h2>
+            <p className="text-(--muted-foreground) max-w-2xl mx-auto">
+              Our tool uses advanced AI models to analyze facial features and generate
+              accurate age and gender predictions in just a few simple steps.
+            </p>
+          </div>
 
-  {/* Cards */}
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    {/* Card */}
-    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
-        Upload Image
-      </h3>
-      <p className="text-(--muted-foreground) text-sm">
-        Upload or drag & drop your photo into the tool interface.
-      </p>
-    </div>
+            {/* Card */}
+            <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+                Upload Image
+              </h3>
+              <p className="text-(--muted-foreground) text-sm">
+                Upload or drag & drop your photo into the tool interface.
+              </p>
+            </div>
 
-    {/* Card */}
-    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
-        Face Detection
-      </h3>
-      <p className="text-(--muted-foreground) text-sm">
-        AI scans the image and detects human facial features automatically.
-      </p>
-    </div>
+            {/* Card */}
+            <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+                Face Detection
+              </h3>
+              <p className="text-(--muted-foreground) text-sm">
+                AI scans the image and detects human facial features automatically.
+              </p>
+            </div>
 
-    {/* Card */}
-    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
-        Feature Analysis
-      </h3>
-      <p className="text-(--muted-foreground) text-sm">
-        Machine learning analyzes facial patterns and characteristics.
-      </p>
-    </div>
+            {/* Card */}
+            <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+                Feature Analysis
+              </h3>
+              <p className="text-(--muted-foreground) text-sm">
+                Machine learning analyzes facial patterns and characteristics.
+              </p>
+            </div>
 
-    {/* Card */}
-    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
-        Age Estimation
-      </h3>
-      <p className="text-(--muted-foreground) text-sm">
-        AI predicts approximate age using trained neural network models.
-      </p>
-    </div>
+            {/* Card */}
+            <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+                Age Estimation
+              </h3>
+              <p className="text-(--muted-foreground) text-sm">
+                AI predicts approximate age using trained neural network models.
+              </p>
+            </div>
 
-    {/* Card */}
-    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
-        Gender Detection
-      </h3>
-      <p className="text-(--muted-foreground) text-sm">
-        The system identifies gender based on facial attributes.
-      </p>
-    </div>
+            {/* Card */}
+            <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+                Gender Detection
+              </h3>
+              <p className="text-(--muted-foreground) text-sm">
+                The system identifies gender based on facial attributes.
+              </p>
+            </div>
 
-    {/* Card */}
-    <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-      <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
-        Instant Result Display
-      </h3>
-      <p className="text-(--muted-foreground) text-sm">
-        Results are displayed instantly after the analysis is completed.
-      </p>
-    </div>
+            {/* Card */}
+            <div className="group bg-(--card) rounded-2xl p-6 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 transition">
+                Instant Result Display
+              </h3>
+              <p className="text-(--muted-foreground) text-sm">
+                Results are displayed instantly after the analysis is completed.
+              </p>
+            </div>
 
-  </div>
-</div>
+          </div>
+        </div>
 
 
-      
+
       </div>
     </div>
   );
