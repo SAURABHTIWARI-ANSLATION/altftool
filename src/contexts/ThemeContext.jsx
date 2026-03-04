@@ -42,29 +42,25 @@ export const ThemeProvider = ({ children }) => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  // Listen to OS changes ONLY if not manual
+  // Listen to OS/Url changes ONLY if not manual
   useEffect(() => {
     if (isManual) return;
-
-    // Instead of OS match media, we use the URL param or light mode.
     const handleUrlTheme = () => setTheme(getSystemTheme());
     window.addEventListener("popstate", handleUrlTheme);
+    return () => window.removeEventListener("popstate", handleUrlTheme);
+  }, [isManual]);
 
-    // Listen for iframe postMessage from parent Altf-prep app
+  // Always listen for iframe postMessage from parent Altf-prep app
+  useEffect(() => {
     const handleMessage = (event) => {
-      // In production, you might want to verify event.origin here if needed
       if (event.data && event.data.type === "THEME_CHANGE") {
         setTheme(event.data.theme === "dark" ? "dark" : "light");
         setIsManual(true); // Treat as manually set
       }
     };
     window.addEventListener("message", handleMessage);
-
-    return () => {
-      window.removeEventListener("popstate", handleUrlTheme);
-      window.removeEventListener("message", handleMessage);
-    };
-  }, [isManual]);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
 
   const toggleTheme = () => {
     setIsManual(true);
